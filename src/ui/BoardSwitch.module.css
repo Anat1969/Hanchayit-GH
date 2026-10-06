@@ -19,8 +19,10 @@
 .swatch[data-board='yellow'] { background: #d8a300; }
 .swatch[data-board='red'] { background: #a8261b; }
 
-.swatch:hover {
-  box-shadow: 0 0 0 2px var(--board-strong);
+@media (hover: hover) {
+  .swatch:hover {
+    box-shadow: 0 0 0 2px var(--board-strong);
+  }
 }
 
 .swatch[aria-pressed='true'] {

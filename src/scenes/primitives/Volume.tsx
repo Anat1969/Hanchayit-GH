@@ -20,10 +20,13 @@ export function Volume({ v, delay = 0 }: { v: V; delay?: number }) {
   const group = useRef<THREE.Group>(null);
   const start = useRef<number | null>(null);
 
+  // delay שלילי: בלי הנפשה
+  const still = delay < 0 || reduced();
   useEffect(() => {
-    start.current = reduced() ? null : performance.now() + delay;
+    start.current = still ? null : performance.now() + delay;
     if (start.current === null && group.current) group.current.scale.y = 1;
-  }, [delay]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useFrame(() => {
     const g = group.current;
@@ -37,7 +40,7 @@ export function Volume({ v, delay = 0 }: { v: V; delay?: number }) {
   const [cx, cy, cz] = v.center;
   const base = cy - v.size[1] / 2;
   return (
-    <group ref={group} position={[cx, base, cz]} scale={[1, reduced() ? 1 : 0.001, 1]}>
+    <group ref={group} position={[cx, base, cz]} scale={[1, still ? 1 : 0.001, 1]}>
       <mesh position={[0, v.size[1] / 2, 0]} rotation={v.rotation ?? [0, 0, 0]} castShadow={!v.context} receiveShadow>
         <boxGeometry args={v.size} />
         <meshStandardMaterial

@@ -146,5 +146,4 @@ button {
 :root[data-mobile] body {
   overflow: hidden;
   overscroll-behavior: none;
-  block-size: 100%;
 }

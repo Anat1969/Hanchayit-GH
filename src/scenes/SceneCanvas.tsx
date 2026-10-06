@@ -185,7 +185,9 @@ function ShadowCatcher({ model }: { model: SceneModel }) {
   );
 }
 
-export default function SceneCanvas({ sceneKey, model, view, resetKey, mode, zoom, onZoom }: {
+export default function SceneCanvas({ sceneKey, model, view, resetKey, mode, zoom, animate, onZoom }: {
+  /** הנפשת כניסה: רק כשהמשתמש בחר; בזמן גלילה הסצנה מתחלפת בלי הנפשה */
+  animate: boolean;
   /** מזהה הסצנה: החלפה מפעילה מחדש את הנפשת הכניסה */
   sceneKey: string;
   model: SceneModel;
@@ -227,7 +229,7 @@ export default function SceneCanvas({ sceneKey, model, view, resetKey, mode, zoo
         <group key={sceneKey}>
           {model.surfaces.map((s, i) => <Surface key={`s${i}`} s={s} />)}
           {model.lines.map((l, i) => <PlotBoundary key={`l${i}`} line={l} />)}
-          {model.volumes.map((v, i) => <Volume key={`v${i}`} v={v} delay={Math.min(i, 30) * 18} />)}
+          {model.volumes.map((v, i) => <Volume key={`v${i}`} v={v} delay={animate ? Math.min(i, 30) * 18 : -1} />)}
           {model.trees.map((t, i) => <Tree key={`t${i}`} at={t} />)}
           {model.persons.map((p, i) => <Person key={`p${i}`} at={p} />)}
           {model.dims.map((d) => <Dimension key={`${d.ruleId}/${d.paramKey}`} d={d} />)}

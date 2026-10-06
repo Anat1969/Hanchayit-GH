@@ -134,11 +134,13 @@ function NavTools({ mode, setMode, onZoom, onFit }: {
  * הגיליון: שם ההמחשה וכפתורי התצוגה בראש, המודל, וטבלת כותרת בתחתית.
  * כשלסעיף אין סצנה מוצג הגיליון האחרון בגוון מעומעם.
  */
-export function Sheet({ rule, type, collapsed, onToggle }: {
+export function Sheet({ rule, type, collapsed, onToggle, animate }: {
   rule: Rule | undefined;
   type: TypeFilter;
   collapsed: boolean;
   onToggle: () => void;
+  /** הנפשת כניסה רק כשהמשתמש בחר סעיף או נושא, לא בזמן גלילה */
+  animate: boolean;
 }) {
   const [view, setView] = useState<View>('axo');
   const [resetKey, setResetKey] = useState(0);
@@ -173,13 +175,15 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
 
   return (
     <section className={s.sheet} data-collapsed={collapsed} data-noscene={!live || undefined} aria-label="גיליון">
+      {/* מבנה קבוע: אותן שורות גם כשלסעיף אין המחשה, כדי שהחלון לא יקפוץ בזמן גלילה */}
       <div className={s.top}>
         <div className={s.titleRow}>
           <Icon name="cube" size={20} />
-          <h2 key={live ? shown.sceneId : 'none'} className={s.title} data-dimmed={!live || undefined}>
-            {live ? shownMeta!.title : caption}
+          <h2 key={shown?.sceneId ?? 'none'} className={s.title} data-dimmed={!live || undefined}>
+            {shownMeta ? shownMeta.title : caption}
           </h2>
-          {live && (
+          {shown && dimmed && <span className={s.status}>{caption}</span>}
+          {shown && (
             <button type="button" className="text-btn" aria-pressed={legend} onClick={() => setLegend((l) => !l)}>
               <Icon name="legend" />
               מקרא
@@ -189,8 +193,8 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
             <Icon name={collapsed ? 'down' : 'up'} />
           </button>
         </div>
-        {live && (
-          <div className={s.toolbar}>
+        {shown && (
+          <div className={s.toolbar} data-inactive={dimmed || undefined}>
             <ViewSwitch value={view} onChange={setView} />
             {shown.controls.map((c) => (
               <Toggles
@@ -203,13 +207,24 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
             ))}
           </div>
         )}
+        {/* המקרא בראש הגיליון, לא מעל השרטוט */}
+        {shown && legend && <Legend />}
       </div>
       <div className={s.drawing} data-dimmed={dimmed || undefined}>
         {shown && (
-          <div className={s.canvas} aria-hidden="true">
+          <div className={s.canvas} aria-hidden="true" data-static={!animate || undefined}>
             <ModelBoundary>
               <Suspense fallback={<div className={s.loading} />}>
-                <SceneCanvas sceneKey={`${shown.sceneId}/${shown.type}`} model={shown.model} view={view} resetKey={resetKey} mode={mode} zoom={zoomCmd} onZoom={setZoom} />
+                <SceneCanvas
+                  sceneKey={`${shown.sceneId}/${shown.type}`}
+                  model={shown.model}
+                  view={view}
+                  resetKey={resetKey}
+                  mode={mode}
+                  zoom={zoomCmd}
+                  animate={animate}
+                  onZoom={setZoom}
+                />
               </Suspense>
             </ModelBoundary>
           </div>
@@ -225,8 +240,7 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
             {shown.model.notes.map((n) => <p key={n.text}>{n.text}</p>)}
           </div>
         )}
-        {live && legend && <Legend />}
-        {live && (
+        {shown && (
           <NavTools
             mode={mode}
             setMode={setMode}
@@ -234,8 +248,7 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
             onFit={() => setResetKey((k) => k + 1)}
           />
         )}
-        {caption && shown && <p className={s.caption}>{caption}</p>}
-        {caption && !shown && <p className={s.caption}>{caption}</p>}
+        {!shown && caption && <p className={s.caption}>{caption}</p>}
       </div>
       <TitleBlock
         cells={[

@@ -28,8 +28,10 @@
   border-inline-start: 0;
 }
 
-.seg > button:hover {
-  background: var(--board-soft);
+@media (hover: hover) {
+  .seg > button:hover:not([aria-pressed='true']):not([aria-checked='true']) {
+    background: var(--board-soft);
+  }
 }
 
 .seg > button[aria-pressed='true'] {
@@ -58,9 +60,11 @@
   padding: 0;
 }
 
-.icon-btn:hover:not(:disabled) {
-  border-color: var(--board-strong);
-  background: var(--board-soft);
+@media (hover: hover) {
+  .icon-btn:hover:not(:disabled):not([aria-pressed='true']) {
+    border-color: var(--board-strong);
+    background: var(--board-soft);
+  }
 }
 
 .icon-btn[aria-pressed='true'] {
@@ -87,8 +91,10 @@
   font-weight: var(--w-strong);
 }
 
-.text-btn:hover:not(:disabled) {
-  background: var(--board-soft);
+@media (hover: hover) {
+  .text-btn:hover:not(:disabled):not([aria-pressed='true']) {
+    background: var(--board-soft);
+  }
 }
 
 .text-btn[aria-pressed='true'] {

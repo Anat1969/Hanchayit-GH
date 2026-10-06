@@ -52,8 +52,19 @@ span.scene-label {
   color: var(--limit);
 }
 
-button.scene-label:hover,
 .scene-label[data-active] {
   background: var(--marker);
   color: var(--ink);
+}
+
+@media (hover: hover) {
+  button.scene-label:hover {
+    background: var(--marker);
+    color: var(--ink);
+  }
+}
+
+/* סצנה שהתחלפה בגלילה: התוויות מופיעות מיד, בלי הנפשה */
+[data-static] .scene-label {
+  animation: none;
 }

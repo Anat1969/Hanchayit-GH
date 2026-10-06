@@ -152,19 +152,19 @@
 /* תצוגת נייד: נקבעת ב־data-mobile על השורש (אוטומטי לפי רוחב, או בבחירה).
    המסך מחולק: חיפוש וסינון למעלה, חלון ההמחשה קבוע מתחתם, והנוסח נגלל בשטח שנשאר. */
 :global(:root[data-mobile]) .app {
+  /* מקובע לחלון: עובד גם בדפדפנים בלי 100dvh, וגם כששורת הכתובת בטלפון נפתחת ונסגרת */
+  position: fixed;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  block-size: 100dvh;
-  /* clip ולא hidden: גם גלילה מהקוד לא מזיזה את המסך הצידה */
-  overflow: clip;
+  overflow: hidden;
   padding-block-end: 0;
+  background: var(--board-bg);
 }
 
 /* נייד שנבחר במסך רחב: עמודה ברוחב טלפון במרכז */
 :global(:root[data-layout='mobile']) .app {
-  max-inline-size: 440px;
-  margin-inline: auto;
-  background: var(--board-bg);
+  inset-inline: max(0px, calc(50% - 220px));
   box-shadow: 0 0 0 1px var(--board-soft);
 }
 
@@ -222,12 +222,12 @@
 /* חלון ההמחשה: תמיד גלוי, בגובה קבוע; אפשר לכווץ לשורת הכותרת */
 :global(:root[data-mobile]) .sheetCol {
   order: -1;
-  overflow: clip;
+  overflow: hidden;
   contain: layout paint;
   position: static;
   flex: none;
   align-self: stretch;
-  block-size: 42dvh;
+  block-size: 42vh;
   padding: 6px 12px;
   background: var(--board-bg);
   box-shadow: 0 4px 10px -8px rgb(0 0 0 / 0.4);
@@ -242,7 +242,7 @@
 :global(:root[data-mobile]) .textCol {
   flex: 1;
   min-block-size: 0;
-  overflow-x: clip;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;

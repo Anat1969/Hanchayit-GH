@@ -167,8 +167,10 @@
   font-weight: var(--w-strong);
 }
 
-.scene:hover {
-  background: var(--paper);
+@media (hover: hover) {
+  .scene:hover {
+    background: var(--paper);
+  }
 }
 
 .scene[data-current] {

@@ -36,17 +36,6 @@ export function useLayout(): [Layout, (l: Layout) => void, boolean] {
     return () => mq.removeEventListener('change', on);
   }, []);
   const mobile = layout === 'mobile' || (layout === 'auto' && narrow);
-  // בנייד רק הנוסח נגלל; אם הדפדפן גלל את החלון עצמו (למשל בזמן מעבר פוקוס), מחזירים אותו
-  useEffect(() => {
-    if (!mobile) return;
-    const reset = () => {
-      if (scrollX !== 0 || scrollY !== 0) scrollTo(0, 0);
-    };
-    reset();
-    addEventListener('scroll', reset, { passive: true });
-    return () => removeEventListener('scroll', reset);
-  }, [mobile]);
-
   useEffect(() => {
     const root = document.documentElement;
     root.dataset.layout = layout;

@@ -7,10 +7,16 @@
   cursor: default;
 }
 
-.value:hover,
 .value[data-active] {
   background: var(--marker);
   color: var(--ink);
+}
+
+@media (hover: hover) {
+  .value:hover {
+    background: var(--marker);
+    color: var(--ink);
+  }
 }
 
 .original {

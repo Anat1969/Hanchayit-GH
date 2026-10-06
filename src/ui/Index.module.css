@@ -40,8 +40,10 @@
   transition: background-color 160ms ease;
 }
 
-.item:hover {
-  background: var(--board-soft);
+@media (hover: hover) {
+  .item:hover {
+    background: var(--board-soft);
+  }
 }
 
 .item[aria-current] {
@@ -96,10 +98,12 @@
   transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
 }
 
-.cube:hover {
-  color: var(--board-strong);
-  border-color: var(--board-strong);
-  background: var(--paper);
+@media (hover: hover) {
+  .cube:hover {
+    color: var(--board-strong);
+    border-color: var(--board-strong);
+    background: var(--paper);
+  }
 }
 
 .item[aria-current] .ref {

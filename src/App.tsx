@@ -186,7 +186,13 @@ export function App() {
     };
   }, [route.ruleId, scrollTo]);
 
-  useReadingRule(visibleIds, setActiveId, scrolling);
+  // מקור השינוי של הסעיף הפעיל: בחירה (עם הנפשה בגיליון) או גלילה (בלי)
+  const origin = useRef<'pick' | 'scroll'>('pick');
+  const setActiveFromScroll = useCallback((id: string) => {
+    origin.current = 'scroll';
+    setActiveId(id);
+  }, []);
+  useReadingRule(visibleIds, setActiveFromScroll, scrolling);
 
   useEffect(() => setFindIndex(0), [query, route.type]);
 
@@ -199,6 +205,7 @@ export function App() {
   };
 
   const goTo = (ruleId: string, mode: 'push' | 'replace' = 'push') => {
+    origin.current = 'pick';
     const rule = rulesById.get(ruleId)!;
     // סעיף שלא חל על סוג המבנה הנבחר: מבטלים את הסינון כדי להציג אותו
     const type: TypeFilter = appliesTo(rule, route.type) ? route.type : 'all';
@@ -210,6 +217,7 @@ export function App() {
 
   /** לחיצה על נושא בתוכן העניינים: הכותרת שלו בראש המסגרת, מסומנת בנוסח */
   const goToSection = (sectionId: string) => {
+    origin.current = 'pick';
     const node = findSection(tree, sectionId);
     const rules = node ? rulesIn(node) : [];
     // הסעיף הפעיל: הראשון בנושא שיש לו המחשה, כדי שהגיליון יראה אותה
@@ -329,7 +337,13 @@ export function App() {
               />
             </main>
             <aside className={s.sheetCol} data-collapsed={sheetCollapsed} data-sheet-band>
-              <Sheet rule={active} type={route.type} collapsed={sheetCollapsed} onToggle={() => setSheetCollapsed((c) => !c)} />
+              <Sheet
+                rule={active}
+                type={route.type}
+                collapsed={sheetCollapsed}
+                onToggle={() => setSheetCollapsed((c) => !c)}
+                animate={origin.current === 'pick'}
+              />
             </aside>
           </div>
           <ReviewBar onToggle={() => setReviewing((r) => !r)} onReset={() => setOverrides({})} />

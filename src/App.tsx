@@ -10,13 +10,11 @@ import { RuleText } from './ui/RuleText.tsx';
 import { SearchField } from './ui/SearchField.tsx';
 import { Sheet } from './ui/Sheet.tsx';
 import { TypeSwitch } from './ui/TypeSwitch.tsx';
-import { ReviewBar } from './ui/ReviewBar.tsx';
 import { BoardSwitch, useBoard } from './ui/BoardSwitch.tsx';
 import { Logo } from './ui/Logo.tsx';
 import { LayoutSwitch, useLayout } from './ui/LayoutSwitch.tsx';
 import type { SectionNode } from './rules/derive.ts';
 import { Icon } from './ui/icons.tsx';
-import { ReviewContext } from './review/review.ts';
 import s from './App.module.css';
 
 const search = buildSearch(chapter, synonyms);
@@ -134,26 +132,9 @@ export function App() {
   const [indexOpen, setIndexOpen] = useState(false);
   const [sheetCollapsed, setSheetCollapsed] = useState(false);
   const scrolling = useRef(false);
-  const [reviewing, setReviewing] = useState(false);
-  const [overrides, setOverrides] = useState<Record<string, number>>({});
   const [query, setQuery] = useState('');
   const [findIndex, setFindIndex] = useState(0);
   const progress = useProgress();
-
-  const review = useMemo(
-    () => ({
-      active: reviewing,
-      overrides,
-      set: (key: string, value: number | undefined) =>
-        setOverrides((prev) => {
-          const next = { ...prev };
-          if (value === undefined) delete next[key];
-          else next[key] = value;
-          return next;
-        }),
-    }),
-    [reviewing, overrides],
-  );
 
   const tree = useMemo(() => sectionTree(chapter, route.type), [route.type]);
   const visibleRules = useMemo(() => chapter.rules.filter((r) => appliesTo(r, route.type)), [route.type]);
@@ -256,7 +237,6 @@ export function App() {
   const activeSections = useMemo(() => new Set(trail), [trail]);
 
   return (
-    <ReviewContext.Provider value={review}>
       <LinkContext.Provider
         value={{
           current: link,
@@ -346,9 +326,7 @@ export function App() {
               />
             </aside>
           </div>
-          <ReviewBar onToggle={() => setReviewing((r) => !r)} onReset={() => setOverrides({})} />
         </div>
       </LinkContext.Provider>
-    </ReviewContext.Provider>
   );
 }

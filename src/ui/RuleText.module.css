@@ -178,13 +178,6 @@
   color: var(--paper);
 }
 
-.rule p.review {
-  margin-block-start: 6px;
-  font-size: 13px;
-  line-height: 1.45;
-  color: var(--pencil);
-}
-
 .materials {
   display: grid;
   grid-template-columns: 1fr 1fr;

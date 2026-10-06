@@ -33,7 +33,7 @@ interface Rule {
   params?: Param[];
   materials?: { allowed?: string[]; allowed_industrial?: string[]; required?: string[]; forbidden?: string[] };
   table?: { columns: string[]; rows: Record<string, string>[] };
-  review?: string;         // הערת בדיקה. מוצגת רק במצב בחינה
+  review?: string;         // הערת בדיקה. לא מוצגת בממשק; מרוכזת גם ב־review-notes.md
 }
 
 interface Section { id: string; ref: string; title: string; parent: string | null }

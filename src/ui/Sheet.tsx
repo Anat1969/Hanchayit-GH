@@ -7,7 +7,6 @@ import { paramSource, sceneRules, sceneType, type SceneModel, type View } from '
 import type { NavMode, ZoomCommand } from '../scenes/SceneCanvas.tsx';
 import { scaleLength } from '../scenes/scale.ts';
 import { PERSON_HEIGHT } from '../scenes/fixtures.ts';
-import { useReview } from '../review/review.ts';
 import { TitleBlock } from './TitleBlock.tsx';
 import { Toggles, ViewSwitch } from './ViewSwitch.tsx';
 import { Icon } from './icons.tsx';
@@ -150,7 +149,6 @@ export function Sheet({ rule, type, collapsed, onToggle, animate }: {
   const [zoomCmd, setZoomCmd] = useState<ZoomCommand>({ n: 0, factor: 1 });
   const [legend, setLegend] = useState(false);
   const last = useRef<Shown | null>(null);
-  const review = useReview();
 
   const sceneMeta = rule?.scene ? scenesById.get(rule.scene) : undefined;
   const def = sceneMeta ? SCENES[sceneMeta.id] : undefined;
@@ -159,12 +157,12 @@ export function Sheet({ rule, type, collapsed, onToggle, animate }: {
     if (!rule || !sceneMeta || !def) return null;
     const t = sceneType(def, chapter, sceneMeta, rule, type);
     if (!t) return null;
-    const get = paramSource(chapter, sceneMeta, t, review.overrides);
+    const get = paramSource(chapter, sceneMeta, t);
     const rules = sceneRules(chapter, sceneMeta, t);
     const ctl = def.controls?.(get, rules) ?? [];
     const chosen = Object.fromEntries(ctl.map((c) => [c.id, controls[def.id]?.[c.id] ?? c.options[0].value]));
     return { sceneId: def.id, type: t, model: def.build(get, chosen, rules), controls: ctl };
-  }, [rule, sceneMeta, def, type, controls, review.overrides]);
+  }, [rule, sceneMeta, def, type, controls]);
 
   if (current) last.current = current;
   const shown = current ?? last.current;

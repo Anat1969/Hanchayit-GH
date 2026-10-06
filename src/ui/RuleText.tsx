@@ -6,7 +6,6 @@ import { annotate, type Token } from '../rules/annotate.ts';
 import { href, type Route } from '../router.ts';
 import { chapter, scenesById } from '../data.ts';
 import type { FindResult } from '../search/useFind.ts';
-import { useReview } from '../review/review.ts';
 import { LinkedValue } from './LinkedValue.tsx';
 import { Icon } from './icons.tsx';
 import s from './RuleText.module.css';
@@ -97,7 +96,7 @@ function Line({ rule, tokens, current }: { rule: Rule; tokens: Token[]; current:
     while (j < tokens.length && tokens[j].paramKey === key) j++;
     const group = tokens.slice(i, j);
     out.push(
-      <LinkedValue key={i} ruleId={rule.id} paramKey={key} text={group.map((t) => t.text).join('')} param={rule.params?.find((p) => p.key === key)}>
+      <LinkedValue key={i} ruleId={rule.id} paramKey={key} text={group.map((t) => t.text).join('')}>
         {group.map((t, k) => <Piece key={k} t={t} current={current} />)}
       </LinkedValue>,
     );
@@ -117,7 +116,6 @@ export function RuleText({ tree, route, activeId, onNavigate, find, findIndex, s
   selected: string | null;
 }) {
   const sections = new Map(chapter.sections.map((x) => [x.id, x]));
-  const review = useReview();
   const activeScene = activeId ? chapter.rules.find((r) => r.id === activeId)?.scene : undefined;
   let lastScene: string | undefined;
 
@@ -190,7 +188,6 @@ export function RuleText({ tree, route, activeId, onNavigate, find, findIndex, s
                 </Fragment>
               ))}
             </p>
-            {review.active && r.review && <p className={s.review}>{r.review}</p>}
             {r.materials && <Materials m={r.materials} />}
             {r.table && <RuleTable t={r.table} />}
           </article>

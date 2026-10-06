@@ -5,6 +5,7 @@ import { linkText } from '../rules/linkText.ts';
 import { href, type Route } from '../router.ts';
 import { chapter } from '../data.ts';
 import { LinkedValue } from './LinkedValue.tsx';
+import { useReview } from '../review/review.ts';
 import s from './RuleText.module.css';
 
 const TABLE_LABELS: Record<string, string> = {
@@ -72,6 +73,7 @@ export function RuleText({ tree, route, activeId, onNavigate }: {
   onNavigate: (ruleId: string) => void;
 }) {
   const sections = new Map(chapter.sections.map((x) => [x.id, x]));
+  const review = useReview();
   return (
     <div className={s.text}>
       <h1 className={s.chapter}>{chapter.meta.chapter}</h1>
@@ -105,12 +107,19 @@ export function RuleText({ tree, route, activeId, onNavigate }: {
             <p>
               {linkText(r).map((part, i) =>
                 'paramKey' in part ? (
-                  <LinkedValue key={i} ruleId={r.id} paramKey={part.paramKey} text={part.text} />
+                  <LinkedValue
+                    key={i}
+                    ruleId={r.id}
+                    paramKey={part.paramKey}
+                    text={part.text}
+                    param={r.params?.find((p) => p.key === part.paramKey)}
+                  />
                 ) : (
                   <Fragment key={i}>{part.text}</Fragment>
                 ),
               )}
             </p>
+            {review.active && r.review && <p className={s.review}>{r.review}</p>}
             {r.materials && <Materials m={r.materials} />}
             {r.table && <RuleTable t={r.table} />}
           </article>

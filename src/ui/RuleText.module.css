@@ -70,6 +70,14 @@
   font-weight: 700;
 }
 
+.rule p.review {
+  margin-block-start: 4px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--pencil);
+}
+
 .materials {
   display: grid;
   grid-template-columns: 1fr 1fr;

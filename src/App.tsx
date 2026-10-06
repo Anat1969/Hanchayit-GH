@@ -9,6 +9,8 @@ import { RuleText } from './ui/RuleText.tsx';
 import { SearchField } from './ui/SearchField.tsx';
 import { Sheet } from './ui/Sheet.tsx';
 import { TypeSwitch } from './ui/TypeSwitch.tsx';
+import { ReviewBar } from './ui/ReviewBar.tsx';
+import { ReviewContext } from './review/review.ts';
 import s from './App.module.css';
 
 const search = buildSearch(chapter, synonyms);
@@ -53,6 +55,22 @@ export function App() {
   const [indexOpen, setIndexOpen] = useState(false);
   const [sheetCollapsed, setSheetCollapsed] = useState(false);
   const scrolling = useRef(false);
+  const [reviewing, setReviewing] = useState(false);
+  const [overrides, setOverrides] = useState<Record<string, number>>({});
+  const review = useMemo(
+    () => ({
+      active: reviewing,
+      overrides,
+      set: (key: string, value: number | undefined) =>
+        setOverrides((prev) => {
+          const next = { ...prev };
+          if (value === undefined) delete next[key];
+          else next[key] = value;
+          return next;
+        }),
+    }),
+    [reviewing, overrides],
+  );
 
   const tree = useMemo(() => sectionTree(chapter, route.type), [route.type]);
   const visibleIds = useMemo(() => chapter.rules.filter((r) => appliesTo(r, route.type)).map((r) => r.id), [route.type]);
@@ -106,43 +124,46 @@ export function App() {
   }, [active]);
 
   return (
-    <LinkContext.Provider
-      value={{
-        current: link,
-        set: setLink,
-        pinned,
-        pin: (t) => {
-          setPinned(t);
-          // לחיצה על מידה במודל מביאה את המשפט שקבע אותה
-          if (t) scrollTo(t.ruleId);
-        },
-      }}
-    >
-      <div className={s.app}>
-        <header className={s.header} data-print="hide">
-          <div className={s.searchRow}>
-            <button type="button" className={s.indexButton} aria-expanded={indexOpen} onClick={() => setIndexOpen((o) => !o)}>
-              סעיפים
-            </button>
-            <SearchField search={search} allowed={allowed} onNavigate={goTo} />
+    <ReviewContext.Provider value={review}>
+      <LinkContext.Provider
+        value={{
+          current: link,
+          set: setLink,
+          pinned,
+          pin: (t) => {
+            setPinned(t);
+            // לחיצה על מידה במודל מביאה את המשפט שקבע אותה
+            if (t) scrollTo(t.ruleId);
+          },
+        }}
+      >
+        <div className={s.app}>
+          <header className={s.header} data-print="hide">
+            <div className={s.searchRow}>
+              <button type="button" className={s.indexButton} aria-expanded={indexOpen} onClick={() => setIndexOpen((o) => !o)}>
+                סעיפים
+              </button>
+              <SearchField search={search} allowed={allowed} onNavigate={goTo} />
+            </div>
+            <TypeSwitch value={route.type} onChange={(type) => navigate({ ...route, type })} />
+          </header>
+          <div className={s.columns}>
+            <div className={s.indexCol} data-open={indexOpen} data-print="hide">
+              <button type="button" className={s.closeIndex} onClick={() => setIndexOpen(false)}>
+                סגירה
+              </button>
+              <Index tree={tree} activeSections={activeSections} onNavigate={goTo} />
+            </div>
+            <main className={s.textCol}>
+              <RuleText tree={tree} route={route} activeId={activeId} onNavigate={goTo} />
+            </main>
+            <aside className={s.sheetCol} data-collapsed={sheetCollapsed} data-sheet-band>
+              <Sheet rule={active} type={route.type} collapsed={sheetCollapsed} onToggle={() => setSheetCollapsed((c) => !c)} />
+            </aside>
           </div>
-          <TypeSwitch value={route.type} onChange={(type) => navigate({ ...route, type })} />
-        </header>
-        <div className={s.columns}>
-          <div className={s.indexCol} data-open={indexOpen} data-print="hide">
-            <button type="button" className={s.closeIndex} onClick={() => setIndexOpen(false)}>
-              סגירה
-            </button>
-            <Index tree={tree} activeSections={activeSections} onNavigate={goTo} />
-          </div>
-          <main className={s.textCol}>
-            <RuleText tree={tree} route={route} activeId={activeId} onNavigate={goTo} />
-          </main>
-          <aside className={s.sheetCol} data-collapsed={sheetCollapsed} data-sheet-band>
-            <Sheet rule={active} type={route.type} collapsed={sheetCollapsed} onToggle={() => setSheetCollapsed((c) => !c)} />
-          </aside>
+          <ReviewBar onToggle={() => setReviewing((r) => !r)} onReset={() => setOverrides({})} />
         </div>
-      </div>
-    </LinkContext.Provider>
+      </LinkContext.Provider>
+    </ReviewContext.Provider>
   );
 }

@@ -6,6 +6,7 @@ import { SCENES } from '../scenes/registry.ts';
 import { paramSource, sceneRules, sceneType, type SceneModel, type View } from '../scenes/model.ts';
 import { scaleLength } from '../scenes/scale.ts';
 import { TitleBlock } from './TitleBlock.tsx';
+import { useReview } from '../review/review.ts';
 import { Toggles, ViewSwitch } from './ViewSwitch.tsx';
 import s from './Sheet.module.css';
 
@@ -78,6 +79,7 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
   const [controls, setControls] = useState<Record<string, Record<string, string>>>({});
   const [zoom, setZoom] = useState(0);
   const last = useRef<Shown | null>(null);
+  const review = useReview();
 
   const sceneMeta = rule?.scene ? scenesById.get(rule.scene) : undefined;
   const def = sceneMeta ? SCENES[sceneMeta.id] : undefined;
@@ -86,12 +88,12 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
     if (!rule || !sceneMeta || !def) return null;
     const t = sceneType(def, chapter, sceneMeta, rule, type);
     if (!t) return null;
-    const get = paramSource(chapter, sceneMeta, t);
+    const get = paramSource(chapter, sceneMeta, t, review.overrides);
     const rules = sceneRules(chapter, sceneMeta, t);
     const ctl = def.controls?.(get, rules) ?? [];
     const chosen = Object.fromEntries(ctl.map((c) => [c.id, controls[def.id]?.[c.id] ?? c.options[0].value]));
     return { sceneId: def.id, type: t, model: def.build(get, chosen, rules), controls: ctl };
-  }, [rule, sceneMeta, def, type, controls]);
+  }, [rule, sceneMeta, def, type, controls, review.overrides]);
 
   if (current) last.current = current;
   const shown = current ?? last.current;

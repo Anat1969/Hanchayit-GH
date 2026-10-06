@@ -1,5 +1,7 @@
 .app {
   --header-h: 112px;
+  /* מקום לפס מצב הבחינה בתחתית */
+  padding-block-end: 40px;
 }
 
 .header {
@@ -36,7 +38,7 @@
 .sheetCol {
   position: sticky;
   inset-block-start: var(--header-h);
-  block-size: calc(100vh - var(--header-h) - var(--u) * 3);
+  block-size: calc(100vh - var(--header-h) - var(--u) * 3 - 40px);
   align-self: start;
 }
 

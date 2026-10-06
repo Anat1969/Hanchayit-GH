@@ -1,0 +1,50 @@
+.bar {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 3);
+  padding: 6px calc(var(--u) * 3);
+  border-block-start: var(--line);
+  background: var(--paper);
+  font-size: 14px;
+}
+
+.toggle {
+  border: 0;
+  border-block-end: 2px solid transparent;
+  background: none;
+  padding: 2px 0;
+  color: var(--pencil);
+  cursor: pointer;
+}
+
+.toggle[aria-pressed='true'] {
+  color: var(--ink);
+  font-weight: 700;
+  border-block-end-color: var(--ink);
+}
+
+.count {
+  color: var(--pencil);
+}
+
+.action {
+  border: var(--line);
+  border-radius: var(--radius-control);
+  background: var(--paper);
+  padding: 3px 10px;
+  cursor: pointer;
+}
+
+.action:disabled {
+  border-color: var(--pencil);
+  color: var(--pencil);
+  cursor: default;
+}
+
+.action:first-of-type {
+  margin-inline-start: auto;
+}

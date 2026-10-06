@@ -1,12 +1,14 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
-// GitHub Pages מגיש את האתר תחת שם הריפו
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  // GitHub Pages מגיש את האתר תחת שם הריפו
   base: '/Hanchayit-GH/',
   plugins: [react()],
+  // תצוגה מקדימה כקובץ HTML יחיד: גופנים ונכסים מוטמעים בקוד
+  build: mode === 'preview-embed' ? { assetsInlineLimit: 100_000_000, modulePreload: false } : {},
   test: {
     environment: 'jsdom',
     css: { modules: { classNameStrategy: 'non-scoped' } },
   },
-});
+}));

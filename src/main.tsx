@@ -12,6 +12,9 @@ import './styles/tokens.css';
 import './styles/print.css';
 import { App } from './App.tsx';
 
+document.documentElement.lang = 'he';
+document.documentElement.dir = 'rtl';
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

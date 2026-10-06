@@ -1,0 +1,29 @@
+.block {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  margin: 0;
+  border-block-start: var(--line);
+}
+
+.cell {
+  padding: 4px 8px;
+  min-inline-size: 0;
+}
+
+.cell + .cell {
+  border-inline-start: var(--line);
+}
+
+.cell dt {
+  font-size: 11px;
+  color: var(--pencil);
+}
+
+.cell dd {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

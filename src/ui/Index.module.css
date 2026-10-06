@@ -1,0 +1,57 @@
+.index {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.index ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.index ul ul {
+  padding-inline-start: calc(var(--u) * 2);
+}
+
+.index > ul > li + li {
+  margin-block-start: calc(var(--u) * 2);
+}
+
+.item {
+  display: flex;
+  gap: var(--u);
+  align-items: baseline;
+  inline-size: 100%;
+  padding: 3px 0;
+  border: 0;
+  background: none;
+  text-align: start;
+  cursor: pointer;
+  color: var(--pencil);
+}
+
+.item:hover {
+  color: var(--ink);
+}
+
+.item[aria-current] {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.ref {
+  flex: none;
+  min-inline-size: 4ch;
+}
+
+.title {
+  flex: 1;
+}
+
+.cube {
+  flex: none;
+  inline-size: 10px;
+  block-size: 10px;
+  align-self: center;
+}

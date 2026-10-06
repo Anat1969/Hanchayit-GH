@@ -1,0 +1,14 @@
+/* הדפסת סעיף בודד: A4 לרוחב, נוסח בימין וגיליון בשמאל (DESIGN.md, "הדפסה") */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+  [data-print='hide'] {
+    display: none !important;
+  }
+  [data-rule]:not([data-active='true']),
+  [data-section-heading] {
+    display: none !important;
+  }
+}

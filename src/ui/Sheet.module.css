@@ -1,0 +1,43 @@
+.sheet {
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  border: var(--line);
+  background: var(--paper);
+}
+
+.drawing {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-block-size: 0;
+}
+
+.note {
+  margin: 0;
+  padding: calc(var(--u) * 2);
+  text-align: center;
+  color: var(--pencil);
+  font-size: 15px;
+}
+
+.toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .toggle {
+    display: block;
+    align-self: flex-end;
+    border: 0;
+    background: none;
+    padding: 4px 8px;
+    font-size: 13px;
+    color: var(--pencil);
+    cursor: pointer;
+  }
+  .sheet[data-collapsed='true'] .drawing,
+  .sheet[data-collapsed='true'] dl {
+    display: none;
+  }
+}

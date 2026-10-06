@@ -1,0 +1,72 @@
+/* השפה העיצובית: docs/DESIGN.md */
+:root {
+  --paper: #ffffff;
+  --ink: #000000;
+  --pencil: #5e6770;
+  --blue-line: #1f4e79;
+  --limit: #c8102e;
+  --marker: #ffe14d;
+
+  --land-residential: #f3e3a0;
+  --land-open-space: #cfe2b4;
+  --land-public: #d8c3a5;
+  --land-industrial: #d9cde6;
+  --land-road: #e4e4e1;
+
+  --font-text: 'David Libre', 'David', serif;
+  --font-ui: 'Miriam Libre', 'Arial Hebrew', sans-serif;
+
+  --u: 8px;
+  --index-width: 260px;
+  --measure: 68ch;
+  --gap-rule: 12px;
+  --gap-section: 32px;
+  --radius-control: 3px;
+  --line: 1px solid var(--ink);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--blue-line);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

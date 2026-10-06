@@ -1,0 +1,85 @@
+.root {
+  position: relative;
+  flex: 1;
+}
+
+.input {
+  inline-size: 100%;
+  font: inherit;
+  font-size: 15px;
+  padding: 8px 12px;
+  border: var(--line);
+  border-radius: var(--radius-control);
+  background: var(--paper);
+  color: var(--ink);
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--pencil);
+}
+
+.panel {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: calc(100% - 1px);
+  z-index: 20;
+  max-block-size: 60vh;
+  overflow-y: auto;
+  border: var(--line);
+  background: var(--paper);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hit {
+  display: grid;
+  grid-template-columns: 9ch 1fr;
+  column-gap: var(--u);
+  padding: var(--u) 12px;
+  cursor: pointer;
+}
+
+.hit[aria-selected='true'] {
+  outline: 1px solid var(--ink);
+  outline-offset: -1px;
+}
+
+.ref {
+  color: var(--pencil);
+  font-size: 14px;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.snippet {
+  grid-column: 2;
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.snippet mark {
+  background: var(--marker);
+  color: var(--ink);
+}
+
+.empty {
+  margin: 0;
+  padding: var(--u) 12px;
+}
+
+.suggestion {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--blue-line);
+  cursor: pointer;
+  text-decoration: underline;
+}

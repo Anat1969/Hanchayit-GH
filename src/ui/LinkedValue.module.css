@@ -1,0 +1,12 @@
+.value {
+  font-weight: 700;
+  border-radius: 1px;
+  padding-inline: 1px;
+  cursor: default;
+}
+
+.value:hover,
+.value[data-active] {
+  background: var(--marker);
+  color: var(--ink);
+}

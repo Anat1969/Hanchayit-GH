@@ -6,8 +6,25 @@
 
 **https://anat1969.github.io/Hanchayit-GH/**
 
-הכתובת תפעל אחרי שייבנה שלב 1 (ראו `docs/SPEC.md`) ויופעל GitHub Pages בריפו
-(Settings ← Pages ← Source: GitHub Actions).
+כל דחיפה לענף הראשי מריצה בדיקות, בונה ומפרסמת את האתר (`.github/workflows/deploy.yml`).
+הפעלה חד־פעמית: Settings ← Pages ← Source: GitHub Actions.
+
+כתובת קבועה לכל סעיף: `/rule/<מזהה>`, למשל https://anat1969.github.io/Hanchayit-GH/rule/B2.7.1-6
+
+## מצב
+
+שלב 1 (שלד, נתונים וחיפוש) גמור: 146 הסעיפים מוצגים, החיפוש בעברית עובר את הבדיקות והנתונים עוברים ולידציה.
+הבא: שלב 2, מנוע הסצנות וחמש הסצנות הראשונות.
+
+## פיתוח
+
+```
+npm install
+npm run dev        # שרת פיתוח
+npm run test       # בדיקות
+npm run validate   # ולידציה של data/*.json
+npm run build      # בנייה ל־dist/
+```
 
 ## מסמכים
 

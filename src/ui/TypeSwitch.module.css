@@ -1,0 +1,25 @@
+.switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--u) * 2);
+}
+
+.switch button {
+  border: 0;
+  border-block-end: 2px solid transparent;
+  background: none;
+  padding: 4px 0;
+  cursor: pointer;
+  color: var(--pencil);
+  white-space: nowrap;
+}
+
+.switch button:hover {
+  color: var(--ink);
+}
+
+.switch button[aria-pressed='true'] {
+  color: var(--ink);
+  font-weight: 700;
+  border-block-end-color: var(--ink);
+}

@@ -1,0 +1,151 @@
+.text {
+  font-family: var(--font-text);
+  max-inline-size: calc(var(--measure) + 10ch);
+  padding-inline-start: 10ch;
+  padding-block-end: 50vh;
+}
+
+.chapter {
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 700;
+  margin-block: var(--gap-section) 0;
+}
+
+.part,
+.section {
+  position: relative;
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 700;
+  margin-block: var(--gap-section) var(--gap-rule);
+  scroll-margin-block-start: 120px;
+}
+
+.part {
+  font-size: 28px;
+  margin-block-start: calc(var(--gap-section) * 2);
+}
+
+.rule {
+  position: relative;
+  margin-block: var(--gap-rule);
+  scroll-margin-block-start: 120px;
+}
+
+.rule p {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.75;
+  text-align: start;
+}
+
+/* מספר הסעיף בעמודה צרה מימין לנוסח, כמו בחוק מודפס */
+.margin {
+  position: absolute;
+  inset-inline-start: -10ch;
+  inline-size: 9ch;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--pencil);
+  text-decoration: none;
+}
+
+.part .margin,
+.section .margin {
+  line-height: inherit;
+  font-size: 14px;
+  padding-block-start: 0.35em;
+  line-height: 1.35;
+}
+
+.rule .margin {
+  padding-block-start: 4px;
+}
+
+.rule[data-active='true'] > .margin {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.materials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--u) * 3);
+  margin-block-start: var(--gap-rule);
+  font-family: var(--font-ui);
+  font-size: 15px;
+}
+
+.materials h4 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pencil);
+}
+
+.materials ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.forbidden {
+  border-inline-end: 1px solid var(--limit);
+  padding-inline-end: calc(var(--u) * 1.5);
+}
+
+.forbidden h4 {
+  color: var(--limit);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin-block-start: var(--gap-rule);
+}
+
+.table {
+  min-inline-size: 640px;
+  border-collapse: collapse;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.table th,
+.table td {
+  border: var(--line);
+  padding: 4px 6px;
+  text-align: start;
+  vertical-align: top;
+}
+
+.table thead th {
+  font-weight: 700;
+}
+
+.table tbody th {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .rule,
+  .part,
+  .section {
+    scroll-margin-block-start: calc(40vh + 24px);
+  }
+  .text {
+    padding-inline-start: 7ch;
+  }
+  .margin {
+    inset-inline-start: -7ch;
+    inline-size: 6.5ch;
+    font-size: 12px;
+  }
+  .materials {
+    grid-template-columns: 1fr;
+  }
+}

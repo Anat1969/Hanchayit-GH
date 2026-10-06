@@ -12,6 +12,7 @@ function Node({ node, activeSections, selected, onSection, onScene }: {
   const { section } = node;
   const active = activeSections.has(section.id);
   const scene = node.rules.some((r) => r.scene);
+  const doubtful = node.rules.some((r) => r.review_validity);
   return (
     <li>
       <div className={s.row} data-selected={selected === section.id || undefined}>
@@ -23,6 +24,7 @@ function Node({ node, activeSections, selected, onSection, onScene }: {
         >
           {section.ref && <span className={s.ref}>{section.ref}</span>}
           <span className={s.title}>{section.title}</span>
+          {doubtful && <span className={s.doubt} title="תוקף הסעיף בספק">בספק</span>}
         </button>
         {scene && (
           <button

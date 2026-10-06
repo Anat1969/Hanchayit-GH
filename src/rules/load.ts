@@ -37,7 +37,10 @@ const Rule = z.strictObject({
       rows: z.array(z.record(z.string(), z.string())),
     })
     .optional(),
+  /** הערות בדיקה: עמימות, סתירה, שיבוש במקור או ספק בחילוץ. כמה הערות מופרדות בשורה חדשה */
   review: z.string().optional(),
+  /** ספק בתוקף הסעיף עצמו (מספר מחוק, הוראת שעה שאולי פגה) */
+  review_validity: z.literal(true).optional(),
 });
 
 const Section = z.strictObject({

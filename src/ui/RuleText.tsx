@@ -105,6 +105,18 @@ function Line({ rule, tokens, current }: { rule: Rule; tokens: Token[]; current:
   return <span className={s.line}>{out}</span>;
 }
 
+/** הערת בדיקה על סעיף שמעמדו בספק. הנוסח עצמו לא משתנה; ההערה מתחתיו, בעיפרון */
+function Doubt({ rule }: { rule: Rule }) {
+  return (
+    <aside className={s.doubt} data-validity={rule.review_validity || undefined}>
+      <strong>{rule.review_validity ? 'תוקף הסעיף בספק' : 'לבחינה'}</strong>
+      {rule.review!.split('\n').map((n) => (
+        <span key={n}>{n}</span>
+      ))}
+    </aside>
+  );
+}
+
 export function RuleText({ tree, route, activeId, onNavigate, find, findIndex, selected }: {
   tree: SectionNode[];
   route: Route;
@@ -158,7 +170,14 @@ export function RuleText({ tree, route, activeId, onNavigate, find, findIndex, s
         const scene = r.scene && r.scene !== lastScene ? scenesById.get(r.scene) : undefined;
         lastScene = r.scene;
         return (
-          <article key={r.id} id={r.id} className={s.rule} data-rule={r.id} data-active={active}>
+          <article
+            key={r.id}
+            id={r.id}
+            className={s.rule}
+            data-rule={r.id}
+            data-active={active}
+            data-doubt={r.review_validity ? 'validity' : r.review ? 'review' : undefined}
+          >
             <a
               className={s.margin}
               href={href({ ...route, ruleId: r.id })}
@@ -190,6 +209,7 @@ export function RuleText({ tree, route, activeId, onNavigate, find, findIndex, s
             </p>
             {r.materials && <Materials m={r.materials} />}
             {r.table && <RuleTable t={r.table} />}
+            {r.review && <Doubt rule={r} />}
           </article>
         );
       })}

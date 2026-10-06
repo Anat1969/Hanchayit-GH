@@ -246,7 +246,6 @@ export function Sheet({ rule, type, collapsed, onToggle, animate }: {
             onFit={() => setResetKey((k) => k + 1)}
           />
         )}
-        {!shown && caption && <p className={s.caption}>{caption}</p>}
       </div>
       <TitleBlock
         cells={[

@@ -75,7 +75,6 @@
   background: var(--board-strong);
 }
 
-.caption,
 .note {
   position: absolute;
   inset: 0;

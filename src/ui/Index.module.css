@@ -109,3 +109,13 @@
 .item[aria-current] .ref {
   color: var(--board-strong);
 }
+
+.doubt {
+  flex: none;
+  margin-inline-start: 6px;
+  padding-inline: 4px;
+  border: 1px dashed var(--limit);
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--limit);
+}

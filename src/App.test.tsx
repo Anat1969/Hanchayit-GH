@@ -1,6 +1,8 @@
 import { afterEach, beforeAll, describe, expect, it } from 'vitest';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { App } from './App.tsx';
+import { chapter } from './data.ts';
+import { appliesTo } from './rules/derive.ts';
 
 afterEach(() => {
   cleanup();
@@ -54,5 +56,20 @@ describe('נאמנות לנתונים', () => {
     expect(screen.queryByRole('button', { name: 'מצב בחינה' })).toBeNull();
     const v = container.querySelector('[data-rule="B1.2.1-2"] [data-param="fence_height_max"]')!;
     expect(v.textContent).toBe("1.8\u00a0מ'");
+  });
+});
+
+describe('סעיפים שמעמדם בספק', () => {
+  it('כל סעיף עם הערת בדיקה מסומן בנוסח, ותוקף בספק מסומן גם בתוכן העניינים', () => {
+    const { container } = render(<App />);
+    const marked = [...container.querySelectorAll('[data-rule][data-doubt]')].map((e) => e.getAttribute('data-rule'));
+    const expected = chapter.rules.filter((r) => r.review && appliesTo(r, 'all')).map((r) => r.id);
+    expect(marked.sort()).toEqual(expected.sort());
+    const a8 = container.querySelector('[data-rule="A8"]')!;
+    expect(a8.getAttribute('data-doubt')).toBe('validity');
+    expect(a8.textContent).toContain('תוקף הסעיף בספק');
+    expect(a8.textContent).toContain('יש לוודא אם הוארכה');
+    expect(container.querySelector('[data-rule="B2.11.7"]')!.textContent).toContain('לבחינה');
+    expect(screen.getAllByTitle('תוקף הסעיף בספק').length).toBeGreaterThanOrEqual(3);
   });
 });

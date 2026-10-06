@@ -7,18 +7,96 @@
 }
 
 .drawing {
+  position: relative;
   flex: 1;
-  display: grid;
-  place-items: center;
   min-block-size: 0;
 }
 
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.drawing[data-dimmed] .canvas {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* בטעינה: פס דיו דק אחד בראש הגיליון */
+.loading {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 2px;
+  background: var(--ink);
+}
+
+.caption,
 .note {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   margin: 0;
   padding: calc(var(--u) * 2);
   text-align: center;
   color: var(--pencil);
   font-size: 15px;
+  pointer-events: none;
+}
+
+.notes {
+  position: absolute;
+  inset-block-start: var(--u);
+  inset-inline: calc(var(--u) * 1.5);
+  max-inline-size: 46ch;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--pencil);
+  pointer-events: none;
+}
+
+.notes p {
+  margin: 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--u) * 1) calc(var(--u) * 4);
+  padding: 6px 8px;
+  border-block-start: var(--line);
+}
+
+.reset {
+  margin-inline-start: auto;
+  border: 0;
+  background: none;
+  padding: 2px 0;
+  font-size: 13px;
+  color: var(--blue-line);
+  cursor: pointer;
+}
+
+.scale {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 400;
+}
+
+.scaleBar {
+  display: inline-block;
+  block-size: 4px;
+  border: 1px solid var(--ink);
+}
+
+.scaleBar > span {
+  display: block;
+  inline-size: 50%;
+  block-size: 100%;
+  background: var(--ink);
 }
 
 .toggle {
@@ -37,6 +115,7 @@
     cursor: pointer;
   }
   .sheet[data-collapsed='true'] .drawing,
+  .sheet[data-collapsed='true'] .toolbar,
   .sheet[data-collapsed='true'] dl {
     display: none;
   }

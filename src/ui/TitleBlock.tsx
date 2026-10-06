@@ -1,8 +1,9 @@
+import type { ReactNode } from 'react';
 import s from './TitleBlock.module.css';
 
 export interface TitleBlockCell {
   label: string;
-  value: string;
+  value: ReactNode;
 }
 
 /** טבלת הכותרת בתחתית הגיליון, כמו בגיליון הגשה להיתר */

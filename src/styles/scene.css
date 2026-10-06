@@ -1,0 +1,35 @@
+/* העטיפה של drei ממקמת לפי left/top; בדף RTL היא נדחפת הצידה בלי כיוון משמאל לימין */
+.scene-html {
+  direction: ltr;
+}
+
+/* תוויות מידה במודל: Miriam Libre 12px, ערך מקושר שנבחר מקבל רקע מרקר (DESIGN.md, "מידות") */
+.scene-label {
+  display: inline-block;
+  padding: 0 3px;
+  border: 0;
+  border-radius: 1px;
+  background: var(--paper);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  direction: rtl;
+}
+
+span.scene-label {
+  cursor: default;
+}
+
+.scene-label[data-tone='limit'] {
+  color: var(--limit);
+}
+
+.scene-label:hover,
+.scene-label[data-active] {
+  background: var(--marker);
+  color: var(--ink);
+}

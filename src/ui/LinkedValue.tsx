@@ -1,11 +1,11 @@
-import { useLink } from './links.ts';
+import { sameTarget, useLink } from './links.ts';
 import s from './LinkedValue.module.css';
 
 /** ערך מספרי בנוסח שמקושר לפרמטר. הרווח לפני היחידה מוצג כרווח קשיח. */
 export function LinkedValue({ ruleId, paramKey, text }: { ruleId: string; paramKey: string; text: string }) {
   const link = useLink();
-  const active = link.current?.ruleId === ruleId && link.current.paramKey === paramKey;
   const target = { ruleId, paramKey };
+  const active = sameTarget(link.current, target) || sameTarget(link.pinned, target);
   return (
     <span
       className={s.value}

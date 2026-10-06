@@ -13,6 +13,9 @@
   --land-industrial: #d9cde6;
   --land-road: #e4e4e1;
 
+  /* מודל עבודה לבן */
+  --model-mass: #fafafa;
+
   --font-text: 'David Libre', 'David', serif;
   --font-ui: 'Miriam Libre', 'Arial Hebrew', sans-serif;
 

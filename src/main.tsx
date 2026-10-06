@@ -10,6 +10,7 @@ import '@fontsource/miriam-libre/latin-400.css';
 import '@fontsource/miriam-libre/latin-700.css';
 import './styles/tokens.css';
 import './styles/print.css';
+import './styles/scene.css';
 import { App } from './App.tsx';
 
 document.documentElement.lang = 'he';

@@ -49,6 +49,7 @@ export function App() {
   const [route, navigate] = useRoute();
   const [activeId, setActiveId] = useState<string | null>(route.ruleId ?? chapter.rules[0].id);
   const [link, setLink] = useState<LinkTarget | null>(null);
+  const [pinned, setPinned] = useState<LinkTarget | null>(null);
   const [indexOpen, setIndexOpen] = useState(false);
   const [sheetCollapsed, setSheetCollapsed] = useState(false);
   const scrolling = useRef(false);
@@ -105,7 +106,18 @@ export function App() {
   }, [active]);
 
   return (
-    <LinkContext.Provider value={{ current: link, set: setLink }}>
+    <LinkContext.Provider
+      value={{
+        current: link,
+        set: setLink,
+        pinned,
+        pin: (t) => {
+          setPinned(t);
+          // לחיצה על מידה במודל מביאה את המשפט שקבע אותה
+          if (t) scrollTo(t.ruleId);
+        },
+      }}
+    >
       <div className={s.app}>
         <header className={s.header} data-print="hide">
           <div className={s.searchRow}>

@@ -2,12 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { chapter, rulesById, scenesById } from '../data.ts';
 import { formatDimension } from '../rules/format.ts';
 import type { BuildingType } from '../rules/load.ts';
-import { paramSource, supports, type SceneModel } from './model.ts';
+import { paramSource, sceneRules, supports, type SceneModel } from './model.ts';
 import { SCENES } from './registry.ts';
 
 function build(id: string, type: BuildingType, overrides: Record<string, number> = {}, controls: Record<string, string> = {}) {
   const scene = scenesById.get(id)!;
-  return SCENES[id].build(paramSource(chapter, scene, type, overrides), controls);
+  return SCENES[id].build(paramSource(chapter, scene, type, overrides), controls, sceneRules(chapter, scene, type));
 }
 
 const typesOf = (id: string) =>
@@ -28,12 +28,19 @@ describe('כל הסצנות', () => {
       it(`${id} (${type}): כל מידה מקושרת לסעיף של הסצנה ולפרמטר שלו`, () => {
         const m = build(id, type);
         const scene = scenesById.get(id)!;
-        expect(m.dims.length + m.tags.length).toBeGreaterThan(0);
+        expect(m.dims.length + m.tags.length + m.labels.length).toBeGreaterThan(0);
         for (const d of [...m.dims, ...m.tags]) {
           expect(scene.rules).toContain(d.ruleId);
+          if (d.paramKey.startsWith('table:')) {
+            const col = d.paramKey.slice('table:'.length);
+            const table = rulesById.get(d.ruleId)!.table!;
+            expect(table.columns).toContain(col);
+            expect(table.rows.some((r) => d.label.endsWith(r[col]))).toBe(true);
+            continue;
+          }
           const param = rulesById.get(d.ruleId)!.params!.find((p) => p.key === d.paramKey);
           expect(param, `${d.ruleId} ${d.paramKey}`).toBeDefined();
-          expect(d.label).toContain(formatDimension(param!));
+          expect(d.label).toContain(formatDimension(param!, rulesById.get(d.ruleId)!.text));
           expect(rulesById.get(d.ruleId)!.applies_to).toContain(type);
         }
       });
@@ -93,7 +100,7 @@ describe('שינוי פרמטר משנה גיאומטריה ותווית', () =>
 
   it('building-spacing: תוויות הבורר נגזרות מהנתונים', () => {
     const scene = scenesById.get('building-spacing')!;
-    const c = SCENES['building-spacing'].controls!(paramSource(chapter, scene, 'residential', { building_spacing_lower_floors_max: 12 }));
+    const c = SCENES['building-spacing'].controls!(paramSource(chapter, scene, 'residential', { building_spacing_lower_floors_max: 12 }), []);
     expect(c[0].options.map((o) => o.label)).toEqual(['עד 12 קומות', '13 קומות ומעלה']);
   });
 
@@ -105,5 +112,71 @@ describe('שינוי פרמטר משנה גיאומטריה ותווית', () =>
     const c = build('ground-floor-height', 'active', { active_ground_floor_height_min: 4.5 }, { overhang: 'no' });
     expect(length(dimOf(c, 'active_ground_floor_height_min'))).toBeCloseTo(4.5);
     expect(dimOf(c, 'active_ground_floor_height_min').label).toBe("\u2066≥\u00A04.5\u2069\u00A0מ'");
+  });
+});
+
+const tagOf = (m: SceneModel, key: string) => m.tags.find((t) => t.paramKey === key)!;
+const vol = (m: SceneModel, kind: string) => m.volumes.filter((v) => v.kind === kind);
+
+describe('סצנות שלב 3', () => {
+  it('pool-setback: המרחק לפי סוג הבריכה', () => {
+    expect(length(dimOf(build('pool-setback', 'residential', {}, { kind: 'private' }), 'pool_setback_private'))).toBeCloseTo(1);
+    expect(length(dimOf(build('pool-setback', 'residential', {}, { kind: 'shared' }), 'pool_setback_shared'))).toBeCloseTo(3);
+    expect(length(dimOf(build('pool-setback', 'residential', { pool_setback_shared: 4 }, { kind: 'shared' }), 'pool_setback_shared'))).toBeCloseTo(4);
+  });
+
+  it('umbrella-clearance: גובה חופשי ומרחק מהכביש', () => {
+    const m = build('umbrella-clearance', 'active', { umbrella_clear_height_min: 3 });
+    expect(length(dimOf(m, 'umbrella_clear_height_min'))).toBeCloseTo(3);
+    expect(length(dimOf(m, 'umbrella_road_distance_min'))).toBeCloseTo(1);
+    expect(m.notes).toHaveLength(1);
+  });
+
+  it('parking-canopy: שטח הקירוי שווה לשטח המרבי', () => {
+    const roof = (m: SceneModel) => vol(m, 'light').reduce((a, v) => (v.size[0] * v.size[2] > a ? v.size[0] * v.size[2] : a), 0);
+    expect(roof(build('parking-canopy', 'ground'))).toBeCloseTo(15);
+    expect(roof(build('parking-canopy', 'ground', { parking_canopy_area_max: 20 }))).toBeCloseTo(20);
+  });
+
+  it('parking-trees: מספר העצים לפי מספר החניות לעץ', () => {
+    const a = build('parking-trees', 'residential');
+    const b = build('parking-trees', 'residential', { trees_per_perpendicular_spaces: 2 });
+    expect(b.trees.length).toBeGreaterThan(a.trees.length);
+    expect(tagOf(a, 'trees_per_perpendicular_spaces').label).toBe('עץ לכל 4 חניות');
+  });
+
+  it('colonnade, planting-strip, awning: המידה בגיאומטריה שווה לפרמטר', () => {
+    expect(length(dimOf(build('colonnade', 'active', { arcade_clear_height_min: 5 }), 'arcade_clear_height_min'))).toBeCloseTo(5);
+    expect(length(dimOf(build('planting-strip', 'industrial', { planting_strip_width: 2 }), 'planting_strip_width'))).toBeCloseTo(2);
+    expect(length(dimOf(build('awning', 'residential', { awning_side_overhang_max: 0.3 }), 'awning_side_overhang_max'))).toBeCloseTo(0.3);
+    expect(length(dimOf(build('awning', 'residential'), 'roof_awning_setback_min'))).toBeCloseTo(1);
+  });
+
+  it('common-green: השטח המגונן הכולל לפי השיעור המזערי', () => {
+    const soil = (m: SceneModel) => vol(m, 'soil').reduce((a, v) => a + v.size[0] * v.size[2], 0);
+    expect(soil(build('common-green', 'residential'))).toBeCloseTo(0.25 * 30 * 40);
+    expect(soil(build('common-green', 'residential', { common_green_ratio_min: 0.3 }))).toBeCloseTo(0.3 * 30 * 40);
+  });
+
+  it('material-ratio: חומר ראשי במגורים, טיח כהה בצמודי קרקע', () => {
+    expect(tagOf(build('material-ratio', 'residential'), 'main_material_ratio_min')).toBeDefined();
+    const g = build('material-ratio', 'ground', { dark_plaster_ratio_max: 0.2 });
+    expect(vol(g, 'dark')[0].size[1]).toBeCloseTo(9 * 0.2);
+  });
+
+  it('shading-coverage: הצל משתנה לפי השעה, וגובה המצללה לפי הפרמטר', () => {
+    const at = (t: string) => build('shading-coverage', 'residential', {}, { time: t });
+    const shadows = (m: SceneModel) => JSON.stringify(m.surfaces.filter((s) => s.use === 'shadow'));
+    expect(shadows(at('10:00'))).not.toBe(shadows(at('15:00')));
+    expect(at('12:00').labels.filter((l) => l.text.startsWith('מחושב'))).toHaveLength(3);
+    expect(at('12:00').north).toBe(true);
+    expect(length(dimOf(build('shading-coverage', 'residential', { shade_element_height_min: 4 }), 'shade_element_height_min'))).toBeCloseTo(4);
+  });
+
+  it('lobby-program: השורה בטבלה קובעת את הנפחים, והתוויות הן תוכן התאים', () => {
+    const a = build('lobby-program', 'residential', {}, { row: '0' });
+    const b = build('lobby-program', 'residential', {}, { row: '2' });
+    expect(a.volumes.length).toBeLessThan(b.volumes.length);
+    expect(tagOf(b, 'table:lobby_area').label).toBe('מבואה: 100 מ"ר');
   });
 });

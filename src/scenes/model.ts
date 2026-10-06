@@ -15,17 +15,25 @@ export interface SceneParam {
   ruleId: string;
   param: Param;
   value: number;
+  /** נוסח הסעיף, כדי שהתווית תיכתב כמו בנוסח (שבר או אחוז) */
+  ruleText: string;
 }
 
 export interface Volume {
-  /** mass: נפח בנוי לבן, light: חלק קל (סורג, מצללה), soil: ערוגה ואדמה */
-  kind: 'mass' | 'light' | 'soil';
+  /**
+   * mass: נפח בנוי לבן, light: חלק קל (סורג, מצללה), soil: ערוגה ואדמה,
+   * glass: זכוכית שקופה, water: מים, dark: חומר כהה (טיח כהה, חומר משני)
+   */
+  kind: 'mass' | 'light' | 'soil' | 'glass' | 'water' | 'dark';
   center: Vec3;
   size: Vec3;
+  /** סיבוב ברדיאנים (x, y, z), לרמפה ולגג משופע */
+  rotation?: Vec3;
 }
 
 export interface Surface {
-  use: LandUse;
+  /** shadow: צל מחושב על הקרקע */
+  use: LandUse | 'shadow';
   /** מצולע בתכנית (x, z) */
   polygon: Vec2[];
   y: number;
@@ -64,6 +72,12 @@ export interface Note {
   text: string;
 }
 
+/** תווית איכותית בעיפרון במקום במודל ("ללא גדר", "מפלס המדרכה"). אינה מידה ואינה מקושרת. */
+export interface Label {
+  text: string;
+  at: Vec3;
+}
+
 export interface SceneModel {
   volumes: Volume[];
   surfaces: Surface[];
@@ -73,6 +87,9 @@ export interface SceneModel {
   dims: Dim[];
   tags: Tag[];
   notes: Note[];
+  labels: Label[];
+  /** חץ צפון בתכנית, רק כשהכיוון משמעותי (הצללה) */
+  north?: boolean;
   /** כיוון המבט בחתך: מהצד (ציר x) או מהרחוב (ציר z) */
   sectionAxis: 'x' | 'z';
 }
@@ -90,12 +107,13 @@ export interface SceneDef {
   /** פרמטרים שבלעדיהם אין סצנה. סוג מבנה שאין לו אותם לא מוצג בסצנה הזו. */
   requires?: string[];
   /** בוררים של הסצנה, כמו מספר קומות. התוויות נבנות מהפרמטרים. */
-  controls?: (get: ParamSource) => SceneControl[];
-  build: (get: ParamSource, controls: Record<string, string>) => SceneModel;
+  controls?: (get: ParamSource, rules: Rule[]) => SceneControl[];
+  /** rules: הסעיפים של הסצנה שחלים על סוג המבנה, לסצנה שנבנית מטבלה */
+  build: (get: ParamSource, controls: Record<string, string>, rules: Rule[]) => SceneModel;
 }
 
 export function emptyModel(sectionAxis: 'x' | 'z' = 'x'): SceneModel {
-  return { volumes: [], surfaces: [], lines: [], trees: [], persons: [], dims: [], tags: [], notes: [], sectionAxis };
+  return { volumes: [], surfaces: [], lines: [], trees: [], persons: [], dims: [], tags: [], notes: [], labels: [], sectionAxis };
 }
 
 /**
@@ -114,9 +132,14 @@ export function paramSource(
     const rule: Rule | undefined = rules.get(id);
     if (!rule || !rule.applies_to.includes(type)) continue;
     for (const p of rule.params ?? []) {
-      if (typeof p.value !== 'number' || found.has(p.key)) continue;
+      if (found.has(p.key)) continue;
+      // רשימה (שעות) נשמרת ב־param.value; value המספרי שלה NaN
+      if (typeof p.value !== 'number') {
+        found.set(p.key, { key: p.key, ruleId: rule.id, param: p, value: NaN, ruleText: rule.text });
+        continue;
+      }
       const value = overrides[p.key] ?? p.value;
-      found.set(p.key, { key: p.key, ruleId: rule.id, param: { ...p, value }, value });
+      found.set(p.key, { key: p.key, ruleId: rule.id, param: { ...p, value }, value, ruleText: rule.text });
     }
   }
   return (key) => found.get(key);
@@ -141,4 +164,10 @@ export function sceneType(
   const all: BuildingType[] = ['ground', 'residential', 'active', 'industrial'];
   const candidates = [...(filter !== 'all' && rule.applies_to.includes(filter) ? [filter] : []), ...rule.applies_to, ...all];
   return candidates.find((t) => supports(def, chapter, scene, t));
+}
+
+/** הסעיפים של הסצנה שחלים על סוג המבנה */
+export function sceneRules(chapter: Chapter, scene: Scene, type: BuildingType): Rule[] {
+  const rules = new Map(chapter.rules.map((r) => [r.id, r]));
+  return scene.rules.map((id) => rules.get(id)!).filter((r) => r && r.applies_to.includes(type));
 }

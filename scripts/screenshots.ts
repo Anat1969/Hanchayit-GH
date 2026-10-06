@@ -1,18 +1,22 @@
 // צילומי מסך של כל סצנה בשלוש התצוגות, להשוואה מול DESIGN.md לפני שמסמנים סצנה כגמורה.
 // שימוש: npm run build && npx vite preview --port 4173 & npm run screenshots
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 import { chromium } from 'playwright';
 
 const BASE = process.env.BASE_URL ?? 'http://localhost:4173/Hanchayit-GH';
 const OUT = 'test-results/scenes';
-// סעיף מייצג לכל סצנה שנבנתה
-const RULES: Record<string, string> = {
-  'fence-street': 'B1.2.1-2',
-  'retaining-terrace': 'B2.2.1-6',
-  'pergola-ground': 'B2.7.1-6',
-  'building-spacing': 'B2.4.2',
-  'ground-floor-height': 'B2.3.4',
-};
+// לכל סצנה: הסעיף הראשון שמפנה אליה, או סצנות מסוימות מהארגומנטים
+const chapter = JSON.parse(readFileSync('data/chapter-b.json', 'utf8')) as { rules: Array<{ id: string; scene?: string; params?: unknown[] }> };
+const RULES: Record<string, string> = {};
+for (const r of chapter.rules) {
+  const scene = r.scene;
+  if (!scene) continue;
+  // עדיפות לסעיף עם פרמטרים
+  const current = chapter.rules.find((x) => x.id === RULES[scene]);
+  if (!current || (r.params && !current.params)) RULES[scene] = r.id;
+}
+const only = process.argv.slice(2);
+for (const k of Object.keys(RULES)) if (only.length && !only.includes(k)) delete RULES[k];
 const VIEWS = { axo: 'אקסונומטריה', plan: 'תכנית', section: 'חתך' };
 
 mkdirSync(OUT, { recursive: true });

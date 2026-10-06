@@ -24,11 +24,16 @@ span.scene-label {
   cursor: default;
 }
 
+.scene-label[data-tone='pencil'] {
+  color: var(--pencil);
+  background: transparent;
+}
+
 .scene-label[data-tone='limit'] {
   color: var(--limit);
 }
 
-.scene-label:hover,
+button.scene-label:hover,
 .scene-label[data-active] {
   background: var(--marker);
   color: var(--ink);

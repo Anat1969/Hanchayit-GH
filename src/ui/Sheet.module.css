@@ -60,6 +60,15 @@
   margin: 0;
 }
 
+.north {
+  position: absolute;
+  inset-block-start: calc(var(--u) * 2);
+  inset-inline-start: calc(var(--u) * 2);
+  inline-size: 18px;
+  color: var(--ink);
+  font-family: var(--font-ui);
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;

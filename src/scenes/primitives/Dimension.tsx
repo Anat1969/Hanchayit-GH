@@ -83,3 +83,12 @@ export function Dimension({ d }: { d: Dim }) {
 export function TagLabel({ t }: { t: Tag }) {
   return <Label ruleId={t.ruleId} paramKey={t.paramKey} text={t.label} limit={t.limit} position={t.at as P3} />;
 }
+
+/** תווית איכותית בעיפרון */
+export function PencilLabel({ text, at }: { text: string; at: P3 }) {
+  return (
+    <Html position={at} center zIndexRange={[15, 5]} wrapperClass="scene-html">
+      <span className="scene-label" data-tone="pencil">{text}</span>
+    </Html>
+  );
+}

@@ -12,7 +12,7 @@ import { Surface } from './primitives/Surface.tsx';
 import { PlotBoundary } from './primitives/PlotBoundary.tsx';
 import { Tree } from './primitives/Tree.tsx';
 import { Person } from './primitives/Person.tsx';
-import { Dimension, TagLabel } from './primitives/Dimension.tsx';
+import { Dimension, PencilLabel, TagLabel } from './primitives/Dimension.tsx';
 
 const DISTANCE = 200;
 const DURATION = 300;
@@ -124,6 +124,7 @@ export default function SceneCanvas({ model, view, resetKey, onZoom }: {
         {model.persons.map((p, i) => <Person key={`p${i}`} at={p} />)}
         {model.dims.map((d) => <Dimension key={`${d.ruleId}/${d.paramKey}`} d={d} />)}
         {model.tags.map((t) => <TagLabel key={`${t.ruleId}/${t.paramKey}`} t={t} />)}
+        {model.labels.map((l, i) => <PencilLabel key={`b${i}`} text={l.text} at={l.at} />)}
       </ViewContext.Provider>
     </Canvas>
   );

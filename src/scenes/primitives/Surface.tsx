@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import type { Surface as S } from '../model.ts';
 import { useView } from './context.ts';
 
-/** גוון ייעוד קרקע באטימות 35%, מתחת לקווי הדיו. במדרכה: שתי שורות ריצוף מרומזות. */
+/** גוון ייעוד קרקע באטימות 35%, מתחת לקווי הדיו. במדרכה: שתי שורות ריצוף מרומזות. צל: דיו שקוף. */
 export function Surface({ s }: { s: S }) {
   const { palette } = useView();
   const shape = useMemo(() => {
@@ -28,7 +28,13 @@ export function Surface({ s }: { s: S }) {
     <group>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, s.y, 0]} renderOrder={-1}>
         <shapeGeometry args={[shape]} />
-        <meshBasicMaterial color={palette[s.use]} transparent opacity={0.35} depthWrite={false} side={THREE.DoubleSide} />
+        <meshBasicMaterial
+          color={s.use === 'shadow' ? palette.ink : palette[s.use]}
+          transparent
+          opacity={s.use === 'shadow' ? 0.16 : 0.35}
+          depthWrite={false}
+          side={THREE.DoubleSide}
+        />
       </mesh>
       {paving.map((pts, i) => (
         <Line key={i} points={pts} color={palette.pencil} lineWidth={0.75} />

@@ -5,7 +5,8 @@ import { useState } from 'react';
  */
 export function Logo() {
   const [ok, setOk] = useState(true);
-  if (!ok) return null;
+  // בתצוגה המקדימה כקובץ יחיד אין קבצים נלווים
+  if (!ok || import.meta.env.MODE === 'preview-embed') return null;
   return (
     <img
       src={`${import.meta.env.BASE_URL}ashdod-logo.png`}

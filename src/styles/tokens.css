@@ -140,3 +140,11 @@ button {
     transition: none !important;
   }
 }
+
+/* בנייד המסך מחולק לאזורים קבועים, ורק הנוסח נגלל. החלון עצמו לא זז. */
+:root[data-mobile],
+:root[data-mobile] body {
+  overflow: hidden;
+  overscroll-behavior: none;
+  block-size: 100%;
+}

@@ -49,3 +49,11 @@
 .action:first-of-type {
   margin-inline-start: auto;
 }
+
+/* בנייד: חלק מסידור המסך, לא צף מעל הנוסח */
+:global(:root[data-mobile]) .bar {
+  position: static;
+  flex: none;
+  padding: 4px 12px;
+  font-size: 12px;
+}

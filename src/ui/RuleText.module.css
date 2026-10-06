@@ -250,11 +250,12 @@
 :global(:root[data-mobile]) .part,
 :global(:root[data-mobile]) .section,
 :global(:root[data-mobile]) .chapter {
-    scroll-margin-block-start: calc(var(--band-h, 36vh) + 16px);
+    scroll-margin-block-start: 12px;
 }
 
 :global(:root[data-mobile]) .text {
-    padding-inline-start: 7ch;
+    padding-inline-start: 0;
+    padding-block-end: 40vh;
 }
 
 :global(:root[data-mobile]) .chapter,
@@ -271,10 +272,29 @@
     font-size: 18px;
 }
 
+/* בנייד מספר הסעיף מעל הנוסח, ולא בעמודת שוליים */
 :global(:root[data-mobile]) .margin {
-    inset-inline-start: -7ch;
-    inline-size: 6.5ch;
+    position: static;
+    display: block;
+    inline-size: auto;
     font-size: 12px;
+    line-height: 1.4;
+    margin-block-end: 2px;
+}
+
+:global(:root[data-mobile]) .section .margin {
+    display: inline;
+    margin-inline-end: 6px;
+}
+
+:global(:root[data-mobile]) .rule {
+    padding: 8px 10px;
+    margin-block: 10px;
+}
+
+:global(:root[data-mobile]) .rule > p {
+    font-size: 16px;
+    line-height: 1.65;
 }
 
 :global(:root[data-mobile]) .materials {

@@ -23,8 +23,8 @@ function stored(): Board {
   return 'mono';
 }
 
-/** לוח העיצוב: גוון אחד בהיר לרקע וחזק לכותרות. הבחירה נשמרת בדפדפן של הצופה בלבד. */
-export function BoardSwitch() {
+/** לוח העיצוב הנבחר. נכתב לשורש ונשמר בדפדפן של הצופה בלבד. */
+export function useBoard(): [Board, (b: Board) => void] {
   const [board, setBoard] = useState<Board>(stored);
   useEffect(() => {
     document.documentElement.dataset.board = board;
@@ -34,6 +34,13 @@ export function BoardSwitch() {
       // אין צורך לשמור
     }
   }, [board]);
+  return [board, setBoard];
+}
+
+/** לוח העיצוב: גוון אחד בהיר לרקע וחזק לכותרות */
+export function BoardSwitch({ value, onChange }: { value: Board; onChange: (b: Board) => void }) {
+  const board = value;
+  const setBoard = onChange;
   return (
     <div className={s.boards} role="group" aria-label="לוח עיצוב">
       {BOARDS.map((b) => (

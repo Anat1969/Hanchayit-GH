@@ -45,6 +45,17 @@
   color: var(--pencil);
 }
 
+.prefs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+}
+
+.drawerPrefs {
+  display: none;
+}
+
 .search {
   flex: 1;
   display: flex;
@@ -138,73 +149,104 @@
 }
 
 /* מובייל: נוסח ברוחב מלא, הגיליון כפס עליון, תוכן העניינים מכפתור */
-/* תצוגת נייד: נקבעת ב־data-mobile על השורש (אוטומטי לפי רוחב, או בבחירה) */
+/* תצוגת נייד: נקבעת ב־data-mobile על השורש (אוטומטי לפי רוחב, או בבחירה).
+   המסך מחולק: חיפוש וסינון למעלה, חלון ההמחשה קבוע מתחתם, והנוסח נגלל בשטח שנשאר. */
+:global(:root[data-mobile]) .app {
+  display: flex;
+  flex-direction: column;
+  block-size: 100dvh;
+  /* clip ולא hidden: גם גלילה מהקוד לא מזיזה את המסך הצידה */
+  overflow: clip;
+  padding-block-end: 0;
+}
+
 /* נייד שנבחר במסך רחב: עמודה ברוחב טלפון במרכז */
 :global(:root[data-layout='mobile']) .app {
   max-inline-size: 440px;
   margin-inline: auto;
-  min-block-size: 100vh;
   background: var(--board-bg);
   box-shadow: 0 0 0 1px var(--board-soft);
 }
 
 :global(:root[data-mobile]) .header {
-  position: static;
-  padding: 10px 16px 8px;
-  gap: 8px;
+  position: relative;
+  flex: none;
+  padding: 8px 12px 6px;
+  gap: 6px;
 }
 
 :global(:root[data-mobile]) .topRow {
-  flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
-:global(:root[data-mobile]) .brand {
-  flex: 1;
-}
-
-:global(:root[data-mobile]) .indexButton {
-  display: inline-grid !important;
-}
-
-:global(:root[data-mobile]) .search {
-  order: 10;
-  flex-basis: 100%;
-}
-
-:global(:root[data-mobile]) .bottomRow {
-  overflow-x: auto;
-  padding-block-end: 2px;
-}
-
+:global(:root[data-mobile]) .brand,
+:global(:root[data-mobile]) .prefs,
 :global(:root[data-mobile]) .trail {
   display: none;
 }
 
+:global(:root[data-mobile]) .logo :global(img) {
+  block-size: 30px !important;
+}
+
+:global(:root[data-mobile]) .indexButton {
+  display: inline-grid !important;
+  order: -1;
+}
+
+:global(:root[data-mobile]) .bottomRow {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/* שורת הסינון בשורה אחת, נגללת לרוחב */
+:global(:root[data-mobile]) .bottomRow > :global(.seg) {
+  flex-wrap: nowrap;
+  flex: none;
+}
+
+:global(:root[data-mobile]) .bottomRow > :global(.seg) > button {
+  padding: 4px 9px;
+  font-size: 13px;
+}
+
 :global(:root[data-mobile]) .columns {
+  flex: 1;
+  min-block-size: 0;
   display: flex;
   flex-direction: column;
-  padding-inline: 12px;
-  gap: 12px;
+  padding-inline: 0;
+  gap: 0;
 }
 
-/* הגיליון: פס דביק בראש המסך, בגובה מוגבל, כדי שהנוסח לא ייבלע מתחתיו */
+/* חלון ההמחשה: תמיד גלוי, בגובה קבוע; אפשר לכווץ לשורת הכותרת */
 :global(:root[data-mobile]) .sheetCol {
   order: -1;
+  overflow: clip;
+  contain: layout paint;
+  position: static;
+  flex: none;
   align-self: stretch;
-  position: sticky;
-  inset-block-start: 0;
-  z-index: 5;
-  block-size: 36vh;
-  margin-inline: -12px;
-  padding: 6px 12px 8px;
+  block-size: 42dvh;
+  padding: 6px 12px;
   background: var(--board-bg);
-  box-shadow: 0 6px 12px -10px rgb(0 0 0 / 0.35);
+  box-shadow: 0 4px 10px -8px rgb(0 0 0 / 0.4);
+  z-index: 2;
 }
 
-:global(:root[data-mobile]) .sheetCol[data-collapsed='true'],
-:global(:root[data-mobile]) .sheetCol:has([data-noscene]) {
+:global(:root[data-mobile]) .sheetCol[data-collapsed='true'] {
   block-size: auto;
+}
+
+/* הנוסח נגלל בשטח שנשאר */
+:global(:root[data-mobile]) .textCol {
+  flex: 1;
+  min-block-size: 0;
+  overflow-x: clip;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 12px 24px;
 }
 
 :global(:root[data-mobile]) .indexCol {
@@ -222,10 +264,22 @@
   background: var(--board-bg);
 }
 
+:global(:root[data-layout='mobile']) .indexCol[data-open='true'] {
+  inset-inline: max(0px, calc(50% - 220px));
+}
+
 :global(:root[data-mobile]) .indexCol[data-open='true'] .closeIndex {
   display: inline-grid !important;
   margin-inline-start: auto;
   margin-block-end: 12px;
+}
+
+:global(:root[data-mobile]) .drawerPrefs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-block-end: 16px;
 }
 
 @media print {

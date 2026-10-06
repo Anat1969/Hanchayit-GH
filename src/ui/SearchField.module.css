@@ -104,3 +104,40 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+/* בנייד: רשימת התוצאות ברוחב המסך, מתחת לשורת החיפוש */
+:global(:root[data-mobile]) .panel {
+  position: fixed;
+  inset-inline: 8px;
+  inset-block-start: 54px;
+  max-block-size: 62dvh;
+  z-index: 40;
+  box-shadow: 0 10px 24px -12px rgb(0 0 0 / 0.45);
+}
+
+:global(:root[data-layout='mobile']) .panel {
+  inset-inline: max(8px, calc(50% - 212px));
+}
+
+:global(:root[data-mobile]) .hit {
+  grid-template-columns: 9ch 1fr;
+  padding: 10px 12px;
+}
+
+:global(:root[data-mobile]) .snippet {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+:global(:root[data-mobile]) .count {
+  min-inline-size: 5ch;
+  font-size: 12px;
+}
+
+:global(:root[data-mobile]) .find :global(.icon-btn) {
+  inline-size: 30px;
+  block-size: 30px;
+}

@@ -11,7 +11,7 @@ import { SearchField } from './ui/SearchField.tsx';
 import { Sheet } from './ui/Sheet.tsx';
 import { TypeSwitch } from './ui/TypeSwitch.tsx';
 import { ReviewBar } from './ui/ReviewBar.tsx';
-import { BoardSwitch } from './ui/BoardSwitch.tsx';
+import { BoardSwitch, useBoard } from './ui/BoardSwitch.tsx';
 import { Logo } from './ui/Logo.tsx';
 import { LayoutSwitch, useLayout } from './ui/LayoutSwitch.tsx';
 import type { SectionNode } from './rules/derive.ts';
@@ -32,9 +32,9 @@ function useReadingRule(ids: string[], onChange: (id: string) => void, paused: R
         // קו הקריאה: מתחת לכותרת העליונה, ובמובייל מתחת לפס הגיליון
         const mobile = document.documentElement.dataset.mobile !== undefined;
         const top = mobile
-          ? (document.querySelector('[data-sheet-band]')?.getBoundingClientRect().bottom ?? 0)
+          ? (document.querySelector('main')?.getBoundingClientRect().top ?? 0)
           : (document.querySelector('header')?.getBoundingClientRect().bottom ?? 0);
-        const line = top + 96;
+        const line = top + (mobile ? 48 : 96);
         let current: string | undefined;
         for (const id of ids) {
           const el = document.getElementById(id);
@@ -45,12 +45,30 @@ function useReadingRule(ids: string[], onChange: (id: string) => void, paused: R
         if (current) onChange(current);
       });
     };
-    addEventListener('scroll', update, { passive: true });
+    // capture: גם גלילה של מכל הנוסח בנייד, לא רק של החלון
+    addEventListener('scroll', update, { passive: true, capture: true });
     return () => {
-      removeEventListener('scroll', update);
+      removeEventListener('scroll', update, { capture: true });
       cancelAnimationFrame(frame);
     };
   }, [ids, onChange, paused]);
+}
+
+/**
+ * גלילה אל אלמנט בנוסח. בנייד הנוסח נגלל בתוך המכל שלו, ולכן גוללים רק אותו:
+ * scrollIntoView היה גולל גם את החלון ומזיז את המסך הצידה.
+ */
+function scrollToElement(el: Element | null, block: 'start' | 'center' = 'start') {
+  if (!el) return;
+  const main = document.querySelector('main');
+  if (document.documentElement.dataset.mobile === undefined || !main) {
+    el.scrollIntoView({ block });
+    return;
+  }
+  const r = el.getBoundingClientRect();
+  const m = main.getBoundingClientRect();
+  const offset = block === 'center' ? r.top - m.top - (m.height - r.height) / 2 : r.top - m.top - 8;
+  main.scrollTo({ top: main.scrollTop + offset });
 }
 
 /** שיעור הגלילה במסמך, לפס ההתקדמות */
@@ -58,12 +76,16 @@ function useProgress(): number {
   const [p, setP] = useState(0);
   useEffect(() => {
     const update = () => {
-      const max = document.documentElement.scrollHeight - innerHeight;
-      setP(max > 0 ? Math.min(1, scrollY / max) : 0);
+      // בנייד הנוסח נגלל בתוך המכל שלו; במחשב, החלון
+      const main = document.querySelector('main');
+      const own = main && main.scrollHeight > main.clientHeight + 1;
+      const max = own ? main.scrollHeight - main.clientHeight : document.documentElement.scrollHeight - innerHeight;
+      const pos = own ? main.scrollTop : scrollY;
+      setP(max > 0 ? Math.min(1, pos / max) : 0);
     };
     update();
-    addEventListener('scroll', update, { passive: true });
-    return () => removeEventListener('scroll', update);
+    addEventListener('scroll', update, { passive: true, capture: true });
+    return () => removeEventListener('scroll', update, { capture: true });
   }, []);
   return p;
 }
@@ -103,6 +125,7 @@ function rulesIn(n: SectionNode): SectionNode['rules'] {
 export function App() {
   const [route, navigate] = useRoute();
   const [layout, setLayout, mobile] = useLayout();
+  const [board, setBoard] = useBoard();
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
   useLayoutVars(mobile);
   const [activeId, setActiveId] = useState<string | null>(route.ruleId ?? chapter.rules[0].id);
@@ -143,7 +166,7 @@ export function App() {
     if (!el) return;
     scrolling.current = true;
     setActiveId(id);
-    el.scrollIntoView({ block: 'start' });
+    scrollToElement(el);
     // אירוע הגלילה מגיע בפריים הבא, ולא צריך לשנות את הסעיף הפעיל שבחרנו
     requestAnimationFrame(() => requestAnimationFrame(() => (scrolling.current = false)));
   }, []);
@@ -172,7 +195,7 @@ export function App() {
     if (!find.total) return;
     const next = (findIndex + d + find.total) % find.total;
     setFindIndex(next);
-    document.getElementById(`find-${next}`)?.scrollIntoView({ block: 'center' });
+    scrollToElement(document.getElementById(`find-${next}`), 'center');
   };
 
   const goTo = (ruleId: string, mode: 'push' | 'replace' = 'push') => {
@@ -194,11 +217,12 @@ export function App() {
     setSelectedSection(sectionId);
     setIndexOpen(false);
     if (first) setActiveId(first.id);
-    const el = document.getElementById(`s-${sectionId}`);
-    if (!el) return;
+    // גלילה אחרי שהתפריט נסגר (בנייד), כדי שהמסך לא יזוז
     scrolling.current = true;
-    el.scrollIntoView({ block: 'start' });
-    requestAnimationFrame(() => requestAnimationFrame(() => (scrolling.current = false)));
+    requestAnimationFrame(() => {
+      scrollToElement(document.getElementById(`s-${sectionId}`));
+      requestAnimationFrame(() => requestAnimationFrame(() => (scrolling.current = false)));
+    });
   };
 
   /** כפתור ההמחשה: הסעיף הראשון בנושא שיש לו המחשה, והגיליון פתוח */
@@ -258,8 +282,10 @@ export function App() {
                   find={{ index: findIndex, total: find.total, step: stepFind }}
                 />
               </div>
-              <LayoutSwitch value={layout} onChange={setLayout} />
-              <BoardSwitch />
+              <div className={s.prefs}>
+                <LayoutSwitch value={layout} onChange={setLayout} />
+                <BoardSwitch value={board} onChange={setBoard} />
+              </div>
               <div className={s.logo}>
                 <Logo />
               </div>
@@ -284,6 +310,11 @@ export function App() {
               <button type="button" className={`icon-btn ${s.closeIndex}`} aria-label="סגירה" onClick={() => setIndexOpen(false)}>
                 <Icon name="close" />
               </button>
+              {/* בנייד: העדפות התצוגה בתפריט, כדי לפנות מקום בראש המסך */}
+              <div className={s.drawerPrefs}>
+                <LayoutSwitch value={layout} onChange={setLayout} />
+                <BoardSwitch value={board} onChange={setBoard} />
+              </div>
               <Index tree={tree} activeSections={activeSections} selected={selectedSection} onSection={goToSection} onScene={goToScene} />
             </div>
             <main className={s.textCol}>

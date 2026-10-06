@@ -50,11 +50,15 @@
   position: relative;
   flex: 1;
   min-block-size: 0;
+  /* תוויות המידה נוצרות לרגע מחוץ לשרטוט; לא לתת להן להרחיב את העמוד */
+  overflow: clip;
+  contain: layout paint;
 }
 
 .canvas {
   position: absolute;
   inset: 0;
+  overflow: clip;
 }
 
 .drawing[data-dimmed] .canvas {
@@ -226,7 +230,27 @@
   display: none;
 }
 
-/* בנייד, כשלסעיף אין המחשה: רק שורת הכותרת, כדי לא לכסות את הנוסח */
-:global(:root[data-mobile]) .sheet[data-noscene] .drawing {
-  display: none;
+/* בנייד: כל הבוררים בשורה אחת קומפקטית, כדי להשאיר מקום לשרטוט */
+:global(:root[data-mobile]) .toolbar :global(.seg) {
+  flex: none;
+  flex-wrap: nowrap;
+}
+
+:global(:root[data-mobile]) .toolbar :global(.seg) > button {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+:global(:root[data-mobile]) .top :global(.text-btn) {
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+:global(:root[data-mobile]) .nav :global(.icon-btn) {
+  inline-size: 30px;
+  block-size: 30px;
+}
+
+:global(:root[data-mobile]) .notes {
+  font-size: 11px;
 }

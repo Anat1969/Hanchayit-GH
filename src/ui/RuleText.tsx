@@ -8,7 +8,7 @@ import { chapter, scenesById } from '../data.ts';
 import type { FindResult } from '../search/useFind.ts';
 import { useReview } from '../review/review.ts';
 import { LinkedValue } from './LinkedValue.tsx';
-import { Icon, topicIcon } from './icons.tsx';
+import { Icon } from './icons.tsx';
 import s from './RuleText.module.css';
 
 const TABLE_LABELS: Record<string, string> = {
@@ -106,13 +106,15 @@ function Line({ rule, tokens, current }: { rule: Rule; tokens: Token[]; current:
   return <span className={s.line}>{out}</span>;
 }
 
-export function RuleText({ tree, route, activeId, onNavigate, find, findIndex }: {
+export function RuleText({ tree, route, activeId, onNavigate, find, findIndex, selected }: {
   tree: SectionNode[];
   route: Route;
   activeId: string | null;
   onNavigate: (ruleId: string) => void;
   find: FindResult;
   findIndex: number;
+  /** פרק שנבחר בתוכן העניינים: הכותרת שלו מסומנת */
+  selected: string | null;
 }) {
   const sections = new Map(chapter.sections.map((x) => [x.id, x]));
   const review = useReview();
@@ -127,20 +129,25 @@ export function RuleText({ tree, route, activeId, onNavigate, find, findIndex }:
           const { section } = item.node;
           if (item.depth === 0) {
             return (
-              <h1 key={section.id} id={`s-${section.id}`} className={s.chapter} data-section-heading>
+              <h1 key={section.id} id={`s-${section.id}`} className={s.chapter} data-section-heading data-selected={selected === section.id || undefined}>
                 {section.title}
               </h1>
             );
           }
           const H = item.depth === 1 ? 'h2' : 'h3';
           return (
-            <H key={section.id} id={`s-${section.id}`} className={item.depth === 1 ? s.part : s.section} data-section-heading>
+            <H
+              key={section.id}
+              id={`s-${section.id}`}
+              className={item.depth === 1 ? s.part : s.section}
+              data-section-heading
+              data-selected={selected === section.id || undefined}
+            >
               {item.depth === 1 ? (
                 <span className={s.partNum}>{section.ref}</span>
               ) : (
                 section.ref && <span className={s.margin}>{section.ref}</span>
               )}
-              {item.depth === 1 && <Icon name={topicIcon(section.title)} size={20} />}
               <span>{section.title}</span>
             </H>
           );

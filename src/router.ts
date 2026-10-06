@@ -18,7 +18,7 @@ function read(): Route {
   const t = new URLSearchParams(location.search).get('type');
   return {
     ruleId: m ? m[1] : null,
-    type: BUILDING_TYPES.includes(t as BuildingType) ? (t as BuildingType) : 'all',
+    type: t === 'exempt' ? 'exempt' : BUILDING_TYPES.includes(t as BuildingType) ? (t as BuildingType) : 'all',
   };
 }
 

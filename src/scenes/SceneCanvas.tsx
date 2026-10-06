@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import { EffectComposer, N8AO, SMAA } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import type { SceneModel, View } from './model.ts';
 import { fitZoom, modelBounds, viewBasis } from './viewing.ts';
 import { readPalette } from './palette.ts';
+import { SKY } from './materials.ts';
 import { ViewContext } from './primitives/context.ts';
 import { Volume } from './primitives/Volume.tsx';
 import { Surface } from './primitives/Surface.tsx';
@@ -125,6 +127,7 @@ function Studio() {
   useEffect(() => {
     const pmrem = new THREE.PMREMGenerator(gl);
     const env = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environmentIntensity = 0.55;
     scene.environment = env;
     return () => {
       scene.environment = null;
@@ -159,7 +162,8 @@ function Sun({ model }: { model: SceneModel }) {
     <directionalLight
       ref={light}
       position={[c.x - size, c.y + size * 2, c.z + size * 1.2]}
-      intensity={1.6}
+      intensity={1.7}
+      color="#fff4e2"
       castShadow={!model.computedShadows}
       shadow-mapSize={[2048, 2048]}
       shadow-bias={-0.0004}
@@ -174,9 +178,9 @@ function ShadowCatcher({ model }: { model: SceneModel }) {
   const s = box.getSize(new THREE.Vector3());
   const c = box.getCenter(new THREE.Vector3());
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[c.x, 0.003, c.z]} receiveShadow>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[c.x, -0.02, c.z]} receiveShadow>
       <planeGeometry args={[s.x + 20, s.z + 20]} />
-      <shadowMaterial transparent opacity={0.18} />
+      <shadowMaterial transparent opacity={0.22} />
     </mesh>
   );
 }
@@ -209,13 +213,13 @@ export default function SceneCanvas({ sceneKey, model, view, resetKey, mode, zoo
       orthographic
       shadows="soft"
       dpr={[1, 3]}
-      gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.05 }}
+      gl={{ antialias: true, toneMapping: THREE.NeutralToneMapping, toneMappingExposure: 0.9 }}
       camera={{ position: [0, 0, 0], zoom: 20, near: 0.1, far: 1000 }}
       aria-hidden="true"
     >
-      <color attach="background" args={[palette.paper]} />
+      <color attach="background" args={[SKY]} />
       <Studio />
-      <hemisphereLight args={['#ffffff', '#d9d4c7', 0.9]} />
+      <hemisphereLight args={['#eaf3ff', '#b8a98a', 0.55]} />
       <Sun model={model} />
       {!model.computedShadows && <ShadowCatcher model={model} />}
       <ViewContext.Provider value={{ palette, zoom: state.zoom, viewDir: state.viewDir }}>
@@ -231,6 +235,11 @@ export default function SceneCanvas({ sceneKey, model, view, resetKey, mode, zoo
           {model.labels.map((l, i) => <PencilLabel key={`b${i}`} text={l.text} at={l.at} />)}
         </group>
       </ViewContext.Provider>
+      {/* עומק בפינות ובמגע עם הקרקע, והחלקת קצוות */}
+      <EffectComposer multisampling={0} enableNormalPass={false}>
+        <N8AO aoRadius={1.2} distanceFalloff={0.6} intensity={2.2} color="#3a3328" quality="medium" />
+        <SMAA />
+      </EffectComposer>
     </Canvas>
   );
 }

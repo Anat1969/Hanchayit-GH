@@ -172,7 +172,7 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
   const caption = !rule?.scene ? 'לסעיף זה אין המחשה' : !current ? 'ההמחשה בהכנה' : null;
 
   return (
-    <section className={s.sheet} data-collapsed={collapsed} aria-label="גיליון">
+    <section className={s.sheet} data-collapsed={collapsed} data-noscene={!live || undefined} aria-label="גיליון">
       <div className={s.top}>
         <div className={s.titleRow}>
           <Icon name="cube" size={20} />

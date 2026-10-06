@@ -16,7 +16,7 @@
   line-height: 1.3;
   font-weight: var(--w-strong);
   text-wrap: balance;
-  scroll-margin-block-start: 120px;
+  scroll-margin-block-start: calc(var(--header-h, 128px) + 16px);
 }
 
 .chapter:first-child {
@@ -36,7 +36,7 @@
   line-height: 1.35;
   font-weight: var(--w-strong);
   text-wrap: balance;
-  scroll-margin-block-start: 120px;
+  scroll-margin-block-start: calc(var(--header-h, 128px) + 16px);
 }
 
 .partNum {
@@ -58,7 +58,37 @@
   font-size: 18px;
   line-height: 1.4;
   font-weight: var(--w-strong);
-  scroll-margin-block-start: 120px;
+  scroll-margin-block-start: calc(var(--header-h, 128px) + 16px);
+}
+
+/* כותרת שנבחרה בתוכן העניינים: מרקר, עם הבהוב קצר */
+.part[data-selected],
+.section[data-selected] {
+  background: var(--marker);
+  border-radius: 8px;
+  padding-inline: 8px;
+  animation: heading-in 900ms ease-out;
+}
+
+.chapter[data-selected] {
+  outline: 3px solid var(--marker);
+  outline-offset: 3px;
+}
+
+@keyframes heading-in {
+  from {
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--marker) 60%, transparent);
+  }
+  to {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .part[data-selected],
+  .section[data-selected] {
+    animation: none;
+  }
 }
 
 .rule {
@@ -67,7 +97,7 @@
   padding: 10px 14px;
   border-radius: 10px;
   border-inline-start: 3px solid transparent;
-  scroll-margin-block-start: 120px;
+  scroll-margin-block-start: calc(var(--header-h, 128px) + 16px);
   transition: background-color 150ms;
 }
 
@@ -215,35 +245,40 @@
   white-space: nowrap;
 }
 
-@media (max-width: 900px) {
-  .rule,
-  .part,
-  .section,
-  .chapter {
-    scroll-margin-block-start: calc(40vh + 24px);
-  }
-  .text {
+/* תצוגת נייד: נקבעת ב־data-mobile על השורש (אוטומטי לפי רוחב, או בבחירה) */
+:global(:root[data-mobile]) .rule,
+:global(:root[data-mobile]) .part,
+:global(:root[data-mobile]) .section,
+:global(:root[data-mobile]) .chapter {
+    scroll-margin-block-start: calc(var(--band-h, 36vh) + 16px);
+}
+
+:global(:root[data-mobile]) .text {
     padding-inline-start: 7ch;
-  }
-  .chapter,
-  .part {
+}
+
+:global(:root[data-mobile]) .chapter,
+:global(:root[data-mobile]) .part {
     margin-inline-start: 0;
-  }
-  .chapter {
+}
+
+:global(:root[data-mobile]) .chapter {
     font-size: 20px;
     padding: 12px 14px;
-  }
-  .part {
+}
+
+:global(:root[data-mobile]) .part {
     font-size: 18px;
-  }
-  .margin {
+}
+
+:global(:root[data-mobile]) .margin {
     inset-inline-start: -7ch;
     inline-size: 6.5ch;
     font-size: 12px;
-  }
-  .materials {
+}
+
+:global(:root[data-mobile]) .materials {
     grid-template-columns: 1fr;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

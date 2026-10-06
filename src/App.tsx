@@ -13,6 +13,8 @@ import { TypeSwitch } from './ui/TypeSwitch.tsx';
 import { ReviewBar } from './ui/ReviewBar.tsx';
 import { BoardSwitch } from './ui/BoardSwitch.tsx';
 import { Logo } from './ui/Logo.tsx';
+import { LayoutSwitch, useLayout } from './ui/LayoutSwitch.tsx';
+import type { SectionNode } from './rules/derive.ts';
 import { Icon } from './ui/icons.tsx';
 import { ReviewContext } from './review/review.ts';
 import s from './App.module.css';
@@ -28,7 +30,7 @@ function useReadingRule(ids: string[], onChange: (id: string) => void, paused: R
       frame = requestAnimationFrame(() => {
         if (paused.current) return;
         // קו הקריאה: מתחת לכותרת העליונה, ובמובייל מתחת לפס הגיליון
-        const mobile = matchMedia('(max-width: 900px)').matches;
+        const mobile = document.documentElement.dataset.mobile !== undefined;
         const top = mobile
           ? (document.querySelector('[data-sheet-band]')?.getBoundingClientRect().bottom ?? 0)
           : (document.querySelector('header')?.getBoundingClientRect().bottom ?? 0);
@@ -66,8 +68,43 @@ function useProgress(): number {
   return p;
 }
 
+/** הגובה בפועל של הכותרת הדביקה ושל פס הגיליון בנייד, כמשתני CSS לגלילה ולקו הקריאה */
+function useLayoutVars(mobile: boolean) {
+  useEffect(() => {
+    const root = document.documentElement;
+    const header = document.querySelector('header');
+    const band = document.querySelector('[data-sheet-band]');
+    const update = () => {
+      root.style.setProperty('--header-h', mobile ? '0px' : `${header?.getBoundingClientRect().height ?? 128}px`);
+      root.style.setProperty('--band-h', mobile ? `${band?.getBoundingClientRect().height ?? 0}px` : '0px');
+    };
+    update();
+    if (typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(update);
+    if (header) ro.observe(header);
+    if (band) ro.observe(band);
+    return () => ro.disconnect();
+  }, [mobile]);
+}
+
+function findSection(tree: SectionNode[], id: string): SectionNode | undefined {
+  for (const n of tree) {
+    if (n.section.id === id) return n;
+    const c = findSection(n.children, id);
+    if (c) return c;
+  }
+  return undefined;
+}
+
+function rulesIn(n: SectionNode): SectionNode['rules'] {
+  return [...n.rules, ...n.children.flatMap(rulesIn)];
+}
+
 export function App() {
   const [route, navigate] = useRoute();
+  const [layout, setLayout, mobile] = useLayout();
+  const [selectedSection, setSelectedSection] = useState<string | null>(null);
+  useLayoutVars(mobile);
   const [activeId, setActiveId] = useState<string | null>(route.ruleId ?? chapter.rules[0].id);
   const [link, setLink] = useState<LinkTarget | null>(null);
   const [pinned, setPinned] = useState<LinkTarget | null>(null);
@@ -144,7 +181,34 @@ export function App() {
     const type: TypeFilter = appliesTo(rule, route.type) ? route.type : 'all';
     navigate({ ruleId, type }, mode);
     setIndexOpen(false);
+    setSelectedSection(null);
     if (ruleId === route.ruleId) scrollTo(ruleId);
+  };
+
+  /** לחיצה על נושא בתוכן העניינים: הכותרת שלו בראש המסגרת, מסומנת בנוסח */
+  const goToSection = (sectionId: string) => {
+    const node = findSection(tree, sectionId);
+    const rules = node ? rulesIn(node) : [];
+    // הסעיף הפעיל: הראשון בנושא שיש לו המחשה, כדי שהגיליון יראה אותה
+    const first = rules.find((r) => r.scene) ?? rules[0];
+    setSelectedSection(sectionId);
+    setIndexOpen(false);
+    if (first) setActiveId(first.id);
+    const el = document.getElementById(`s-${sectionId}`);
+    if (!el) return;
+    scrolling.current = true;
+    el.scrollIntoView({ block: 'start' });
+    requestAnimationFrame(() => requestAnimationFrame(() => (scrolling.current = false)));
+  };
+
+  /** כפתור ההמחשה: הסעיף הראשון בנושא שיש לו המחשה, והגיליון פתוח */
+  const goToScene = (sectionId: string) => {
+    const node = findSection(tree, sectionId);
+    const target = node && rulesIn(node).find((r) => r.scene);
+    if (!target) return;
+    setSelectedSection(null);
+    setSheetCollapsed(false);
+    goTo(target.id);
   };
 
   const active = activeId ? rulesById.get(activeId) : undefined;
@@ -185,13 +249,16 @@ export function App() {
               <button type="button" className={`icon-btn ${s.indexButton}`} aria-label="סעיפים" aria-expanded={indexOpen} onClick={() => setIndexOpen((o) => !o)}>
                 <Icon name="legend" />
               </button>
-              <SearchField
-                search={search}
-                allowed={allowed}
-                onNavigate={goTo}
-                onQueryChange={setQuery}
-                find={{ index: findIndex, total: find.total, step: stepFind }}
-              />
+              <div className={s.search}>
+                <SearchField
+                  search={search}
+                  allowed={allowed}
+                  onNavigate={goTo}
+                  onQueryChange={setQuery}
+                  find={{ index: findIndex, total: find.total, step: stepFind }}
+                />
+              </div>
+              <LayoutSwitch value={layout} onChange={setLayout} />
               <BoardSwitch />
               <div className={s.logo}>
                 <Logo />
@@ -217,10 +284,18 @@ export function App() {
               <button type="button" className={`icon-btn ${s.closeIndex}`} aria-label="סגירה" onClick={() => setIndexOpen(false)}>
                 <Icon name="close" />
               </button>
-              <Index tree={tree} activeSections={activeSections} onNavigate={goTo} />
+              <Index tree={tree} activeSections={activeSections} selected={selectedSection} onSection={goToSection} onScene={goToScene} />
             </div>
             <main className={s.textCol}>
-              <RuleText tree={tree} route={route} activeId={activeId} onNavigate={goTo} find={find} findIndex={findIndex} />
+              <RuleText
+                tree={tree}
+                route={route}
+                activeId={activeId}
+                onNavigate={goTo}
+                find={find}
+                findIndex={findIndex}
+                selected={selectedSection}
+              />
             </main>
             <aside className={s.sheetCol} data-collapsed={sheetCollapsed} data-sheet-band>
               <Sheet rule={active} type={route.type} collapsed={sheetCollapsed} onToggle={() => setSheetCollapsed((c) => !c)} />

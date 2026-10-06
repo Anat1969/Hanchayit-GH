@@ -1,21 +1,26 @@
 import { PERSON_HEIGHT } from '../fixtures.ts';
 import type { Vec3 } from '../model.ts';
-import { useView } from './context.ts';
+import { PERSON_FINISH } from '../materials.ts';
 
-/** צללית אחת בגובה 1.70 מ' בעיפרון, כקנה מידה */
+/** דמות בגובה 1.70 מ' לקנה מידה: רגליים, גוף וראש */
 export function Person({ at }: { at: Vec3 }) {
-  const { palette } = useView();
-  const head = PERSON_HEIGHT * 0.07;
-  const body = PERSON_HEIGHT - head * 2;
+  const h = PERSON_HEIGHT;
+  const head = h * 0.065;
+  const legs = h * 0.47;
+  const torso = h - legs - head * 2;
   return (
     <group position={at}>
-      <mesh position={[0, body / 2, 0]}>
-        <cylinderGeometry args={[0.16, 0.12, body, 10]} />
-        <meshBasicMaterial color={palette.pencil} />
+      <mesh position={[0, legs / 2, 0]} castShadow>
+        <cylinderGeometry args={[0.13, 0.11, legs, 12]} />
+        <meshStandardMaterial color={PERSON_FINISH.legs} roughness={0.7} />
       </mesh>
-      <mesh position={[0, body + head, 0]}>
-        <sphereGeometry args={[head, 10, 8]} />
-        <meshBasicMaterial color={palette.pencil} />
+      <mesh position={[0, legs + torso / 2, 0]} castShadow>
+        <cylinderGeometry args={[0.15, 0.17, torso, 12]} />
+        <meshStandardMaterial color={PERSON_FINISH.shirt} roughness={0.7} />
+      </mesh>
+      <mesh position={[0, legs + torso + head, 0]} castShadow>
+        <sphereGeometry args={[head, 16, 12]} />
+        <meshStandardMaterial color={PERSON_FINISH.skin} roughness={0.6} />
       </mesh>
     </group>
   );

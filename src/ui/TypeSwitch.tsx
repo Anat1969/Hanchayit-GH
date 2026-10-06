@@ -3,6 +3,7 @@ import { TYPE_LABELS } from '../data.ts';
 import { Icon, type IconName } from './icons.tsx';
 
 const ORDER: Array<[TypeFilter, IconName]> = [
+  ['exempt', 'tools'],
   ['all', 'layers'],
   ['ground', 'house'],
   ['residential', 'building'],
@@ -12,7 +13,7 @@ const ORDER: Array<[TypeFilter, IconName]> = [
 
 export function TypeSwitch({ value, onChange }: { value: TypeFilter; onChange: (t: TypeFilter) => void }) {
   return (
-    <div className="seg" role="group" aria-label="סוג מבנה">
+    <div className="seg" role="group" aria-label="נושא וסוג מבנה">
       {ORDER.map(([t, icon]) => (
         <button key={t} type="button" aria-pressed={value === t} onClick={() => onChange(t)}>
           <Icon name={icon} />

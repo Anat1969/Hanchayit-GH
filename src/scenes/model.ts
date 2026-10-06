@@ -163,10 +163,10 @@ export function sceneType(
   chapter: Chapter,
   scene: Scene,
   rule: Rule,
-  filter: BuildingType | 'all',
+  filter: BuildingType | 'all' | 'exempt',
 ): BuildingType | undefined {
   const all: BuildingType[] = ['ground', 'residential', 'active', 'industrial'];
-  const candidates = [...(filter !== 'all' && rule.applies_to.includes(filter) ? [filter] : []), ...rule.applies_to, ...all];
+  const candidates = [...(filter !== 'all' && filter !== 'exempt' && rule.applies_to.includes(filter) ? [filter] : []), ...rule.applies_to, ...all];
   return candidates.find((t) => supports(def, chapter, scene, t));
 }
 

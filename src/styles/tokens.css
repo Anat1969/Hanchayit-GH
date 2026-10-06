@@ -31,6 +31,9 @@
 
   --u: 8px;
   --index-width: 300px;
+  /* גובה הכותרת הדביקה ופס הגיליון בנייד; מתעדכנים מהקוד לפי הגובה בפועל */
+  --header-h: 128px;
+  --band-h: 36vh;
   --measure: 60ch;
   --gap-rule: 12px;
   --gap-section: 32px;

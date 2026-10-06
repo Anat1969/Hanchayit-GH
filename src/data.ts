@@ -13,6 +13,7 @@ export const scenesById = new Map(chapter.scenes.map((s) => [s.id, s]));
 
 /** תוויות קצרות לבורר ולטבלת הכותרת (SPEC.md, "סוג מבנה") */
 export const TYPE_LABELS = {
+  exempt: 'פטור מהיתר',
   all: 'הכל',
   ground: 'צמודי קרקע',
   residential: 'מגורים רוויה',

@@ -1,9 +1,12 @@
 import type { BuildingType, Chapter, Param, Rule, Section } from './load.ts';
 
-export type TypeFilter = BuildingType | 'all';
+/** סינון: הכל, עבודות פטורות מהיתר (פרק א'), או סוג מבנה */
+export type TypeFilter = BuildingType | 'all' | 'exempt';
 
 export function appliesTo(rule: Rule, filter: TypeFilter): boolean {
-  return filter === 'all' || rule.applies_to.includes(filter);
+  if (filter === 'all') return true;
+  if (filter === 'exempt') return rule.id.startsWith('A');
+  return rule.applies_to.includes(filter);
 }
 
 /** ערך הפרמטר לסוג מבנה נתון. הוולידציה מבטיחה שאין שני ערכים שונים לאותו key ולאותו סוג. */

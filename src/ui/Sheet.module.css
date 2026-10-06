@@ -192,26 +192,41 @@
   display: none !important;
 }
 
-@media (max-width: 900px) {
-  .toggle {
-    display: inline-grid !important;
-  }
-  .sheet[data-collapsed='true'] .drawing,
-  .sheet[data-collapsed='true'] .toolbar,
-  .sheet[data-collapsed='true'] dl {
-    display: none;
-  }
+/* תצוגת נייד: ראש קומפקטי, בלי טבלת כותרת, אפשר לכווץ */
+:global(:root[data-mobile]) .toggle {
+  display: inline-grid !important;
 }
 
-@keyframes title-in {
-  from {
-    opacity: 0;
-    transform: translateX(8px);
-  }
+:global(:root[data-mobile]) .top {
+  padding: 6px 8px;
+  gap: 6px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .title {
-    animation: none;
-  }
+:global(:root[data-mobile]) .title {
+  font-size: 15px;
+}
+
+:global(:root[data-mobile]) .toolbar {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+:global(:root[data-mobile]) .sheet dl {
+  display: none;
+}
+
+:global(:root[data-mobile]) .nav {
+  inset-block-end: 6px;
+  inset-inline-end: 6px;
+  flex-direction: row;
+}
+
+:global(:root[data-mobile]) .sheet[data-collapsed='true'] .drawing,
+:global(:root[data-mobile]) .sheet[data-collapsed='true'] .toolbar {
+  display: none;
+}
+
+/* בנייד, כשלסעיף אין המחשה: רק שורת הכותרת, כדי לא לכסות את הנוסח */
+:global(:root[data-mobile]) .sheet[data-noscene] .drawing {
+  display: none;
 }

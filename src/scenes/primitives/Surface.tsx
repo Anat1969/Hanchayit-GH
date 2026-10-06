@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { Line } from '@react-three/drei';
 import * as THREE from 'three';
 import type { Surface as S } from '../model.ts';
+import { groundOf, groundTexture } from '../materials.ts';
 import { useView } from './context.ts';
 
-/** גוון ייעוד קרקע באטימות 35%, מתחת לקווי הדיו. במדרכה: שתי שורות ריצוף מרומזות. צל: דיו שקוף. */
+/** קרקע במרקם לפי הייעוד: דשא, ריצוף, אספלט, רחבה. צל מחושב: דיו שקוף. */
 export function Surface({ s }: { s: S }) {
   const { palette } = useView();
   const shape = useMemo(() => {
@@ -13,32 +13,21 @@ export function Surface({ s }: { s: S }) {
     sh.closePath();
     return sh;
   }, [s.polygon]);
+  const ground = groundOf(s);
+  const map = useMemo(() => (ground ? groundTexture(ground) : undefined), [ground]);
 
-  const paving = useMemo(() => {
-    if (!s.paving) return [];
-    const { from, to, width } = s.paving;
-    const y = s.y + 0.005;
-    return [1 / 3, 2 / 3].map((f) => [
-      [from[0], y, from[1] + width * f],
-      [to[0], y, to[1] + width * f],
-    ] as [number, number, number][]);
-  }, [s.paving, s.y]);
-
-  return (
-    <group>
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, s.y, 0]} renderOrder={-1}>
+  if (s.use === 'shadow') {
+    return (
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, s.y, 0]} renderOrder={1}>
         <shapeGeometry args={[shape]} />
-        <meshBasicMaterial
-          color={s.use === 'shadow' ? palette.ink : palette[s.use]}
-          transparent
-          opacity={s.use === 'shadow' ? 0.16 : 0.35}
-          depthWrite={false}
-          side={THREE.DoubleSide}
-        />
+        <meshBasicMaterial color={palette.ink} transparent opacity={0.26} depthWrite={false} side={THREE.DoubleSide} />
       </mesh>
-      {paving.map((pts, i) => (
-        <Line key={i} points={pts} color={palette.pencil} lineWidth={0.75} />
-      ))}
-    </group>
+    );
+  }
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, s.y, 0]} receiveShadow>
+      <shapeGeometry args={[shape]} />
+      <meshStandardMaterial map={map} color="#ffffff" roughness={0.95} metalness={0} side={THREE.DoubleSide} polygonOffset polygonOffsetFactor={1} />
+    </mesh>
   );
 }

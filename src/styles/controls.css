@@ -38,6 +38,14 @@
   font-weight: var(--w-strong);
 }
 
+.seg-compact > button {
+  padding: 5px 8px;
+}
+
+:root[data-mobile] .seg-compact .seg-label {
+  display: none;
+}
+
 .icon-btn {
   display: inline-grid;
   place-items: center;

@@ -49,7 +49,11 @@ export function Volume({ v, delay = 0 }: { v: V; delay?: number }) {
           depthWrite={opacity === 1}
           envMapIntensity={v.kind === 'glass' || v.kind === 'water' ? 1.4 : 0.6}
         />
-        <Edges threshold={30} color={v.context ? palette.pencil : '#2b2b2b'} transparent opacity={v.context ? 0.5 : 1} />
+        {v.context ? (
+          <Edges threshold={30} color={palette.pencil} transparent opacity={0.45} />
+        ) : (
+          <Edges threshold={30} color="#3a3a3a" />
+        )}
       </mesh>
     </group>
   );

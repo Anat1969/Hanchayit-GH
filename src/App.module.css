@@ -1,5 +1,4 @@
 .app {
-  --header-h: 128px;
   /* מקום לפס מצב הבחינה בתחתית */
   padding-block-end: 44px;
 }
@@ -44,6 +43,12 @@
 .brandSub {
   font-size: 12px;
   color: var(--pencil);
+}
+
+.search {
+  flex: 1;
+  display: flex;
+  min-inline-size: 0;
 }
 
 .bottomRow {
@@ -133,65 +138,94 @@
 }
 
 /* מובייל: נוסח ברוחב מלא, הגיליון כפס עליון, תוכן העניינים מכפתור */
-@media (max-width: 900px) {
-  .app {
-    --header-h: 0px;
-  }
-  .header {
-    position: static;
-    padding-inline: 16px;
-  }
-  .topRow {
-    flex-wrap: wrap;
-  }
-  .brand {
-    flex: 1;
-  }
-  .indexButton {
-    display: inline-grid !important;
-    order: 2;
-  }
-  .topRow > :global(*):nth-child(3) {
-    order: 3;
-    flex-basis: 100%;
-  }
-  .bottomRow {
-    overflow-x: auto;
-  }
-  .columns {
-    display: flex;
-    flex-direction: column;
-    padding-inline: 16px;
-    gap: 16px;
-  }
-  .sheetCol {
-    order: -1;
-    position: sticky;
-    inset-block-start: 0;
-    z-index: 5;
-    block-size: 40vh;
-    background: var(--paper);
-  }
-  .sheetCol[data-collapsed='true'] {
-    block-size: auto;
-  }
-  .indexCol {
-    display: none;
-  }
-  .indexCol[data-open='true'] {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 30;
-    block-size: auto;
-    padding: 16px;
-    background: var(--board-bg);
-  }
-  .indexCol[data-open='true'] .closeIndex {
-    display: inline-grid !important;
-    margin-inline-start: auto;
-    margin-block-end: 12px;
-  }
+/* תצוגת נייד: נקבעת ב־data-mobile על השורש (אוטומטי לפי רוחב, או בבחירה) */
+/* נייד שנבחר במסך רחב: עמודה ברוחב טלפון במרכז */
+:global(:root[data-layout='mobile']) .app {
+  max-inline-size: 440px;
+  margin-inline: auto;
+  min-block-size: 100vh;
+  background: var(--board-bg);
+  box-shadow: 0 0 0 1px var(--board-soft);
+}
+
+:global(:root[data-mobile]) .header {
+  position: static;
+  padding: 10px 16px 8px;
+  gap: 8px;
+}
+
+:global(:root[data-mobile]) .topRow {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+:global(:root[data-mobile]) .brand {
+  flex: 1;
+}
+
+:global(:root[data-mobile]) .indexButton {
+  display: inline-grid !important;
+}
+
+:global(:root[data-mobile]) .search {
+  order: 10;
+  flex-basis: 100%;
+}
+
+:global(:root[data-mobile]) .bottomRow {
+  overflow-x: auto;
+  padding-block-end: 2px;
+}
+
+:global(:root[data-mobile]) .trail {
+  display: none;
+}
+
+:global(:root[data-mobile]) .columns {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 12px;
+  gap: 12px;
+}
+
+/* הגיליון: פס דביק בראש המסך, בגובה מוגבל, כדי שהנוסח לא ייבלע מתחתיו */
+:global(:root[data-mobile]) .sheetCol {
+  order: -1;
+  align-self: stretch;
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 5;
+  block-size: 36vh;
+  margin-inline: -12px;
+  padding: 6px 12px 8px;
+  background: var(--board-bg);
+  box-shadow: 0 6px 12px -10px rgb(0 0 0 / 0.35);
+}
+
+:global(:root[data-mobile]) .sheetCol[data-collapsed='true'],
+:global(:root[data-mobile]) .sheetCol:has([data-noscene]) {
+  block-size: auto;
+}
+
+:global(:root[data-mobile]) .indexCol {
+  display: none;
+}
+
+:global(:root[data-mobile]) .indexCol[data-open='true'] {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  block-size: auto;
+  padding: 16px;
+  overflow-y: auto;
+  background: var(--board-bg);
+}
+
+:global(:root[data-mobile]) .indexCol[data-open='true'] .closeIndex {
+  display: inline-grid !important;
+  margin-inline-start: auto;
+  margin-block-end: 12px;
 }
 
 @media print {

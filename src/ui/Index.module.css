@@ -10,14 +10,26 @@
 }
 
 .index ul ul ul {
-  padding-inline-start: 26px;
+  padding-inline-start: 22px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+}
+
+.row[data-selected] {
+  background: var(--marker);
 }
 
 .item {
   display: flex;
+  flex: 1;
   gap: 8px;
-  align-items: center;
-  inline-size: 100%;
+  align-items: baseline;
+  min-inline-size: 0;
   padding: 5px 8px;
   border: 0;
   border-radius: 8px;
@@ -25,6 +37,7 @@
   text-align: start;
   font: inherit;
   color: var(--board-ink);
+  transition: background-color 160ms ease;
 }
 
 .item:hover {
@@ -32,7 +45,6 @@
 }
 
 .item[aria-current] {
-  background: var(--paper);
   color: var(--board-strong);
   font-weight: var(--w-strong);
 }
@@ -42,7 +54,7 @@
   margin-block-start: 20px;
 }
 
-.index > ul > li > .item {
+.index > ul > li > .row > .item {
   background: var(--board-strong);
   color: var(--paper);
   font-weight: var(--w-strong);
@@ -53,13 +65,8 @@
   margin-block-start: 6px;
 }
 
-/* פרק משנה ממוספר: אייקון ושם מודגש */
-.index > ul > li > ul > li > .item {
+.index > ul > li > ul > li > .row > .item {
   font-weight: var(--w-strong);
-}
-
-.index > ul > li > ul > li + li {
-  margin-block-start: 2px;
 }
 
 .ref {
@@ -74,15 +81,25 @@
   flex: 1;
 }
 
+/* כפתור ההמחשה: עדין, מתבהר בריחוף, מוביל להמחשה ולסעיף שלה */
 .cube {
   flex: none;
   display: inline-grid;
   place-items: center;
-  inline-size: 24px;
-  block-size: 24px;
+  inline-size: 26px;
+  block-size: 26px;
+  border: 1px solid transparent;
   border-radius: 6px;
-  background: var(--board-strong);
-  color: var(--paper);
+  background: none;
+  color: var(--pencil);
+  padding: 0;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.cube:hover {
+  color: var(--board-strong);
+  border-color: var(--board-strong);
+  background: var(--paper);
 }
 
 .item[aria-current] .ref {

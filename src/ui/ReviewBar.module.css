@@ -7,7 +7,7 @@
   align-items: center;
   gap: calc(var(--u) * 3);
   padding: 6px calc(var(--u) * 3);
-  border-block-start: var(--line);
+  border-block-start: 1px solid var(--board-strong);
   background: var(--paper);
   font-size: 14px;
 }
@@ -28,7 +28,8 @@
 }
 
 .count {
-  color: var(--pencil);
+  flex: 1;
+  color: var(--board-ink);
 }
 
 .action {

@@ -23,10 +23,20 @@ const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').match
  * מצלמה אורתוגרפית: מעבר של 300ms בין תצוגות (מיידי בהפחתת תנועה),
  * סיבוב רק באקסונומטריה, הגדלה בגבולות.
  */
-function CameraRig({ model, view, resetKey, onZoom }: {
+export type NavMode = 'pan' | 'rotate';
+
+/** פקודת זום מהכפתורים: n משתנה בכל לחיצה, factor הוא היחס */
+export interface ZoomCommand {
+  n: number;
+  factor: number;
+}
+
+function CameraRig({ model, view, resetKey, mode, zoom, onZoom }: {
   model: SceneModel;
   view: View;
   resetKey: number;
+  mode: NavMode;
+  zoom: ZoomCommand;
   onZoom: (zoom: number, viewDir: THREE.Vector3) => void;
 }) {
   const { camera, size } = useThree();
@@ -49,6 +59,17 @@ function CameraRig({ model, view, resetKey, onZoom }: {
     anim.current = { t0: performance.now(), from: { pos: camera.position.clone(), up: camera.up.clone(), zoom: (camera as THREE.OrthographicCamera).zoom, target } };
     if (reducedMotion() || camera.position.lengthSq() === 0) anim.current.t0 = -Infinity;
   }, [goal, resetKey, camera, center]);
+
+  // זום מהכפתורים, בגבולות
+  useEffect(() => {
+    if (!zoom.n) return;
+    const cam = camera as THREE.OrthographicCamera;
+    cam.zoom = THREE.MathUtils.clamp(cam.zoom * zoom.factor, fit * 0.5, fit * 6);
+    cam.updateProjectionMatrix();
+    controls.current?.update();
+    onZoom(cam.zoom, cam.getWorldDirection(new THREE.Vector3()).negate());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [zoom.n]);
 
   useFrame(() => {
     const a = anim.current;
@@ -76,7 +97,13 @@ function CameraRig({ model, view, resetKey, onZoom }: {
       ref={controls}
       makeDefault
       target={goal.target}
-      enableRotate={view === 'axo'}
+      enableRotate={mode === 'rotate'}
+      mouseButtons={{
+        LEFT: mode === 'pan' ? THREE.MOUSE.PAN : THREE.MOUSE.ROTATE,
+        MIDDLE: THREE.MOUSE.DOLLY,
+        RIGHT: mode === 'pan' ? THREE.MOUSE.ROTATE : THREE.MOUSE.PAN,
+      }}
+      touches={{ ONE: mode === 'pan' ? THREE.TOUCH.PAN : THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN }}
       enableDamping={false}
       minZoom={fit * 0.5}
       maxZoom={fit * 6}
@@ -91,10 +118,12 @@ function CameraRig({ model, view, resetKey, onZoom }: {
   );
 }
 
-export default function SceneCanvas({ model, view, resetKey, onZoom }: {
+export default function SceneCanvas({ model, view, resetKey, mode, zoom, onZoom }: {
   model: SceneModel;
   view: View;
   resetKey: number;
+  mode: NavMode;
+  zoom: ZoomCommand;
   onZoom: (zoom: number) => void;
 }) {
   const palette = useMemo(readPalette, []);
@@ -104,7 +133,7 @@ export default function SceneCanvas({ model, view, resetKey, onZoom }: {
   const handleZoom = (zoom: number, viewDir: THREE.Vector3) => {
     // עדכון התוויות והסימנים לפי הזום, בלי לרנדר בכל פריים
     const now = performance.now();
-    if (now - last.current < 80 && Math.abs(zoom - state.zoom) / state.zoom < 0.05) return;
+    if (now - last.current < 80 && Math.abs(zoom - state.zoom) / state.zoom < 0.05 && viewDir.distanceTo(state.viewDir) < 0.05) return;
     last.current = now;
     setState({ zoom, viewDir });
     onZoom(zoom);
@@ -116,7 +145,7 @@ export default function SceneCanvas({ model, view, resetKey, onZoom }: {
       <ambientLight intensity={2.2} />
       <directionalLight position={[-30, 60, 40]} intensity={1} />
       <ViewContext.Provider value={{ palette, zoom: state.zoom, viewDir: state.viewDir }}>
-        <CameraRig model={model} view={view} resetKey={resetKey} onZoom={handleZoom} />
+        <CameraRig model={model} view={view} resetKey={resetKey} mode={mode} zoom={zoom} onZoom={handleZoom} />
         {model.surfaces.map((s, i) => <Surface key={`s${i}`} s={s} />)}
         {model.lines.map((l, i) => <PlotBoundary key={`l${i}`} line={l} />)}
         {model.volumes.map((v, i) => <Volume key={`v${i}`} v={v} />)}

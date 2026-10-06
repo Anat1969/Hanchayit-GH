@@ -1,9 +1,8 @@
 import type { View } from '../scenes/model.ts';
-import s from './ViewSwitch.module.css';
 
 const LABELS: Record<View, string> = { plan: 'תכנית', section: 'חתך', axo: 'אקסונומטריה' };
 
-/** מתגים טקסטואליים, בלי אייקונים (DESIGN.md, "מתגי תצוגה") */
+/** מתגים מקובצים: הבחירה הפעילה ממולאת בצבע הלוח */
 export function Toggles<T extends string>({ label, value, options, onChange }: {
   label: string;
   value: T;
@@ -11,7 +10,7 @@ export function Toggles<T extends string>({ label, value, options, onChange }: {
   onChange: (v: T) => void;
 }) {
   return (
-    <div className={s.toggles} role="group" aria-label={label}>
+    <div className="seg" role="group" aria-label={label}>
       {options.map((o) => (
         <button key={o.value} type="button" aria-pressed={o.value === value} onClick={() => onChange(o.value)}>
           {o.label}

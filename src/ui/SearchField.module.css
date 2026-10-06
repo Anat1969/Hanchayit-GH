@@ -1,15 +1,35 @@
 .root {
   position: relative;
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-inline-size: 0;
+}
+
+.find {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.count {
+  font-size: 13px;
+  color: var(--board-ink);
+  min-inline-size: 7ch;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .input {
-  inline-size: 100%;
+  flex: 1;
+  min-inline-size: 0;
   font: inherit;
   font-size: 15px;
   padding: 8px 12px;
-  border: var(--line);
-  border-radius: var(--radius-control);
+  border: 1px solid var(--board-strong);
+  border-radius: 8px;
   background: var(--paper);
   color: var(--ink);
   appearance: none;
@@ -22,6 +42,7 @@
 .panel {
   position: absolute;
   inset-inline: 0;
+  border-radius: 8px;
   inset-block-start: calc(100% - 1px);
   z-index: 20;
   max-block-size: 60vh;
@@ -50,7 +71,7 @@
 }
 
 .ref {
-  color: var(--pencil);
+  color: var(--board-strong);
   font-size: 14px;
 }
 

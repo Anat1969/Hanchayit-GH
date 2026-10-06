@@ -1,11 +1,14 @@
-import { Fragment } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import type { Rule } from '../rules/load.ts';
 import { flatten, marginRef, type SectionNode } from '../rules/derive.ts';
 import { linkText } from '../rules/linkText.ts';
+import { annotate, type Token } from '../rules/annotate.ts';
 import { href, type Route } from '../router.ts';
-import { chapter } from '../data.ts';
-import { LinkedValue } from './LinkedValue.tsx';
+import { chapter, scenesById } from '../data.ts';
+import type { FindResult } from '../search/useFind.ts';
 import { useReview } from '../review/review.ts';
+import { LinkedValue } from './LinkedValue.tsx';
+import { Icon, topicIcon } from './icons.tsx';
 import s from './RuleText.module.css';
 
 const TABLE_LABELS: Record<string, string> = {
@@ -66,32 +69,89 @@ function RuleTable({ t }: { t: NonNullable<Rule['table']> }) {
   );
 }
 
-export function RuleText({ tree, route, activeId, onNavigate }: {
+/** קטע אחד: סימון חיפוש והדגשה */
+function Piece({ t, current }: { t: Token; current: number }) {
+  let node: ReactNode = t.paramKey ? t.text.replace(/ /g, ' ') : t.text;
+  if (t.strong) node = <strong className={s.strong}>{node}</strong>;
+  if (t.find !== undefined) {
+    node = (
+      <mark className="find" id={`find-${t.find}`} data-current={t.find === current || undefined}>
+        {node}
+      </mark>
+    );
+  }
+  return <>{node}</>;
+}
+
+/** שורה בנוסח: קטעים רצופים של אותו ערך מקושר מתקבצים לערך אחד */
+function Line({ rule, tokens, current }: { rule: Rule; tokens: Token[]; current: number }) {
+  const out: ReactNode[] = [];
+  for (let i = 0; i < tokens.length; ) {
+    const key = tokens[i].paramKey;
+    if (!key) {
+      out.push(<Piece key={i} t={tokens[i]} current={current} />);
+      i++;
+      continue;
+    }
+    let j = i;
+    while (j < tokens.length && tokens[j].paramKey === key) j++;
+    const group = tokens.slice(i, j);
+    out.push(
+      <LinkedValue key={i} ruleId={rule.id} paramKey={key} text={group.map((t) => t.text).join('')} param={rule.params?.find((p) => p.key === key)}>
+        {group.map((t, k) => <Piece key={k} t={t} current={current} />)}
+      </LinkedValue>,
+    );
+    i = j;
+  }
+  return <span className={s.line}>{out}</span>;
+}
+
+export function RuleText({ tree, route, activeId, onNavigate, find, findIndex }: {
   tree: SectionNode[];
   route: Route;
   activeId: string | null;
   onNavigate: (ruleId: string) => void;
+  find: FindResult;
+  findIndex: number;
 }) {
   const sections = new Map(chapter.sections.map((x) => [x.id, x]));
   const review = useReview();
+  const activeScene = activeId ? chapter.rules.find((r) => r.id === activeId)?.scene : undefined;
+  let lastScene: string | undefined;
+
   return (
     <div className={s.text}>
       {flatten(tree).map((item) => {
         if (item.type === 'section') {
+          lastScene = undefined;
           const { section } = item.node;
-          // עומק 0: הפרק (א' או ב'), 1: פרק משנה ממוספר, 2 ומטה: נושא
-          const H = item.depth === 0 ? 'h1' : item.depth === 1 ? 'h2' : 'h3';
-          const cls = item.depth === 0 ? s.chapter : item.depth === 1 ? s.part : s.section;
+          if (item.depth === 0) {
+            return (
+              <h1 key={section.id} id={`s-${section.id}`} className={s.chapter} data-section-heading>
+                {section.title}
+              </h1>
+            );
+          }
+          const H = item.depth === 1 ? 'h2' : 'h3';
           return (
-            <H key={section.id} id={`s-${section.id}`} className={cls} data-section-heading>
-              {section.ref && <span className={s.margin}>{section.ref}</span>}
-              {section.title}
+            <H key={section.id} id={`s-${section.id}`} className={item.depth === 1 ? s.part : s.section} data-section-heading>
+              {item.depth === 1 ? (
+                <span className={s.partNum}>{section.ref}</span>
+              ) : (
+                section.ref && <span className={s.margin}>{section.ref}</span>
+              )}
+              {item.depth === 1 && <Icon name={topicIcon(section.title)} size={20} />}
+              <span>{section.title}</span>
             </H>
           );
         }
         const r = item.rule;
         const ref = marginRef(r, sections.get(r.section)!);
         const active = r.id === activeId;
+        const lines = annotate(linkText(r), find.ranges.get(r.id) ?? [], find.base.get(r.id) ?? 0);
+        // שם ההמחשה מופיע בראש רצף הסעיפים שמומחשים באותה סצנה
+        const scene = r.scene && r.scene !== lastScene ? scenesById.get(r.scene) : undefined;
+        lastScene = r.scene;
         return (
           <article key={r.id} id={r.id} className={s.rule} data-rule={r.id} data-active={active}>
             <a
@@ -105,20 +165,23 @@ export function RuleText({ tree, route, activeId, onNavigate }: {
             >
               {ref}
             </a>
+            {scene && (
+              <button
+                type="button"
+                className={s.scene}
+                data-current={scene.id === activeScene || undefined}
+                onClick={() => onNavigate(r.id)}
+              >
+                <Icon name="cube" />
+                <span>המחשה: {scene.title}</span>
+              </button>
+            )}
             <p>
-              {linkText(r).map((part, i) =>
-                'paramKey' in part ? (
-                  <LinkedValue
-                    key={i}
-                    ruleId={r.id}
-                    paramKey={part.paramKey}
-                    text={part.text}
-                    param={r.params?.find((p) => p.key === part.paramKey)}
-                  />
-                ) : (
-                  <Fragment key={i}>{part.text}</Fragment>
-                ),
-              )}
+              {lines.map((tokens, i) => (
+                <Fragment key={i}>
+                  <Line rule={r} tokens={tokens} current={findIndex} />
+                </Fragment>
+              ))}
             </p>
             {review.active && r.review && <p className={s.review}>{r.review}</p>}
             {r.materials && <Materials m={r.materials} />}

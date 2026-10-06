@@ -12,8 +12,7 @@
     "screenshots": "node scripts/screenshots.ts"
   },
   "dependencies": {
-    "@fontsource/david-libre": "^5.3.0",
-    "@fontsource/miriam-libre": "^5.3.0",
+    "@fontsource/rubik": "^5.3.0",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "minisearch": "^7.2.0",

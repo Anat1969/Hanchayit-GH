@@ -1,84 +1,153 @@
 .text {
-  font-family: var(--font-text);
   max-inline-size: calc(var(--measure) + 10ch);
   padding-inline-start: 10ch;
   padding-block-end: 50vh;
 }
 
+/* היררכיה: פרק (א'/ב') > פרק משנה ממוספר > נושא > סעיף */
 .chapter {
-  font-size: 32px;
-  line-height: 1.25;
+  margin-block: calc(var(--gap-section) * 1.5) var(--gap-section);
+  margin-inline-start: -10ch;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: var(--board-strong);
+  color: var(--paper);
+  font-size: 26px;
+  line-height: 1.3;
   font-weight: 700;
-  margin-block: var(--gap-section) 0;
+  text-wrap: balance;
   scroll-margin-block-start: 120px;
 }
 
-.chapter + .chapter,
-.rule + .chapter {
-  margin-block-start: calc(var(--gap-section) * 3);
-}
-
-.part,
-.section {
-  position: relative;
-  font-size: 24px;
-  line-height: 1.35;
-  font-weight: 700;
-  margin-block: var(--gap-section) var(--gap-rule);
-  scroll-margin-block-start: 120px;
+.chapter:first-child {
+  margin-block-start: 8px;
 }
 
 .part {
-  font-size: 28px;
-  margin-block-start: calc(var(--gap-section) * 2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block: calc(var(--gap-section) * 1.5) var(--gap-rule);
+  margin-inline-start: -10ch;
+  padding-block-end: 8px;
+  border-block-end: 2px solid var(--board-strong);
+  color: var(--board-strong);
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 700;
+  text-wrap: balance;
+  scroll-margin-block-start: 120px;
+}
+
+.partNum {
+  display: inline-grid;
+  place-items: center;
+  min-inline-size: 36px;
+  block-size: 36px;
+  padding-inline: 6px;
+  border-radius: 8px;
+  background: var(--board-soft);
+  color: var(--board-ink);
+  font-size: 17px;
+}
+
+.section {
+  position: relative;
+  margin-block: var(--gap-section) var(--gap-rule);
+  color: var(--board-ink);
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+  scroll-margin-block-start: 120px;
 }
 
 .rule {
   position: relative;
-  margin-block: var(--gap-rule);
+  margin-block: 14px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border-inline-start: 3px solid transparent;
   scroll-margin-block-start: 120px;
+  transition: background-color 150ms;
 }
 
-.rule p {
+.rule[data-active='true'] {
+  background: var(--paper);
+  border-inline-start-color: var(--board-strong);
+}
+
+.rule > p {
   margin: 0;
-  font-size: 19px;
-  line-height: 1.75;
+  font-size: 17px;
+  line-height: 1.7;
   text-align: start;
+  color: var(--ink);
 }
 
-/* מספר הסעיף בעמודה צרה מימין לנוסח, כמו בחוק מודפס */
+/* כל משפט ופריט ברשימה בשורה משלו */
+.line {
+  display: block;
+}
+
+.line + .line {
+  margin-block-start: 4px;
+}
+
+.strong {
+  font-weight: 700;
+  color: var(--board-ink);
+}
+
+/* מספר הסעיף בעמודה צרה מימין לנוסח */
 .margin {
   position: absolute;
   inset-inline-start: -10ch;
+  inset-block-start: 10px;
   inline-size: 9ch;
   font-family: var(--font-ui);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--pencil);
   text-decoration: none;
 }
 
-.part .margin,
 .section .margin {
-  line-height: inherit;
-  font-size: 14px;
-  padding-block-start: 0.35em;
-  line-height: 1.35;
-}
-
-.rule .margin {
-  padding-block-start: 4px;
+  inset-block-start: 0;
+  line-height: 1.4;
 }
 
 .rule[data-active='true'] > .margin {
-  color: var(--ink);
+  color: var(--board-strong);
   font-weight: 700;
 }
 
+.scene {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-block-end: 8px;
+  padding: 3px 10px 3px 12px;
+  border: 1px solid var(--board-strong);
+  border-radius: 8px;
+  background: var(--board-soft);
+  color: var(--board-ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.scene:hover {
+  background: var(--paper);
+}
+
+.scene[data-current] {
+  background: var(--board-strong);
+  color: var(--paper);
+}
+
 .rule p.review {
-  margin-block-start: 4px;
-  font-family: var(--font-ui);
+  margin-block-start: 6px;
   font-size: 13px;
   line-height: 1.45;
   color: var(--pencil);
@@ -89,7 +158,6 @@
   grid-template-columns: 1fr 1fr;
   gap: calc(var(--u) * 3);
   margin-block-start: var(--gap-rule);
-  font-family: var(--font-ui);
   font-size: 15px;
 }
 
@@ -97,7 +165,7 @@
   margin: 0 0 4px;
   font-size: 14px;
   font-weight: 700;
-  color: var(--pencil);
+  color: var(--board-strong);
 }
 
 .materials ul {
@@ -107,7 +175,7 @@
 }
 
 .forbidden {
-  border-inline-end: 1px solid var(--limit);
+  border-inline-end: 2px solid var(--limit);
   padding-inline-end: calc(var(--u) * 1.5);
 }
 
@@ -123,14 +191,14 @@
 .table {
   min-inline-size: 640px;
   border-collapse: collapse;
-  font-family: var(--font-ui);
   font-size: 13px;
   line-height: 1.4;
+  background: var(--paper);
 }
 
 .table th,
 .table td {
-  border: var(--line);
+  border: 1px solid var(--board-soft);
   padding: 4px 6px;
   text-align: start;
   vertical-align: top;
@@ -138,6 +206,8 @@
 
 .table thead th {
   font-weight: 700;
+  background: var(--board-soft);
+  color: var(--board-ink);
 }
 
 .table tbody th {
@@ -148,11 +218,23 @@
 @media (max-width: 900px) {
   .rule,
   .part,
-  .section {
+  .section,
+  .chapter {
     scroll-margin-block-start: calc(40vh + 24px);
   }
   .text {
     padding-inline-start: 7ch;
+  }
+  .chapter,
+  .part {
+    margin-inline-start: 0;
+  }
+  .chapter {
+    font-size: 20px;
+    padding: 12px 14px;
+  }
+  .part {
+    font-size: 18px;
   }
   .margin {
     inset-inline-start: -7ch;
@@ -161,5 +243,11 @@
   }
   .materials {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rule {
+    transition: none;
   }
 }

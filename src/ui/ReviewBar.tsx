@@ -22,7 +22,7 @@ export function ReviewBar({ onToggle, onReset }: { onToggle: () => void; onReset
 
   return (
     <div className={s.bar} data-print="hide">
-      <button type="button" className={s.toggle} aria-pressed={review.active} onClick={onToggle}>
+      <button type="button" className="text-btn" aria-pressed={review.active} onClick={onToggle}>
         מצב בחינה
       </button>
       {review.active && (
@@ -30,10 +30,10 @@ export function ReviewBar({ onToggle, onReset }: { onToggle: () => void; onReset
           <span className={s.count} role="status">
             {list.length === 0 ? 'אין שינויים. הזיזו מחוון ליד ערך בנוסח.' : `${list.length} ${list.length === 1 ? 'שינוי' : 'שינויים'} מול מהדורה ${edition}`}
           </span>
-          <button type="button" className={s.action} disabled={list.length === 0} onClick={download}>
+          <button type="button" className="text-btn" disabled={list.length === 0} onClick={download}>
             ייצוא לקובץ
           </button>
-          <button type="button" className={s.action} disabled={list.length === 0} onClick={onReset}>
+          <button type="button" className="text-btn" disabled={list.length === 0} onClick={onReset}>
             איפוס
           </button>
         </>

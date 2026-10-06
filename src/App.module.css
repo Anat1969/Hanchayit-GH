@@ -1,7 +1,7 @@
 .app {
-  --header-h: 112px;
+  --header-h: 128px;
   /* מקום לפס מצב הבחינה בתחתית */
-  padding-block-end: 40px;
+  padding-block-end: 44px;
 }
 
 .header {
@@ -10,41 +10,107 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: var(--u);
-  padding: calc(var(--u) * 2) calc(var(--u) * 3) var(--u);
+  gap: 10px;
+  padding: 12px 24px 10px;
   background: var(--paper);
+  border-block-end: 1px solid var(--board-soft);
 }
 
-.searchRow {
+.topRow {
   display: flex;
-  gap: calc(var(--u) * 2);
-  align-items: stretch;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+.brandTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--board-strong);
+  line-height: 1.2;
+}
+
+.brandSub {
+  font-size: 12px;
+  color: var(--pencil);
+}
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-inline-size: 0;
+}
+
+/* מיקום במסמך: פרק > פרק משנה > נושא */
+.trail {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-inline-size: 0;
+  overflow: hidden;
+  font-size: 13px;
+  color: var(--board-ink);
+  white-space: nowrap;
+}
+
+.crumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crumb + .crumb::before {
+  content: '‹';
+  margin-inline: 4px;
+  color: var(--pencil);
+}
+
+.crumb:last-child {
+  font-weight: 700;
+}
+
+.progress {
+  position: absolute;
+  inset-block-end: -1px;
+  inset-inline: 0;
+  block-size: 3px;
+  background: var(--board-strong);
+  transform-origin: right;
 }
 
 .indexButton,
 .closeIndex {
-  display: none;
+  display: none !important;
 }
 
 /* ימין: תוכן עניינים, מרכז: נוסח, שמאל: גיליון (RTL) */
 .columns {
   display: grid;
   grid-template-columns: var(--index-width) minmax(0, calc(var(--measure) + 12ch)) minmax(40%, 1fr);
-  gap: calc(var(--u) * 4);
-  padding-inline: calc(var(--u) * 3);
+  gap: 32px;
+  padding-inline: 24px;
 }
 
 .indexCol,
 .sheetCol {
   position: sticky;
-  inset-block-start: var(--header-h);
-  block-size: calc(100vh - var(--header-h) - var(--u) * 3 - 40px);
+  inset-block-start: calc(var(--header-h) + 12px);
+  block-size: calc(100vh - var(--header-h) - 24px - 44px);
   align-self: start;
 }
 
 .indexCol {
   overflow-y: auto;
-  padding-block: var(--u) calc(var(--u) * 4);
+  padding-block: 4px 32px;
 }
 
 .textCol {
@@ -54,7 +120,10 @@
 @media (max-width: 1200px) {
   .columns {
     grid-template-columns: 220px minmax(0, 1fr) minmax(36%, 1fr);
-    gap: calc(var(--u) * 3);
+    gap: 24px;
+  }
+  .trail {
+    display: none;
   }
 }
 
@@ -65,21 +134,30 @@
   }
   .header {
     position: static;
-    padding-inline: calc(var(--u) * 2);
+    padding-inline: 16px;
+  }
+  .topRow {
+    flex-wrap: wrap;
+  }
+  .brand {
+    flex: 1;
   }
   .indexButton {
-    display: block;
-    border: var(--line);
-    border-radius: var(--radius-control);
-    background: var(--paper);
-    padding-inline: 12px;
-    cursor: pointer;
+    display: inline-grid !important;
+    order: 2;
+  }
+  .topRow > :global(*):nth-child(3) {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .bottomRow {
+    overflow-x: auto;
   }
   .columns {
     display: flex;
     flex-direction: column;
-    padding-inline: calc(var(--u) * 2);
-    gap: calc(var(--u) * 2);
+    padding-inline: 16px;
+    gap: 16px;
   }
   .sheetCol {
     order: -1;
@@ -95,25 +173,19 @@
   .indexCol {
     display: none;
   }
-  .indexCol[data-open='true'] .closeIndex {
-    display: block;
-    margin-inline-start: auto;
-    margin-block-end: calc(var(--u) * 2);
-    border: var(--line);
-    border-radius: var(--radius-control);
-    background: var(--paper);
-    padding: 4px 12px;
-    cursor: pointer;
-  }
   .indexCol[data-open='true'] {
     display: block;
     position: fixed;
     inset: 0;
     z-index: 30;
     block-size: auto;
-    padding: calc(var(--u) * 2);
-    background: var(--paper);
-    border: var(--line);
+    padding: 16px;
+    background: var(--board-bg);
+  }
+  .indexCol[data-open='true'] .closeIndex {
+    display: inline-grid !important;
+    margin-inline-start: auto;
+    margin-block-end: 12px;
   }
 }
 

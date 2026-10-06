@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { chapter, rulesById, sectionsById, synonyms } from './data.ts';
+import { chapter, edition, rulesById, sectionsById, synonyms } from './data.ts';
 import { appliesTo, sectionTree, type TypeFilter } from './rules/derive.ts';
 import { buildSearch } from './search/index.ts';
+import { useFind } from './search/useFind.ts';
 import { useRoute } from './router.ts';
 import { LinkContext, type LinkTarget } from './ui/links.ts';
 import { Index } from './ui/Index.tsx';
@@ -10,6 +11,9 @@ import { SearchField } from './ui/SearchField.tsx';
 import { Sheet } from './ui/Sheet.tsx';
 import { TypeSwitch } from './ui/TypeSwitch.tsx';
 import { ReviewBar } from './ui/ReviewBar.tsx';
+import { BoardSwitch } from './ui/BoardSwitch.tsx';
+import { Logo } from './ui/Logo.tsx';
+import { Icon, topicIcon } from './ui/icons.tsx';
 import { ReviewContext } from './review/review.ts';
 import s from './App.module.css';
 
@@ -47,6 +51,21 @@ function useReadingRule(ids: string[], onChange: (id: string) => void, paused: R
   }, [ids, onChange, paused]);
 }
 
+/** שיעור הגלילה במסמך, לפס ההתקדמות */
+function useProgress(): number {
+  const [p, setP] = useState(0);
+  useEffect(() => {
+    const update = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      setP(max > 0 ? Math.min(1, scrollY / max) : 0);
+    };
+    update();
+    addEventListener('scroll', update, { passive: true });
+    return () => removeEventListener('scroll', update);
+  }, []);
+  return p;
+}
+
 export function App() {
   const [route, navigate] = useRoute();
   const [activeId, setActiveId] = useState<string | null>(route.ruleId ?? chapter.rules[0].id);
@@ -57,6 +76,10 @@ export function App() {
   const scrolling = useRef(false);
   const [reviewing, setReviewing] = useState(false);
   const [overrides, setOverrides] = useState<Record<string, number>>({});
+  const [query, setQuery] = useState('');
+  const [findIndex, setFindIndex] = useState(0);
+  const progress = useProgress();
+
   const review = useMemo(
     () => ({
       active: reviewing,
@@ -73,8 +96,10 @@ export function App() {
   );
 
   const tree = useMemo(() => sectionTree(chapter, route.type), [route.type]);
-  const visibleIds = useMemo(() => chapter.rules.filter((r) => appliesTo(r, route.type)).map((r) => r.id), [route.type]);
+  const visibleRules = useMemo(() => chapter.rules.filter((r) => appliesTo(r, route.type)), [route.type]);
+  const visibleIds = useMemo(() => visibleRules.map((r) => r.id), [visibleRules]);
   const allowed = useCallback((id: string) => appliesTo(rulesById.get(id)!, route.type), [route.type]);
+  const find = useFind(search, query, visibleRules);
 
   const scrollTo = useCallback((id: string) => {
     const el = document.getElementById(id);
@@ -103,6 +128,16 @@ export function App() {
 
   useReadingRule(visibleIds, setActiveId, scrolling);
 
+  useEffect(() => setFindIndex(0), [query, route.type]);
+
+  /** מעבר למופע הבא או הקודם של מילת החיפוש, במעגל */
+  const stepFind = (d: 1 | -1) => {
+    if (!find.total) return;
+    const next = (findIndex + d + find.total) % find.total;
+    setFindIndex(next);
+    document.getElementById(`find-${next}`)?.scrollIntoView({ block: 'center' });
+  };
+
   const goTo = (ruleId: string, mode: 'push' | 'replace' = 'push') => {
     const rule = rulesById.get(ruleId)!;
     // סעיף שלא חל על סוג המבנה הנבחר: מבטלים את הסינון כדי להציג אותו
@@ -113,15 +148,16 @@ export function App() {
   };
 
   const active = activeId ? rulesById.get(activeId) : undefined;
-  const activeSections = useMemo(() => {
-    const out = new Set<string>();
+  const trail = useMemo(() => {
+    const out: string[] = [];
     let id: string | null = active?.section ?? null;
     while (id) {
-      out.add(id);
+      out.unshift(id);
       id = sectionsById.get(id)?.parent ?? null;
     }
     return out;
   }, [active]);
+  const activeSections = useMemo(() => new Set(trail), [trail]);
 
   return (
     <ReviewContext.Provider value={review}>
@@ -139,23 +175,51 @@ export function App() {
       >
         <div className={s.app}>
           <header className={s.header} data-print="hide">
-            <div className={s.searchRow}>
-              <button type="button" className={s.indexButton} aria-expanded={indexOpen} onClick={() => setIndexOpen((o) => !o)}>
-                סעיפים
+            <div className={s.topRow}>
+              <div className={s.brand}>
+                <Logo />
+                <div>
+                  <div className={s.brandTitle}>הנחיות מרחביות אשדוד</div>
+                  <div className={s.brandSub}>מהדורה {edition}</div>
+                </div>
+              </div>
+              <button type="button" className={`icon-btn ${s.indexButton}`} aria-label="סעיפים" aria-expanded={indexOpen} onClick={() => setIndexOpen((o) => !o)}>
+                <Icon name="legend" />
               </button>
-              <SearchField search={search} allowed={allowed} onNavigate={goTo} />
+              <SearchField
+                search={search}
+                allowed={allowed}
+                onNavigate={goTo}
+                onQueryChange={setQuery}
+                find={{ index: findIndex, total: find.total, step: stepFind }}
+              />
+              <BoardSwitch />
             </div>
-            <TypeSwitch value={route.type} onChange={(type) => navigate({ ...route, type })} />
+            <div className={s.bottomRow}>
+              <TypeSwitch value={route.type} onChange={(type) => navigate({ ...route, type })} />
+              <nav className={s.trail} aria-label="מיקום במסמך">
+                {trail.map((id, i) => {
+                  const sec = sectionsById.get(id)!;
+                  return (
+                    <span key={id} className={s.crumb}>
+                      {i === 1 && <Icon name={topicIcon(sec.title)} size={14} />}
+                      {i === 0 ? (id === 'A' ? "פרק א'" : "פרק ב'") : `${sec.ref} ${sec.title}`}
+                    </span>
+                  );
+                })}
+              </nav>
+            </div>
+            <div className={s.progress} style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />
           </header>
           <div className={s.columns}>
             <div className={s.indexCol} data-open={indexOpen} data-print="hide">
-              <button type="button" className={s.closeIndex} onClick={() => setIndexOpen(false)}>
-                סגירה
+              <button type="button" className={`icon-btn ${s.closeIndex}`} aria-label="סגירה" onClick={() => setIndexOpen(false)}>
+                <Icon name="close" />
               </button>
               <Index tree={tree} activeSections={activeSections} onNavigate={goTo} />
             </div>
             <main className={s.textCol}>
-              <RuleText tree={tree} route={route} activeId={activeId} onNavigate={goTo} />
+              <RuleText tree={tree} route={route} activeId={activeId} onNavigate={goTo} find={find} findIndex={findIndex} />
             </main>
             <aside className={s.sheetCol} data-collapsed={sheetCollapsed} data-sheet-band>
               <Sheet rule={active} type={route.type} collapsed={sheetCollapsed} onToggle={() => setSheetCollapsed((c) => !c)} />

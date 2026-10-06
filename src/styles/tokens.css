@@ -16,8 +16,14 @@
   /* מודל עבודה לבן */
   --model-mass: #fafafa;
 
-  --font-text: 'David Libre', 'David', serif;
-  --font-ui: 'Miriam Libre', 'Arial Hebrew', sans-serif;
+  --font-text: 'Rubik', 'Arial Hebrew', sans-serif;
+  --font-ui: 'Rubik', 'Arial Hebrew', sans-serif;
+
+  /* לוח עיצוב: גוון אחד בהיר לרקע וחזק לכותרות. מוחלף ב־data-board על השורש */
+  --board-bg: #eef4fb;
+  --board-soft: #d6e4f5;
+  --board-strong: #1f4e79;
+  --board-ink: #13314d;
 
   --u: 8px;
   --index-width: 260px;
@@ -26,6 +32,32 @@
   --gap-section: 32px;
   --radius-control: 3px;
   --line: 1px solid var(--ink);
+}
+
+/* ארבעה לוחות עיצוב מונוכרומטיים. הצבע החזק עומד ביחס ניגודיות של 4.5:1 לפחות על הרקע */
+:root[data-board='red'] {
+  --board-bg: #fdf1f0;
+  --board-soft: #f8dbd8;
+  --board-strong: #a8261b;
+  --board-ink: #5c140e;
+}
+:root[data-board='yellow'] {
+  --board-bg: #fff8e1;
+  --board-soft: #fbeab0;
+  --board-strong: #7f5a00;
+  --board-ink: #4a3500;
+}
+:root[data-board='blue'] {
+  --board-bg: #eef4fb;
+  --board-soft: #d6e4f5;
+  --board-strong: #1f4e79;
+  --board-ink: #13314d;
+}
+:root[data-board='green'] {
+  --board-bg: #eef7f0;
+  --board-soft: #d3ebd8;
+  --board-strong: #1e6b3a;
+  --board-ink: #113d21;
 }
 
 *,
@@ -37,7 +69,7 @@
 html,
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--board-bg);
   color: var(--ink);
   font-family: var(--font-ui);
   font-size: 15px;
@@ -50,7 +82,16 @@ body {
 }
 
 a {
-  color: var(--blue-line);
+  color: var(--board-strong);
+}
+
+/* כפתור פעיל: ברור שאפשר ללחוץ, ומצב לחוץ מסומן במילוי */
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
 }
 
 button {

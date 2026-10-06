@@ -1,0 +1,27 @@
+.boards {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.swatch {
+  inline-size: 22px;
+  block-size: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--pencil);
+  padding: 0;
+}
+
+.swatch[data-board='blue'] { background: #1f4e79; }
+.swatch[data-board='green'] { background: #1e6b3a; }
+.swatch[data-board='yellow'] { background: #d8a300; }
+.swatch[data-board='red'] { background: #a8261b; }
+
+.swatch:hover {
+  box-shadow: 0 0 0 2px var(--board-strong);
+}
+
+.swatch[aria-pressed='true'] {
+  box-shadow: 0 0 0 2px var(--ink);
+}

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { Param } from '../rules/load.ts';
 import { formatValue } from '../rules/format.ts';
 import { sliderRange, useReview } from '../review/review.ts';
@@ -8,7 +9,14 @@ import s from './LinkedValue.module.css';
  * ערך מספרי בנוסח שמקושר לפרמטר. הרווח לפני היחידה מוצג כרווח קשיח.
  * במצב בחינה: מחוון ליד הערך, והערך המקורי בעיפרון לפני הערך שנבחן ("1.8 ← 2.0").
  */
-export function LinkedValue({ ruleId, paramKey, text, param }: { ruleId: string; paramKey: string; text: string; param?: Param }) {
+export function LinkedValue({ ruleId, paramKey, text, param, children }: {
+  ruleId: string;
+  paramKey: string;
+  text: string;
+  param?: Param;
+  /** התצוגה (למשל עם סימון חיפוש). ברירת המחדל: הטקסט עצמו */
+  children?: ReactNode;
+}) {
   const link = useLink();
   const review = useReview();
   const target = { ruleId, paramKey };
@@ -16,7 +24,7 @@ export function LinkedValue({ ruleId, paramKey, text, param }: { ruleId: string;
   const numeric = param && typeof param.value === 'number' ? param : undefined;
   const tested = numeric ? review.overrides[paramKey] : undefined;
   const changed = tested !== undefined && tested !== numeric!.value;
-  const shown = text.replace(/ /g, ' ');
+  const shown = children ?? text.replace(/ /g, ' ');
 
   return (
     <>
@@ -32,7 +40,7 @@ export function LinkedValue({ ruleId, paramKey, text, param }: { ruleId: string;
       >
         {changed ? (
           <>
-            <span className={s.original}>{shown}</span>
+            <span className={s.original}>{text.replace(/ /g, ' ')}</span>
             {' ← '}
             {formatValue({ value: tested!, unit: numeric!.unit }, text)}
           </>

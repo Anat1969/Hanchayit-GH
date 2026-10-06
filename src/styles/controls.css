@@ -1,0 +1,108 @@
+/*
+ * פקדים משותפים. כל פקד נראה לחיץ: מסגרת, ריחוף בגוון רך, ומצב פעיל במילוי בצבע הלוח.
+ */
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--board-strong);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.seg > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  border-inline-start: 1px solid var(--board-soft);
+  background: transparent;
+  padding: 5px 12px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--board-ink);
+  white-space: nowrap;
+}
+
+.seg > button:first-child {
+  border-inline-start: 0;
+}
+
+.seg > button:hover {
+  background: var(--board-soft);
+}
+
+.seg > button[aria-pressed='true'] {
+  background: var(--board-strong);
+  color: var(--paper);
+  font-weight: 500;
+}
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  inline-size: 32px;
+  block-size: 32px;
+  border: 1px solid var(--board-soft);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--board-ink);
+  padding: 0;
+}
+
+.icon-btn:hover:not(:disabled) {
+  border-color: var(--board-strong);
+  background: var(--board-soft);
+}
+
+.icon-btn[aria-pressed='true'] {
+  background: var(--board-strong);
+  border-color: var(--board-strong);
+  color: var(--paper);
+}
+
+.icon-btn:disabled {
+  opacity: 0.4;
+}
+
+.text-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--board-strong);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--board-strong);
+  padding: 4px 12px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.text-btn:hover:not(:disabled) {
+  background: var(--board-soft);
+}
+
+.text-btn[aria-pressed='true'] {
+  background: var(--board-strong);
+  color: var(--paper);
+}
+
+.text-btn:disabled {
+  border-color: var(--pencil);
+  color: var(--pencil);
+  opacity: 0.6;
+}
+
+/* סימון חיפוש בתוך הנוסח */
+mark.find {
+  background: var(--marker);
+  color: var(--ink);
+  border-radius: 2px;
+  padding-inline: 1px;
+}
+
+mark.find[data-current] {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}

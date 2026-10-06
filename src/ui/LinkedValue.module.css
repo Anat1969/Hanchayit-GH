@@ -1,5 +1,7 @@
 .value {
   font-weight: 700;
+  color: var(--board-ink);
+  border-block-end: 1px dotted var(--board-strong);
   border-radius: 1px;
   padding-inline: 1px;
   cursor: default;
@@ -39,12 +41,12 @@
 
 .slider input::-webkit-slider-runnable-track {
   block-size: 1px;
-  background: var(--ink);
+  background: var(--board-strong);
 }
 
 .slider input::-moz-range-track {
   block-size: 1px;
-  background: var(--ink);
+  background: var(--board-strong);
 }
 
 .slider input::-webkit-slider-thumb {

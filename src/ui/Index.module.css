@@ -1,5 +1,4 @@
 .index {
-  font-family: var(--font-ui);
   font-size: 14px;
   line-height: 1.4;
 }
@@ -10,53 +9,65 @@
   padding: 0;
 }
 
-.index ul ul {
-  padding-inline-start: calc(var(--u) * 2);
-}
-
-.index > ul > li + li {
-  margin-block-start: calc(var(--u) * 4);
-}
-
-/* שורש: שם הפרק (א' או ב') */
-.index > ul > li > .item {
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.index > ul > li > ul {
-  padding-inline-start: 0;
-}
-
-.index > ul > li > ul > li + li {
-  margin-block-start: calc(var(--u) * 1.5);
+.index ul ul ul {
+  padding-inline-start: 26px;
 }
 
 .item {
   display: flex;
-  gap: var(--u);
-  align-items: baseline;
+  gap: 8px;
+  align-items: center;
   inline-size: 100%;
-  padding: 3px 0;
+  padding: 5px 8px;
   border: 0;
+  border-radius: 8px;
   background: none;
   text-align: start;
-  cursor: pointer;
-  color: var(--pencil);
+  font: inherit;
+  color: var(--board-ink);
 }
 
 .item:hover {
-  color: var(--ink);
+  background: var(--board-soft);
 }
 
 .item[aria-current] {
-  color: var(--ink);
+  background: var(--paper);
+  color: var(--board-strong);
   font-weight: 700;
+}
+
+/* שורש: שם הפרק, כרצועה בצבע הלוח */
+.index > ul > li + li {
+  margin-block-start: 20px;
+}
+
+.index > ul > li > .item {
+  background: var(--board-strong);
+  color: var(--paper);
+  font-weight: 700;
+  padding: 8px 10px;
+}
+
+.index > ul > li > ul {
+  margin-block-start: 6px;
+}
+
+/* פרק משנה ממוספר: אייקון ושם מודגש */
+.index > ul > li > ul > li > .item {
+  font-weight: 500;
+}
+
+.index > ul > li > ul > li + li {
+  margin-block-start: 2px;
 }
 
 .ref {
   flex: none;
-  min-inline-size: 4ch;
+  min-inline-size: 3.5ch;
+  color: var(--pencil);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
 }
 
 .title {
@@ -65,7 +76,10 @@
 
 .cube {
   flex: none;
-  inline-size: 10px;
-  block-size: 10px;
-  align-self: center;
+  display: inline-grid;
+  color: var(--board-strong);
+}
+
+.item[aria-current] .ref {
+  color: var(--board-strong);
 }

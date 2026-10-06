@@ -1,14 +1,22 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { Search, SearchResult } from '../search/index.ts';
 import { snippet } from '../search/snippet.ts';
+import { Icon } from './icons.tsx';
 import s from './SearchField.module.css';
 
-export function SearchField({ search, allowed, onNavigate }: {
+export function SearchField({ search, allowed, onNavigate, onQueryChange, find }: {
   search: Search;
   allowed: (id: string) => boolean;
   onNavigate: (ruleId: string, mode?: 'push' | 'replace') => void;
+  onQueryChange: (q: string) => void;
+  /** מעבר בין מופעי מילת החיפוש בתוך המסמך */
+  find: { index: number; total: number; step: (d: 1 | -1) => void };
 }) {
-  const [query, setQuery] = useState('');
+  const [query, setQueryState] = useState('');
+  const setQuery = (q: string) => {
+    setQueryState(q);
+    onQueryChange(q);
+  };
   const [open, setOpen] = useState(false);
   const [cursor, setCursor] = useState(0);
   const listId = useId();
@@ -60,8 +68,13 @@ export function SearchField({ search, allowed, onNavigate }: {
           setOpen(true);
         }}
         onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
         onKeyDown={(e) => {
-          if (e.key === 'Escape') setOpen(false);
+          if (e.key === 'Escape') {
+            // סוגר את הרשימה בלי למחוק את החיפוש, כדי שהסימון במסמך יישאר
+            e.preventDefault();
+            setOpen(false);
+          }
           else if (e.key === 'ArrowDown') {
             e.preventDefault();
             setOpen(true);
@@ -70,13 +83,28 @@ export function SearchField({ search, allowed, onNavigate }: {
             e.preventDefault();
             setCursor((c) => Math.max(c - 1, 0));
           } else if (e.key === 'Enter') {
-            if (result.kind === 'jump') choose(result.ruleId);
+            // רשימה סגורה: Enter עובר למופע הבא במסמך, Shift+Enter לקודם
+            if (!showList && find.total) find.step(e.shiftKey ? -1 : 1);
+            else if (result.kind === 'jump') choose(result.ruleId);
             else if (hits[cursor]) choose(hits[cursor].id);
           }
         }}
       />
+      {find.total > 0 && (
+        <div className={s.find} role="group" aria-label="מעבר בין המופעים במסמך">
+          <span className={s.count} aria-live="polite">
+            {find.index + 1} מתוך {find.total}
+          </span>
+          <button type="button" className="icon-btn" aria-label="המופע הקודם" title="המופע הקודם (Shift+Enter)" onMouseDown={(e) => e.preventDefault()} onClick={() => find.step(-1)}>
+            <Icon name="up" />
+          </button>
+          <button type="button" className="icon-btn" aria-label="המופע הבא" title="המופע הבא (Enter)" onMouseDown={(e) => e.preventDefault()} onClick={() => find.step(1)}>
+            <Icon name="down" />
+          </button>
+        </div>
+      )}
       {showList && (
-        <div className={s.panel}>
+        <div className={s.panel} onMouseDown={(e) => e.preventDefault()}>
           {result.kind === 'empty' ? (
             <p className={s.empty} role="status">
               לא נמצא סעיף עבור '{query.trim()}'.

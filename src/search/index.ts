@@ -116,6 +116,16 @@ export function buildSearch(chapter: Chapter, synonyms: Synonyms) {
   }
 
   return {
+    /**
+     * מונחים לסימון בתוך המסמך: המילים שהוקלדו והמילים הנרדפות שלהן.
+     * מספר סעיף אינו מסומן. גם הצורות בלי תחילית, לשימוש כשאין התאמה מדויקת.
+     */
+    findTerms(query: string): { exact: string[]; loose: string[] } {
+      if (!tokenize(query).length || SECTION_NUMBER.test(query)) return { exact: [], loose: [] };
+      const exact = [...new Set(expand(query).flatMap(tokenize))].filter((t) => t.length >= 2);
+      const loose = [...new Set(exact.flatMap(stems))].filter((t) => t.length >= 3);
+      return { exact, loose };
+    },
     search(query: string, allowed?: (id: string) => boolean): SearchResult {
       if (!tokenize(query).length) return { kind: 'hits', hits: [] };
       const numbered = byNumber(query);

@@ -1,16 +1,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@fontsource/david-libre/hebrew-400.css';
-import '@fontsource/david-libre/hebrew-700.css';
-import '@fontsource/david-libre/latin-400.css';
-import '@fontsource/david-libre/latin-700.css';
-import '@fontsource/miriam-libre/hebrew-400.css';
-import '@fontsource/miriam-libre/hebrew-700.css';
-import '@fontsource/miriam-libre/latin-400.css';
-import '@fontsource/miriam-libre/latin-700.css';
+import '@fontsource/rubik/hebrew-400.css';
+import '@fontsource/rubik/hebrew-500.css';
+import '@fontsource/rubik/hebrew-700.css';
+import '@fontsource/rubik/latin-400.css';
+import '@fontsource/rubik/latin-500.css';
+import '@fontsource/rubik/latin-700.css';
 import './styles/tokens.css';
 import './styles/print.css';
 import './styles/scene.css';
+import './styles/controls.css';
 import { App } from './App.tsx';
 
 document.documentElement.lang = 'he';

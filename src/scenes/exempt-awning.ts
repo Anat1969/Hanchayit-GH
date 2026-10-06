@@ -1,5 +1,5 @@
 import { dim, need } from './dims.ts';
-import { box, sidewalk } from './common.ts';
+import { box, sidewalk, ctx } from './common.ts';
 import { EXEMPT_AWNING as A } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -19,7 +19,7 @@ export const exemptAwning: SceneDef = {
     const roof = get('exempt_roof_canopy_setback_min');
     const W = A.width / 2;
     m.surfaces.push(...sidewalk(A.width + 4));
-    m.volumes.push(box('mass', -W, W, 0, A.height, -A.depth, 0));
+    m.volumes.push(ctx(box('mass', -W, W, 0, A.height, -A.depth, 0)));
     m.volumes.push(box('mass', -W, W, A.height, A.height + A.parapet, -0.2, 0));
 
     // גגון מעל הדלת

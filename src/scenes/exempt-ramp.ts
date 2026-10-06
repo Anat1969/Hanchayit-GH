@@ -1,5 +1,5 @@
 import { dim, need, tag } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { EXEMPT_PLOT as E, EXEMPT_RAMP as R } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -18,7 +18,7 @@ export const exemptRamp: SceneDef = {
     const hz1 = -E.frontSetback;
     // הבית על מסד בגובה הפרש המפלסים
     m.volumes.push(box('mass', -W + 1, W - 1, 0, rise.value, hz1 - h.depth, hz1));
-    m.volumes.push(box('mass', -W + 1, W - 1, rise.value, h.height, hz1 - h.depth, hz1 - 0.3));
+    m.volumes.push(ctx(box('mass', -W + 1, W - 1, rise.value, h.height, hz1 - h.depth, hz1 - 0.3)));
     // משטח כניסה בפינת החזית, והכבש לאורך החזית בתוך המגרש
     const lx1 = W - 1;
     const lx0 = lx1 - R.landing;

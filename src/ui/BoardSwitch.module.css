@@ -13,6 +13,7 @@
   padding: 0;
 }
 
+.swatch[data-board='mono'] { background: linear-gradient(135deg, #000 50%, #fff 50%); }
 .swatch[data-board='blue'] { background: #1f4e79; }
 .swatch[data-board='green'] { background: #1e6b3a; }
 .swatch[data-board='yellow'] { background: #d8a300; }

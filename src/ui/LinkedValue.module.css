@@ -1,5 +1,5 @@
 .value {
-  font-weight: 700;
+  font-weight: var(--w-strong);
   color: var(--board-ink);
   border-block-end: 1px dotted var(--board-strong);
   border-radius: 1px;
@@ -15,7 +15,7 @@
 
 .original {
   color: var(--pencil);
-  font-weight: 400;
+  font-weight: var(--w-regular);
 }
 
 /* מחוון: פס דיו דק, ידית ריבועית ומספר לידה (DESIGN.md, "מצב בחינה") */

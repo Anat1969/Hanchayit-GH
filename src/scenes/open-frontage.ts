@@ -1,4 +1,4 @@
-import { box, sidewalk } from './common.ts';
+import { box, sidewalk, ctx } from './common.ts';
 import { OPEN_FRONTAGE as O } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -12,7 +12,7 @@ export const openFrontage: SceneDef = {
     m.surfaces.push({ use: 'road', polygon: [[-W, -O.frontYard], [W, -O.frontYard], [W, 0], [-W, 0]], y: 0.002 });
     m.surfaces.push({ use: 'residential', polygon: [[-W, -O.frontYard - O.building.depth], [W, -O.frontYard - O.building.depth], [W, -O.frontYard], [-W, -O.frontYard]], y: 0 });
     m.lines.push({ kind: 'plot', points: [[-W, 0.01, 0], [W, 0.01, 0]] });
-    m.volumes.push(box('mass', -W + 2, W - 2, 0, O.building.height, -O.frontYard - O.building.depth, -O.frontYard));
+    m.volumes.push(ctx(box('mass', -W + 2, W - 2, 0, O.building.height, -O.frontYard - O.building.depth, -O.frontYard)));
     // כניסה ראשית ממוקמת במרכז החזית
     m.volumes.push(box('glass', -2, 2, 0, 3.2, -O.frontYard - 0.05, -O.frontYard + 0.05));
 

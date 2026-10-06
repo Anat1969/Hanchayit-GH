@@ -1,6 +1,6 @@
 import { largerOf } from '../rules/derive.ts';
 import { need, tag } from './dims.ts';
-import { box } from './common.ts';
+import { box, ctx } from './common.ts';
 import { BALCONY as B, FLOOR } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -17,10 +17,10 @@ export const pergolaBalcony: SceneDef = {
     const front = 0;
     const back = -B.depth;
     m.surfaces.push({ use: 'residential', polygon: [[-W - 3, back - 3], [W + 3, back - 3], [W + 3, 3], [-W - 3, 3]], y: 0 });
-    m.volumes.push(box('mass', -W, W, 0, h, back, front));
+    m.volumes.push(ctx(box('mass', -W, W, 0, h, back, front)));
     // קומת גג בנסיגה, והמרפסת לפניה
     const b = B.balcony;
-    m.volumes.push(box('mass', -W, W, h, h + FLOOR.typicalHeight, back, front - b.depth));
+    m.volumes.push(ctx(box('mass', -W, W, h, h + FLOOR.typicalHeight, back, front - b.depth)));
     m.volumes.push(box('light', -W, W, h, h + B.railing, front - 0.08, front));
     for (const x of [-W, W - 0.08]) m.volumes.push(box('light', x, x + 0.08, h, h + B.railing, front - b.depth, front));
 

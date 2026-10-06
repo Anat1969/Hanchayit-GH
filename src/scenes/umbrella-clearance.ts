@@ -1,5 +1,5 @@
 import { dim, need } from './dims.ts';
-import { box } from './common.ts';
+import { box, ctx } from './common.ts';
 import { UMBRELLA as U } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -15,8 +15,8 @@ export const umbrellaClearance: SceneDef = {
     const curb = U.sidewalk;
     m.surfaces.push({ use: 'road', polygon: [[-W, 0], [W, 0], [W, curb], [-W, curb]], y: 0, paving: { from: [-W, 0], to: [W, 0], width: curb } });
     m.surfaces.push({ use: 'road', polygon: [[-W, curb], [W, curb], [W, curb + 3], [-W, curb + 3]], y: -U.curb });
-    m.volumes.push(box('mass', -W, W, 0, U.building.height, -U.building.depth, 0));
-    m.volumes.push(box('glass', -W + 1, W - 1, 0, 3.5, 0, 0.05));
+    m.volumes.push(ctx(box('mass', -W, W, 0, U.building.height, -U.building.depth, 0)));
+    m.volumes.push(ctx(box('glass', -W + 1, W - 1, 0, 3.5, 0, 0.05)));
 
     // השמשייה: קצה הסוכך במרחק המזערי מאבן השפה
     const r = U.canopyRadius;

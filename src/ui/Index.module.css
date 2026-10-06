@@ -34,7 +34,7 @@
 .item[aria-current] {
   background: var(--paper);
   color: var(--board-strong);
-  font-weight: 700;
+  font-weight: var(--w-strong);
 }
 
 /* שורש: שם הפרק, כרצועה בצבע הלוח */
@@ -45,7 +45,7 @@
 .index > ul > li > .item {
   background: var(--board-strong);
   color: var(--paper);
-  font-weight: 700;
+  font-weight: var(--w-strong);
   padding: 8px 10px;
 }
 
@@ -55,7 +55,7 @@
 
 /* פרק משנה ממוספר: אייקון ושם מודגש */
 .index > ul > li > ul > li > .item {
-  font-weight: 500;
+  font-weight: var(--w-strong);
 }
 
 .index > ul > li > ul > li + li {
@@ -77,7 +77,12 @@
 .cube {
   flex: none;
   display: inline-grid;
-  color: var(--board-strong);
+  place-items: center;
+  inline-size: 24px;
+  block-size: 24px;
+  border-radius: 6px;
+  background: var(--board-strong);
+  color: var(--paper);
 }
 
 .item[aria-current] .ref {

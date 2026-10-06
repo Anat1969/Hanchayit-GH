@@ -11,8 +11,8 @@ export function Logo() {
     <img
       src={`${import.meta.env.BASE_URL}ashdod-logo.png`}
       alt="עיריית אשדוד"
-      height={44}
-      style={{ display: 'block', blockSize: 44, inlineSize: 'auto' }}
+      height={48}
+      style={{ display: 'block', blockSize: 48, inlineSize: 'auto' }}
       onError={() => setOk(false)}
     />
   );

@@ -1,5 +1,5 @@
 import { need, tag } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { PARKING_CANOPY as P } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -15,7 +15,7 @@ export const parkingCanopy: SceneDef = {
     m.surfaces.push(...sidewalk(P.plot.width));
 
     const h = P.house;
-    m.volumes.push(box('mass', -W + 1, -W + 1 + h.width, 0, h.height, -P.plot.depth + 4, -P.plot.depth + 4 + h.depth));
+    m.volumes.push(ctx(box('mass', -W + 1, -W + 1 + h.width, 0, h.height, -P.plot.depth + 4, -P.plot.depth + 4 + h.depth)));
     // קירוי: רוחב קבוע ועומק לפי השטח המרבי
     const depth = area.value / P.width;
     const x1 = W - 0.5;

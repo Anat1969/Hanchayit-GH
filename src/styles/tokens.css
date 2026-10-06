@@ -19,21 +19,32 @@
   --font-text: 'Rubik', 'Arial Hebrew', sans-serif;
   --font-ui: 'Rubik', 'Arial Hebrew', sans-serif;
 
-  /* לוח עיצוב: גוון אחד בהיר לרקע וחזק לכותרות. מוחלף ב־data-board על השורש */
-  --board-bg: #eef4fb;
-  --board-soft: #d6e4f5;
-  --board-strong: #1f4e79;
-  --board-ink: #13314d;
+  /* לוח עיצוב: גוון אחד בהיר לרקע וחזק לכותרות. מוחלף ב־data-board על השורש. ברירת המחדל: שחור ולבן */
+  --board-bg: #f4f4f4;
+  --board-soft: #e2e2e2;
+  --board-strong: #1a1a1a;
+  --board-ink: #000000;
+
+  /* גופן דק: משקל רגיל 300, הדגשה 500 */
+  --w-regular: 300;
+  --w-strong: 500;
 
   --u: 8px;
-  --index-width: 260px;
-  --measure: 68ch;
+  --index-width: 300px;
+  --measure: 60ch;
   --gap-rule: 12px;
   --gap-section: 32px;
   --radius-control: 3px;
   --line: 1px solid var(--ink);
 }
 
+/* לוח שחור ולבן, וארבעה לוחות עיצוב מונוכרומטיים. */
+:root[data-board='mono'] {
+  --board-bg: #f4f4f4;
+  --board-soft: #e2e2e2;
+  --board-strong: #1a1a1a;
+  --board-ink: #000000;
+}
 /* ארבעה לוחות עיצוב מונוכרומטיים. הצבע החזק עומד ביחס ניגודיות של 4.5:1 לפחות על הרקע */
 :root[data-board='red'] {
   --board-bg: #fdf1f0;
@@ -73,7 +84,19 @@ body {
   color: var(--ink);
   font-family: var(--font-ui);
   font-size: 15px;
+  font-weight: var(--w-regular);
+  letter-spacing: -0.01em;
   line-height: 1.4;
+}
+
+b,
+strong,
+th,
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--w-strong);
 }
 
 :focus-visible {

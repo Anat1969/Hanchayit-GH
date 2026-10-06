@@ -176,7 +176,7 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
       <div className={s.top}>
         <div className={s.titleRow}>
           <Icon name="cube" size={20} />
-          <h2 className={s.title} data-dimmed={!live || undefined}>
+          <h2 key={live ? shown.sceneId : 'none'} className={s.title} data-dimmed={!live || undefined}>
             {live ? shownMeta!.title : caption}
           </h2>
           {live && (
@@ -209,7 +209,7 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
           <div className={s.canvas} aria-hidden="true">
             <ModelBoundary>
               <Suspense fallback={<div className={s.loading} />}>
-                <SceneCanvas model={shown.model} view={view} resetKey={resetKey} mode={mode} zoom={zoomCmd} onZoom={setZoom} />
+                <SceneCanvas sceneKey={`${shown.sceneId}/${shown.type}`} model={shown.model} view={view} resetKey={resetKey} mode={mode} zoom={zoomCmd} onZoom={setZoom} />
               </Suspense>
             </ModelBoundary>
           </div>

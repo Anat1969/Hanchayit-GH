@@ -1,5 +1,5 @@
 import { dim, need, tag } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { COMMON_GREEN as G } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -24,7 +24,7 @@ export const commonGreen: SceneDef = {
     const b = G.building;
     const bz1 = -G.frontSetback;
     const bz0 = bz1 - b.depth;
-    m.volumes.push(box('mass', -b.width / 2, b.width / 2, 0, b.height, bz0, bz1));
+    m.volumes.push(ctx(box('mass', -b.width / 2, b.width / 2, 0, b.height, bz0, bz1)));
     m.labels.push({ text: 'לובי', at: [0, 0.2, bz1 + 0.6] });
 
     // ליד הלובי: ריבוע בשטח הנדרש, בחזית לרחוב

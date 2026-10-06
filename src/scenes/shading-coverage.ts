@@ -25,6 +25,7 @@ export const shadingCoverage: SceneDef = {
   build(get, controls) {
     const m = emptyModel('x');
     m.north = true;
+    m.computedShadows = true;
     const seating = need(get('shade_seating'), 'shade_seating');
     const stay = need(get('shade_stay_areas'), 'shade_stay_areas');
     const open = need(get('shade_open_space'), 'shade_open_space');
@@ -41,7 +42,7 @@ export const shadingCoverage: SceneDef = {
     const bz1 = D - S.frontSetback;
     const bz0 = bz1 - b.depth;
     const building = box('mass', W - 1 - b.width, W - 1, 0, b.height, bz0, bz1);
-    m.volumes.push(building);
+    m.volumes.push({ ...building, context: true });
 
     // מצללה בגובה המינימלי לאלמנטי הצללה
     const p = S.pergola;

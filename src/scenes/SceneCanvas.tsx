@@ -3,6 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import type { SceneModel, View } from './model.ts';
 import { fitZoom, modelBounds, viewBasis } from './viewing.ts';
 import { readPalette } from './palette.ts';
@@ -118,7 +119,71 @@ function CameraRig({ model, view, resetKey, mode, zoom, onZoom }: {
   );
 }
 
-export default function SceneCanvas({ model, view, resetKey, mode, zoom, onZoom }: {
+/** סביבת סטודיו מקומית להשתקפויות (בלי קבצים מהרשת), כדי שזכוכית ומים יבריקו */
+function Studio() {
+  const { gl, scene } = useThree();
+  useEffect(() => {
+    const pmrem = new THREE.PMREMGenerator(gl);
+    const env = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    scene.environment = env;
+    return () => {
+      scene.environment = null;
+      env.dispose();
+      pmrem.dispose();
+    };
+  }, [gl, scene]);
+  return null;
+}
+
+/** אור שמש עם צל רך, שמצלמת הצל שלו מכסה את הסצנה */
+function Sun({ model }: { model: SceneModel }) {
+  const box = useMemo(() => modelBounds(model), [model]);
+  const size = box.getSize(new THREE.Vector3()).length() / 2 + 2;
+  const c = box.getCenter(new THREE.Vector3());
+  const light = useRef<THREE.DirectionalLight>(null);
+  useEffect(() => {
+    const l = light.current;
+    if (!l) return;
+    l.target.position.copy(c);
+    l.target.updateMatrixWorld();
+    const cam = l.shadow.camera;
+    cam.left = -size;
+    cam.right = size;
+    cam.top = size;
+    cam.bottom = -size;
+    cam.near = 0.5;
+    cam.far = size * 6;
+    cam.updateProjectionMatrix();
+  }, [c, size]);
+  return (
+    <directionalLight
+      ref={light}
+      position={[c.x - size, c.y + size * 2, c.z + size * 1.2]}
+      intensity={1.6}
+      castShadow={!model.computedShadows}
+      shadow-mapSize={[2048, 2048]}
+      shadow-bias={-0.0004}
+      shadow-radius={4}
+    />
+  );
+}
+
+/** קולט צל שקוף על הקרקע */
+function ShadowCatcher({ model }: { model: SceneModel }) {
+  const box = useMemo(() => modelBounds(model), [model]);
+  const s = box.getSize(new THREE.Vector3());
+  const c = box.getCenter(new THREE.Vector3());
+  return (
+    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[c.x, 0.003, c.z]} receiveShadow>
+      <planeGeometry args={[s.x + 20, s.z + 20]} />
+      <shadowMaterial transparent opacity={0.18} />
+    </mesh>
+  );
+}
+
+export default function SceneCanvas({ sceneKey, model, view, resetKey, mode, zoom, onZoom }: {
+  /** מזהה הסצנה: החלפה מפעילה מחדש את הנפשת הכניסה */
+  sceneKey: string;
   model: SceneModel;
   view: View;
   resetKey: number;
@@ -140,20 +205,31 @@ export default function SceneCanvas({ model, view, resetKey, mode, zoom, onZoom 
   };
 
   return (
-    <Canvas orthographic dpr={[1, 2]} camera={{ position: [0, 0, 0], zoom: 20, near: 0.1, far: 1000 }} aria-hidden="true">
+    <Canvas
+      orthographic
+      shadows="soft"
+      dpr={[1, 3]}
+      gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.05 }}
+      camera={{ position: [0, 0, 0], zoom: 20, near: 0.1, far: 1000 }}
+      aria-hidden="true"
+    >
       <color attach="background" args={[palette.paper]} />
-      <ambientLight intensity={2.2} />
-      <directionalLight position={[-30, 60, 40]} intensity={1} />
+      <Studio />
+      <hemisphereLight args={['#ffffff', '#d9d4c7', 0.9]} />
+      <Sun model={model} />
+      {!model.computedShadows && <ShadowCatcher model={model} />}
       <ViewContext.Provider value={{ palette, zoom: state.zoom, viewDir: state.viewDir }}>
         <CameraRig model={model} view={view} resetKey={resetKey} mode={mode} zoom={zoom} onZoom={handleZoom} />
-        {model.surfaces.map((s, i) => <Surface key={`s${i}`} s={s} />)}
-        {model.lines.map((l, i) => <PlotBoundary key={`l${i}`} line={l} />)}
-        {model.volumes.map((v, i) => <Volume key={`v${i}`} v={v} />)}
-        {model.trees.map((t, i) => <Tree key={`t${i}`} at={t} />)}
-        {model.persons.map((p, i) => <Person key={`p${i}`} at={p} />)}
-        {model.dims.map((d) => <Dimension key={`${d.ruleId}/${d.paramKey}`} d={d} />)}
-        {model.tags.map((t) => <TagLabel key={`${t.ruleId}/${t.paramKey}`} t={t} />)}
-        {model.labels.map((l, i) => <PencilLabel key={`b${i}`} text={l.text} at={l.at} />)}
+        <group key={sceneKey}>
+          {model.surfaces.map((s, i) => <Surface key={`s${i}`} s={s} />)}
+          {model.lines.map((l, i) => <PlotBoundary key={`l${i}`} line={l} />)}
+          {model.volumes.map((v, i) => <Volume key={`v${i}`} v={v} delay={Math.min(i, 30) * 18} />)}
+          {model.trees.map((t, i) => <Tree key={`t${i}`} at={t} />)}
+          {model.persons.map((p, i) => <Person key={`p${i}`} at={p} />)}
+          {model.dims.map((d) => <Dimension key={`${d.ruleId}/${d.paramKey}`} d={d} />)}
+          {model.tags.map((t) => <TagLabel key={`${t.ruleId}/${t.paramKey}`} t={t} />)}
+          {model.labels.map((l, i) => <PencilLabel key={`b${i}`} text={l.text} at={l.at} />)}
+        </group>
       </ViewContext.Provider>
     </Canvas>
   );

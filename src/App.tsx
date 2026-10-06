@@ -13,7 +13,7 @@ import { TypeSwitch } from './ui/TypeSwitch.tsx';
 import { ReviewBar } from './ui/ReviewBar.tsx';
 import { BoardSwitch } from './ui/BoardSwitch.tsx';
 import { Logo } from './ui/Logo.tsx';
-import { Icon, topicIcon } from './ui/icons.tsx';
+import { Icon } from './ui/icons.tsx';
 import { ReviewContext } from './review/review.ts';
 import s from './App.module.css';
 
@@ -177,7 +177,6 @@ export function App() {
           <header className={s.header} data-print="hide">
             <div className={s.topRow}>
               <div className={s.brand}>
-                <Logo />
                 <div>
                   <div className={s.brandTitle}>הנחיות מרחביות אשדוד</div>
                   <div className={s.brandSub}>מהדורה {edition}</div>
@@ -194,6 +193,9 @@ export function App() {
                 find={{ index: findIndex, total: find.total, step: stepFind }}
               />
               <BoardSwitch />
+              <div className={s.logo}>
+                <Logo />
+              </div>
             </div>
             <div className={s.bottomRow}>
               <TypeSwitch value={route.type} onChange={(type) => navigate({ ...route, type })} />
@@ -202,7 +204,6 @@ export function App() {
                   const sec = sectionsById.get(id)!;
                   return (
                     <span key={id} className={s.crumb}>
-                      {i === 1 && <Icon name={topicIcon(sec.title)} size={14} />}
                       {i === 0 ? (id === 'A' ? "פרק א'" : "פרק ב'") : `${sec.ref} ${sec.title}`}
                     </span>
                   );

@@ -31,3 +31,8 @@ export function plot(m: SceneModel, x0: number, x1: number, z0: number, z1: numb
   m.surfaces.push({ use, polygon: [[x0, z0], [x1, z0], [x1, z1], [x0, z1]], y: 0 });
   m.lines.push({ kind: 'plot', points: [[x0, 0.01, z0], [x1, 0.01, z0], [x1, 0.01, z1], [x0, 0.01, z1], [x0, 0.01, z0]] });
 }
+
+/** נפח רקע: מוצג שקוף, כדי שהעיקר בסצנה יבלוט */
+export function ctx(v: Volume): Volume {
+  return { ...v, context: true };
+}

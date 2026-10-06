@@ -1,5 +1,5 @@
 import { dim, need } from './dims.ts';
-import { box, sidewalk } from './common.ts';
+import { box, sidewalk, ctx } from './common.ts';
 import { VENT as V } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -25,7 +25,7 @@ export const ventOpenings: SceneDef = {
     m.surfaces.push(...sidewalk(V.width + 6));
     m.surfaces.push({ use: 'residential', polygon: [[-W - 3, -V.depth - 6], [W + 3, -V.depth - 6], [W + 3, 0], [-W - 3, 0]], y: 0 });
     m.lines.push({ kind: 'plot', points: [[-W - 3, 0.01, 0], [W + 3, 0.01, 0]] });
-    m.volumes.push(box('mass', -W, W, 0, V.height, -V.depth - 2, -2));
+    m.volumes.push(ctx(box('mass', -W, W, 0, V.height, -V.depth - 2, -2)));
 
     const v = V.vent;
     if (street) {

@@ -1,5 +1,5 @@
 import { dim, need } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { POOL as P } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -28,7 +28,7 @@ export const poolSetback: SceneDef = {
     const D = P.plot.depth;
     plot(m, -W, W, -D, 0);
     m.surfaces.push(...sidewalk(P.plot.width));
-    m.volumes.push(box('mass', -P.building.width / 2, P.building.width / 2, 0, P.building.height, -6 - P.building.depth, -6));
+    m.volumes.push(ctx(box('mass', -P.building.width / 2, P.building.width / 2, 0, P.building.height, -6 - P.building.depth, -6)));
 
     // הבריכה בפינה האחורית, צמודה למרחק המזערי מהגבול הצדי
     const s = setback.value;

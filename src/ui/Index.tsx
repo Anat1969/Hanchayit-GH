@@ -1,5 +1,5 @@
 import type { SectionNode } from '../rules/derive.ts';
-import { Icon, topicIcon } from './icons.tsx';
+import { Icon } from './icons.tsx';
 import s from './Index.module.css';
 
 
@@ -26,12 +26,11 @@ function Node({ node, depth, activeSections, onNavigate }: {
           if (id) onNavigate(id);
         }}
       >
-        {depth === 1 && <Icon name={topicIcon(section.title)} />}
         {section.ref && <span className={s.ref}>{section.ref}</span>}
         <span className={s.title}>{section.title}</span>
         {node.rules.some((r) => r.scene) && (
           <span className={s.cube}>
-            <Icon name="cube" size={13} label="יש המחשה" />
+            <Icon name="cube" size={16} label="יש המחשה" />
           </span>
         )}
       </button>

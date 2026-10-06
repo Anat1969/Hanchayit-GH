@@ -29,6 +29,8 @@ export interface Volume {
   size: Vec3;
   /** סיבוב ברדיאנים (x, y, z), לרמפה ולגג משופע */
   rotation?: Vec3;
+  /** רקע להקשר (בניין סמוך, בית במגרש): מוצג שקוף ומעומעם, כדי שהעיקר יבלוט */
+  context?: boolean;
 }
 
 export interface Surface {
@@ -90,6 +92,8 @@ export interface SceneModel {
   labels: Label[];
   /** חץ צפון בתכנית, רק כשהכיוון משמעותי (הצללה) */
   north?: boolean;
+  /** הצל בסצנה מחושב לפי השעה, ולכן בלי צל אוטומטי של התאורה */
+  computedShadows?: boolean;
   /** כיוון המבט בחתך: מהצד (ציר x) או מהרחוב (ציר z) */
   sectionAxis: 'x' | 'z';
 }

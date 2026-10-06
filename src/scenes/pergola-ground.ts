@@ -29,7 +29,7 @@ export const pergolaGround: SceneDef = {
     m.surfaces.push({ use: 'residential', polygon: [[-W, -D], [W, -D], [W, D], [-W, D]], y: 0 });
     m.lines.push({ kind: 'plot', points: [[-W, 0.01, -D], [W, 0.01, -D], [W, 0.01, D], [-W, 0.01, D], [-W, 0.01, -D]] });
     m.lines.push({ kind: 'buildingLine', points: [[-W, 0.02, buildingLine], [W, 0.02, buildingLine]], label: 'קו בניין' });
-    m.volumes.push({ kind: 'mass', center: [0, b.height / 2, (buildingRear + buildingFront) / 2], size: [b.width, b.height, b.depth] });
+    m.volumes.push({ kind: 'mass', center: [0, b.height / 2, (buildingRear + buildingFront) / 2], size: [b.width, b.height, b.depth], context: true });
 
     // עומק המצללה: עד הבליטה המותרת, ושטח עד הגדול מבין הערך המוחלט והחלק היחסי של הגינה הפנויה
     const freeGarden = P.plot.width * P.plot.depth - b.width * b.depth;

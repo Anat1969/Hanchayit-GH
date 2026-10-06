@@ -23,7 +23,7 @@
   margin: 0;
   color: var(--board-ink);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: var(--w-strong);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

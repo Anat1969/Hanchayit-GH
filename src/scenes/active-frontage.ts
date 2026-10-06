@@ -1,5 +1,5 @@
 import { need, tag } from './dims.ts';
-import { box, sidewalk } from './common.ts';
+import { box, sidewalk, ctx } from './common.ts';
 import { ACTIVE as A, FLOOR } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -17,7 +17,7 @@ export const activeFrontage: SceneDef = {
     m.lines.push({ kind: 'plot', points: [[-W - 2, 0.01, 0], [W + 2, 0.01, 0]] });
 
     m.volumes.push(box('mass', -W, W, 0, gf, -A.depth, -0.3));
-    m.volumes.push(box('mass', -W, W, gf, gf + upper, -A.depth, 0));
+    m.volumes.push(ctx(box('mass', -W, W, gf, gf + upper, -A.depth, 0)));
     // בכל מפתח: זכוכית ברוחב השיעור הנדרש, והשאר עמוד בנוי
     const pier = A.bay * (1 - transparency.value);
     const glassTop = gf - A.signHeight - 0.2;

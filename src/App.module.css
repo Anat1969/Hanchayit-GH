@@ -29,9 +29,14 @@
   flex: none;
 }
 
+.logo {
+  flex: none;
+  margin-inline-start: 8px;
+}
+
 .brandTitle {
   font-size: 17px;
-  font-weight: 700;
+  font-weight: var(--w-strong);
   color: var(--board-strong);
   line-height: 1.2;
 }
@@ -75,7 +80,7 @@
 }
 
 .crumb:last-child {
-  font-weight: 700;
+  font-weight: var(--w-strong);
 }
 
 .progress {

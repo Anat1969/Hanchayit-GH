@@ -18,6 +18,25 @@
   cursor: pointer;
   user-select: none;
   direction: rtl;
+  /* הנפשת כניסה: התוויות מופיעות אחרי שהנפחים צמחו */
+  animation: scene-label-in 320ms ease-out 420ms both;
+}
+
+@keyframes scene-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-label {
+    animation: none;
+  }
 }
 
 span.scene-label {

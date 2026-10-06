@@ -1,5 +1,5 @@
 import { dim, need } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { PLANTING as P } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -16,7 +16,7 @@ export const plantingStrip: SceneDef = {
     plot(m, -W, W, -D, 0);
     m.surfaces.push(...sidewalk(P.plot.width));
     m.volumes.push(box('soil', -W, W, 0, 0.05, -w, 0));
-    m.volumes.push(box('mass', -P.building.width / 2, P.building.width / 2, 0, P.building.height, -D + 8, -D + 8 + P.building.depth));
+    m.volumes.push(ctx(box('mass', -P.building.width / 2, P.building.width / 2, 0, P.building.height, -D + 8, -D + 8 + P.building.depth)));
     for (let x = -W + 3; x < W; x += 6) m.trees.push([x, 0, -w / 2]);
     m.dims.push(dim(strip, [W, 0.05, 0], [W, 0.05, -w], [1, 0, 0]));
     m.notes.push({ text: 'פירוש לבחינה: הרצועה מוצגת לאורך החזית הראשית וברוחב מינימלי. ההנחיה לא קובעת לאורך אילו גבולות.' });

@@ -1,32 +1,56 @@
+import { useEffect, useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
 import { Edges } from '@react-three/drei';
+import type * as THREE from 'three';
 import type { Volume as V } from '../model.ts';
-import type { Palette } from '../palette.ts';
+import { CONTEXT_OPACITY, FINISH } from '../materials.ts';
 import { useView } from './context.ts';
 
-function material(kind: V['kind'], p: Palette): { color: string; opacity: number } {
-  switch (kind) {
-    case 'soil':
-      return { color: p.openSpace, opacity: 1 };
-    case 'glass':
-      return { color: p.paper, opacity: 0.35 };
-    case 'water':
-      return { color: p.road, opacity: 1 };
-    case 'dark':
-      return { color: p.pencil, opacity: 1 };
-    default:
-      return { color: p.mass, opacity: 1 };
-  }
-}
+const GROW_MS = 520;
+const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/** נפח לבן מט עם קווי מתאר בדיו (EdgesGeometry, זווית סף 30°) */
-export function Volume({ v }: { v: V }) {
+/**
+ * נפח בחומר שלו, עם קו מתאר. כשהסצנה עולה הנפח "צומח" מהקרקע (delay לפי הסדר).
+ * נפח רקע מוצג שקוף ומעומעם, כדי שהעיקר יבלוט.
+ */
+export function Volume({ v, delay = 0 }: { v: V; delay?: number }) {
   const { palette } = useView();
-  const { color, opacity } = material(v.kind, palette);
+  const f = FINISH[v.kind];
+  const opacity = v.context ? Math.min(f.opacity, CONTEXT_OPACITY) : f.opacity;
+  const group = useRef<THREE.Group>(null);
+  const start = useRef<number | null>(null);
+
+  useEffect(() => {
+    start.current = reduced() ? null : performance.now() + delay;
+    if (start.current === null && group.current) group.current.scale.y = 1;
+  }, [delay]);
+
+  useFrame(() => {
+    const g = group.current;
+    if (!g || start.current === null) return;
+    const t = Math.min(1, Math.max(0, (performance.now() - start.current) / GROW_MS));
+    g.scale.y = Math.max(0.001, 1 - (1 - t) ** 3);
+    if (t >= 1) start.current = null;
+  });
+
+  // הצמיחה מתחילה בבסיס הנפח
+  const [cx, cy, cz] = v.center;
+  const base = cy - v.size[1] / 2;
   return (
-    <mesh position={v.center} rotation={v.rotation ?? [0, 0, 0]}>
-      <boxGeometry args={v.size} />
-      <meshLambertMaterial color={color} transparent={opacity < 1} opacity={opacity} depthWrite={opacity === 1} />
-      <Edges threshold={30} color={palette.ink} />
-    </mesh>
+    <group ref={group} position={[cx, base, cz]} scale={[1, reduced() ? 1 : 0.001, 1]}>
+      <mesh position={[0, v.size[1] / 2, 0]} rotation={v.rotation ?? [0, 0, 0]} castShadow={!v.context} receiveShadow>
+        <boxGeometry args={v.size} />
+        <meshStandardMaterial
+          color={f.color}
+          roughness={f.roughness}
+          metalness={f.metalness}
+          transparent={opacity < 1}
+          opacity={opacity}
+          depthWrite={opacity === 1}
+          envMapIntensity={v.kind === 'glass' || v.kind === 'water' ? 1.4 : 0.6}
+        />
+        <Edges threshold={30} color={v.context ? palette.pencil : '#2b2b2b'} transparent opacity={v.context ? 0.5 : 1} />
+      </mesh>
+    </group>
   );
 }

@@ -1,5 +1,5 @@
 import { dim, need } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { EXEMPT_PLOT as E } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -21,7 +21,7 @@ export const exemptFence: SceneDef = {
     plot(m, -W, W, -D, 0);
     m.surfaces.push(...sidewalk(E.width));
     const h = E.house;
-    m.volumes.push(box('mass', -W + 1.5, -W + 1.5 + h.width, 0, h.height, -E.frontSetback - h.depth, -E.frontSetback));
+    m.volumes.push(ctx(box('mass', -W + 1.5, -W + 1.5 + h.width, 0, h.height, -E.frontSetback - h.depth, -E.frontSetback)));
 
     // גבול צדי מזרחי: גדר; גבול אחורי: קיר תמך
     const t = 0.1;

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import s from './BoardSwitch.module.css';
 
-export type Board = 'blue' | 'green' | 'yellow' | 'red';
+export type Board = 'mono' | 'blue' | 'green' | 'yellow' | 'red';
 
 const BOARDS: Array<{ id: Board; label: string }> = [
+  { id: 'mono', label: 'שחור ולבן' },
   { id: 'blue', label: 'כחול' },
   { id: 'green', label: 'ירוק' },
   { id: 'yellow', label: 'צהוב' },
@@ -19,7 +20,7 @@ function stored(): Board {
   } catch {
     // אחסון חסום: נשארים עם ברירת המחדל
   }
-  return 'blue';
+  return 'mono';
 }
 
 /** לוח העיצוב: גוון אחד בהיר לרקע וחזק לכותרות. הבחירה נשמרת בדפדפן של הצופה בלבד. */

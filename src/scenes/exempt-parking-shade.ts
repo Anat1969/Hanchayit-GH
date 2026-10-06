@@ -1,5 +1,5 @@
 import { dim, need, tag } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { EXEMPT_PLOT as E, PARKING_CANOPY as P } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -15,7 +15,7 @@ export const exemptParkingShade: SceneDef = {
     plot(m, -W, W, -E.depth, 0);
     m.surfaces.push(...sidewalk(E.width));
     const h = E.house;
-    m.volumes.push(box('mass', -W + 1.5, -W + 1.5 + h.width, 0, h.height, -E.frontSetback - h.depth, -E.frontSetback));
+    m.volumes.push(ctx(box('mass', -W + 1.5, -W + 1.5 + h.width, 0, h.height, -E.frontSetback - h.depth, -E.frontSetback)));
 
     const width = P.width;
     const depth = area.value / width;

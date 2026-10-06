@@ -1,5 +1,5 @@
 import { dim, need, tag } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { EXEMPT_PLOT as E, EXEMPT_SHED as S } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -21,7 +21,7 @@ export const exemptShed: SceneDef = {
     const hx1 = hx0 + h.width;
     const hz1 = -E.frontSetback;
     const hz0 = hz1 - h.depth;
-    m.volumes.push(box('mass', hx0, hx1, 0, h.height, hz0, hz1));
+    m.volumes.push(ctx(box('mass', hx0, hx1, 0, h.height, hz0, hz1)));
 
     // המחסן בעורף, צמוד לקיר האחורי של הבית
     const width = S.width;

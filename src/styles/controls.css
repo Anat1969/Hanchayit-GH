@@ -35,7 +35,7 @@
 .seg > button[aria-pressed='true'] {
   background: var(--board-strong);
   color: var(--paper);
-  font-weight: 500;
+  font-weight: var(--w-strong);
 }
 
 .icon-btn {
@@ -76,7 +76,7 @@
   padding: 4px 12px;
   font: inherit;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--w-strong);
 }
 
 .text-btn:hover:not(:disabled) {
@@ -105,4 +105,41 @@ mark.find {
 mark.find[data-current] {
   outline: 2px solid var(--ink);
   outline-offset: 1px;
+}
+
+/* הנפשות עדינות: מעבר צבע בריחוף ובבחירה, והבהוב קצר למופע החיפוש הנוכחי */
+.seg > button,
+.icon-btn,
+.text-btn {
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+
+.icon-btn:active:not(:disabled),
+.text-btn:active:not(:disabled),
+.seg > button:active {
+  transform: scale(0.96);
+}
+
+mark.find[data-current] {
+  animation: find-pulse 700ms ease-out;
+}
+
+@keyframes find-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--marker);
+  }
+  60% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seg > button,
+  .icon-btn,
+  .text-btn {
+    transition: none;
+  }
+  mark.find[data-current] {
+    animation: none;
+  }
 }

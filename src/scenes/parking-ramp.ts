@@ -1,5 +1,5 @@
 import { dim, need, tag } from './dims.ts';
-import { box, plot, sidewalk } from './common.ts';
+import { box, plot, sidewalk, ctx } from './common.ts';
 import { RAMP as R } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -30,7 +30,7 @@ export const parkingRamp: SceneDef = {
       rotation: [-angle, 0, 0],
     });
     for (const x of [x0 - 0.1, x1 + 0.1]) m.volumes.push(box('mass', x - 0.1, x + 0.1, -R.depth, 0.9, -s - R.length, -s));
-    m.volumes.push(box('mass', -W + 1, -W + 1 + R.building.width, 0, R.building.height, -R.plot.depth + 4, -R.plot.depth + 4 + R.building.depth));
+    m.volumes.push(ctx(box('mass', -W + 1, -W + 1 + R.building.width, 0, R.building.height, -R.plot.depth + 4, -R.plot.depth + 4 + R.building.depth)));
 
     m.dims.push(dim(setback, [x1, 0, 0], [x1, 0, -s], [1.2, 0, 0]));
     m.labels.push({ text: 'מדרכה רציפה, בלי אבן שפה ניצבת', at: [(x0 + x1) / 2, 0.2, 1.8] });

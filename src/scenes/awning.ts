@@ -1,5 +1,5 @@
 import { dim, need } from './dims.ts';
-import { box, sidewalk } from './common.ts';
+import { box, sidewalk, ctx } from './common.ts';
 import { AWNING as A } from './fixtures.ts';
 import { emptyModel, type SceneDef } from './model.ts';
 
@@ -14,7 +14,7 @@ export const awning: SceneDef = {
     const W = A.width / 2;
     m.surfaces.push(...sidewalk(A.width + 6));
     m.lines.push({ kind: 'plot', points: [[-W - 3, 0.01, 0], [W + 3, 0.01, 0]] });
-    m.volumes.push(box('mass', -W, W, 0, A.height, -A.depth, 0));
+    m.volumes.push(ctx(box('mass', -W, W, 0, A.height, -A.depth, 0)));
     // מעקה הגג
     m.volumes.push(box('mass', -W, W, A.height, A.height + A.parapet, -0.2, 0));
 

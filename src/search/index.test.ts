@@ -39,7 +39,18 @@ describe('חיפוש', () => {
     expect(s.search('2.2.1 (11)')).toEqual({ kind: 'jump', ruleId: 'B2.2.1-11' });
     expect(s.search('2.2.1 (3) א')).toEqual({ kind: 'jump', ruleId: 'B2.2.1-3a' });
     expect(s.search('2.10')).toEqual({ kind: 'jump', ruleId: 'B2.10' });
-    expect(s.search('1.2')).toEqual({ kind: 'jump', ruleId: 'B1.2.1-1' });
+  });
+
+  it('מספר שקיים בשני הפרקים: שתי תוצאות, ואות פרק בוחרת אחד', () => {
+    expect(ids(s.search('1.2'))).toEqual(['A1.2', 'B1.2.1-1']);
+    expect(s.search('א 1.2')).toEqual({ kind: 'jump', ruleId: 'A1.2' });
+    expect(s.search("ב' 1.2")).toEqual({ kind: 'jump', ruleId: 'B1.2.1-1' });
+    expect(s.search('פרק א 3.2.4')).toEqual({ kind: 'jump', ruleId: 'A3.2.4' });
+  });
+
+  it('חיפוש בפרק א\'', () => {
+    expect(ids(s.search('מחסן'))).toContain('A7.1.2');
+    expect(ids(s.search('דוד שמש'))).toContain('A4.6.1');
   });
 
   it('סינון לפי סוג מבנה', () => {

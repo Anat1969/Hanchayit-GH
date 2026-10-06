@@ -38,7 +38,7 @@
 
 .hit {
   display: grid;
-  grid-template-columns: 9ch 1fr;
+  grid-template-columns: 12ch 1fr;
   column-gap: var(--u);
   padding: var(--u) 12px;
   cursor: pointer;

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { chapter } from '../data.ts';
-import { parseChapter } from './load.ts';
+import { mergeChapters, parseChapter } from './load.ts';
 import { appliesTo, flatten, largerOf, marginRef, paramFor, sectionTree } from './derive.ts';
 import { linkText } from './linkText.ts';
 
@@ -31,10 +31,21 @@ describe('ולידציה', () => {
 });
 
 describe('סינון וסדר', () => {
-  it('כל 146 הסעיפים מופיעים בסדר הקריאה, כל אחד פעם אחת', () => {
+  it('כל הסעיפים של שני הפרקים מופיעים בסדר הקריאה, כל אחד פעם אחת', () => {
     const rules = flatten(sectionTree(chapter, 'all')).filter((x) => x.type === 'rule');
-    expect(rules).toHaveLength(146);
-    expect(new Set(rules.map((x) => x.type === 'rule' && x.rule.id)).size).toBe(146);
+    expect(rules).toHaveLength(279 + 146);
+    expect(new Set(rules.map((x) => x.type === 'rule' && x.rule.id)).size).toBe(279 + 146);
+  });
+
+  it('פרק א\' לפני פרק ב\', כל אחד תחת פרק־שורש', () => {
+    const roots = sectionTree(chapter, 'all').map((n) => n.section.id);
+    expect(roots).toEqual(['A', 'B']);
+  });
+
+  it('מיזוג פרקים: אותו key עם ערך אחר לאותו סוג מבנה הוא שגיאה', () => {
+    const a = JSON.parse(readFileSync('data/chapter-a.json', 'utf8'));
+    a.rules.find((r: { id: string }) => r.id === 'A2.1.1').params[0].key = 'fence_height_max';
+    expect(() => mergeChapters([parseChapter(a), parseChapter(raw())])).toThrow(/fence_height_max/);
   });
 
   it('סינון לפי סוג מבנה משאיר רק סעיפים שחלים עליו', () => {
@@ -48,6 +59,7 @@ describe('סינון וסדר', () => {
   it('פרק בלי סעיפים חלים לא מוצג', () => {
     const titles = flatten(sectionTree(chapter, 'industrial')).flatMap((x) => (x.type === 'section' ? [x.node.section.id] : []));
     expect(titles).not.toContain('B1');
+    expect(titles).toContain('A2');
   });
 
   it('מספר בשוליים', () => {
@@ -73,8 +85,14 @@ describe('פרמטרים', () => {
 });
 
 describe('ערכים מקושרים בנוסח', () => {
-  // ערך שאינו מופיע בנוסח כמספר: 9 קומות נגזר מ"10 קומות ומעלה"
-  const NOT_IN_TEXT = new Set(['B2.3.7-1/garden_apt_floors_max']);
+  // ערכים שאינם מופיעים בנוסח כספרות: 9 קומות נגזר מ"10 קומות ומעלה", והשאר כתובים במילים
+  const NOT_IN_TEXT = new Set([
+    'B2.3.7-1/garden_apt_floors_max',
+    'A3.1.3/exempt_shop_awning_sidewalk_share_max',
+    'A3.1.5/exempt_canopy_door_width_coef_max',
+    'A12.4/exempt_pole_antenna_length_max',
+    'A12.7.1/exempt_ham_mast_height_max',
+  ]);
 
   it('הנוסח לא משתנה', () => {
     for (const r of chapter.rules) expect(linkText(r).map((p) => p.text).join('')).toBe(r.text);

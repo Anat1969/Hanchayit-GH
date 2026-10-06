@@ -15,7 +15,7 @@ const Param = z.strictObject({
 });
 
 const Rule = z.strictObject({
-  id: z.string().regex(/^B[\d.]+(-[\da-z]+)?$/),
+  id: z.string().regex(/^[AB][\d.]+(-[\da-z]+)?$/),
   ref: z.string(),
   section: z.string(),
   applies_to: z.array(BuildingType).nonempty(),
@@ -126,6 +126,35 @@ export function parseChapter(json: unknown): Chapter {
   const errors = crossCheck(result.data);
   if (errors.length) throw new Error('chapter-b.json לא תקין:\n' + errors.join('\n'));
   return result.data;
+}
+
+/**
+ * כמה פרקים כמסמך אחד: לכל פרק נוסף פרק־שורש (A, B) עם שם הפרק, והפרקים העליונים שלו תלויים בו.
+ * המזהים חייבים להיות ייחודיים בין הפרקים, ואותו key לא יכול לקבל ערכים שונים לאותו סוג מבנה.
+ */
+export function mergeChapters(chapters: Chapter[]): Chapter {
+  const merged: Chapter = {
+    meta: chapters[chapters.length - 1].meta,
+    building_types: chapters[0].building_types,
+    sections: [],
+    scenes: [],
+    rules: [],
+  };
+  for (const c of chapters) {
+    const root = c.rules[0].id[0];
+    merged.sections.push({ id: root, ref: '', title: c.meta.chapter, parent: null });
+    merged.sections.push(...c.sections.map((s) => (s.parent === null ? { ...s, parent: root } : s)));
+    merged.scenes.push(...c.scenes);
+    merged.rules.push(...c.rules);
+  }
+  const errors = crossCheck(merged);
+  for (const kind of ['sections', 'scenes'] as const) {
+    const ids = merged[kind].map((x) => x.id);
+    const dup = ids.filter((id, i) => ids.indexOf(id) !== i);
+    if (dup.length) errors.push(`מזהה כפול ב־${kind}: ${dup.join(', ')}`);
+  }
+  if (errors.length) throw new Error('הפרקים לא מתמזגים:\n' + errors.join('\n'));
+  return merged;
 }
 
 export function parseSynonyms(json: unknown): Synonyms {

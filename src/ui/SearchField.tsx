@@ -106,7 +106,7 @@ export function SearchField({ search, allowed, onNavigate }: {
                   onClick={() => choose(h.id)}
                   onMouseEnter={() => setCursor(i)}
                 >
-                  <span className={s.ref}>{h.ref}</span>
+                  <span className={s.ref}>{h.chapter}' {h.ref}</span>
                   <span className={s.title}>{h.title}</span>
                   <span className={s.snippet}>
                     {snippet(h.text, h.queryWords, h.terms).map((p, j) => (p.match ? <mark key={j}>{p.text}</mark> : <span key={j}>{p.text}</span>))}

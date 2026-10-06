@@ -151,7 +151,7 @@ export function Sheet({ rule, type, collapsed, onToggle }: {
       )}
       <TitleBlock
         cells={[
-          { label: 'סעיף', value: rule?.ref ?? '' },
+          { label: 'סעיף', value: rule ? `${rule.id[0] === 'A' ? 'א' : 'ב'}' ${rule.ref}` : '' },
           { label: 'נושא', value: shown && !dimmed ? shownMeta!.title : (section?.title ?? '') },
           { label: 'סוג מבנה', value: TYPE_LABELS[shown && !dimmed ? shown.type : type] },
           { label: 'מהדורה', value: edition },

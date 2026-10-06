@@ -9,10 +9,10 @@ const RANGE_TAIL = /^\s*[–-]\s*\d+(?:\.\d+)?/;
 const UNIT: Record<string, RegExp> = {
   m: /^\s*(?:מ['׳](?![א-ת])|מטר|מ$)/,
   cm: /^\s*ס["״]מ/,
-  m2: /^\s*מ["״]ר/,
+  m2: /^\s*(?:מ["״]ר|מטר(?:ים)? (?:רבוע|מרובעים))/,
   percent: /^\s*%/,
   floors: /^\s*קומות/,
-  days: /^\s*ימים/,
+  days: /^\s*(?:ימים|יום)/,
   any: /^/,
 };
 
@@ -31,10 +31,11 @@ function forms(p: Param): Array<{ number: string; unit: RegExp }> {
       return [
         { number: fmt(v), unit: UNIT.m },
         { number: fmt(v * 100), unit: UNIT.cm },
+        { number: v.toFixed(1), unit: UNIT.m },
         { number: v.toFixed(2), unit: UNIT.m },
       ];
     case 'm2':
-      return [{ number: fmt(v), unit: UNIT.m2 }];
+      return [{ number: fmt(v), unit: UNIT.m2 }, { number: v.toFixed(1), unit: UNIT.m2 }];
     case 'ratio': {
       const out = [{ number: fmt(v * 100), unit: UNIT.percent }];
       const frac = FRACTIONS[fmt(v)];

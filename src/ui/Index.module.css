@@ -15,7 +15,21 @@
 }
 
 .index > ul > li + li {
-  margin-block-start: calc(var(--u) * 2);
+  margin-block-start: calc(var(--u) * 4);
+}
+
+/* שורש: שם הפרק (א' או ב') */
+.index > ul > li > .item {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.index > ul > li > ul {
+  padding-inline-start: 0;
+}
+
+.index > ul > li > ul > li + li {
+  margin-block-start: calc(var(--u) * 1.5);
 }
 
 .item {

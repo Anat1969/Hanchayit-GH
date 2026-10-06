@@ -11,6 +11,8 @@ export interface SearchDoc {
 
 export interface SearchHit {
   id: string;
+  /** אות הפרק: א או ב */
+  chapter: string;
   ref: string;
   title: string;
   text: string;
@@ -25,7 +27,10 @@ export type SearchResult =
   | { kind: 'hits'; hits: SearchHit[] }
   | { kind: 'empty'; suggestions: string[] };
 
-const SECTION_NUMBER = /^\s*(\d+(?:\.\d+)*)\s*(?:\(\s*(\d+)\s*\)\s*([א-ת])?)?\s*$/;
+// "2.7.1", "2.2.1 (11)", "2.2.1 (3) א", ועם אות פרק: "א 2.1", "פרק ב' 2.7.1"
+const SECTION_NUMBER = /^\s*(?:(?:פרק\s*)?([אב])['׳]?\s+)?(\d+(?:\.\d+)*)\s*(?:\(\s*(\d+)\s*\)\s*([א-ת])?)?\s*$/;
+const CHAPTER_LETTER: Record<string, string> = { א: 'A', ב: 'B' };
+const LETTER_OF: Record<string, string> = { A: 'א', B: 'ב' };
 
 const options = {
   fields: ['ref', 'title', 'text', 'sceneTitle'],
@@ -51,6 +56,7 @@ export function buildSearch(chapter: Chapter, synonyms: Synonyms) {
   }));
   const index = new MiniSearch<(typeof docs)[number]>(options);
   index.addAll(docs);
+  const docsList = docs;
 
   const groups = synonyms.groups.map((g) => g.map(normalize));
   const allSynonyms = [...new Set(synonyms.groups.flat())];
@@ -81,6 +87,7 @@ export function buildSearch(chapter: Chapter, synonyms: Synonyms) {
     );
     return results.map((r) => ({
       id: r.id,
+      chapter: LETTER_OF[r.id[0]],
       ref: r.ref,
       title: r.title,
       text: r.text,
@@ -89,25 +96,38 @@ export function buildSearch(chapter: Chapter, synonyms: Synonyms) {
     }));
   }
 
-  function byNumber(query: string): string | undefined {
+  /** הסעיפים שמספרם הוקלד, אחד לכל פרק שבו המספר קיים */
+  function byNumber(query: string): string[] | undefined {
     const m = SECTION_NUMBER.exec(query);
     if (!m) return undefined;
-    const [, num, sub, letter] = m;
-    if (sub) {
-      const ref = `${num} (${sub})${letter ? ' ' + letter : ''}`;
-      return chapter.rules.find((r) => r.ref === ref)?.id;
-    }
-    const exact = chapter.rules.find((r) => r.ref === num);
-    if (exact) return exact.id;
-    // מספר פרק: הסעיף הראשון בו או באחד מתתי־הפרקים
-    return chapter.rules.find((r) => r.ref === num || r.ref.startsWith(num + ' ') || r.ref.startsWith(num + '.'))?.id;
+    const [, chapterLetter, num, sub, letter] = m;
+    const prefixes = chapterLetter ? [CHAPTER_LETTER[chapterLetter]] : ['A', 'B'];
+    return prefixes.flatMap((prefix) => {
+      const rules = chapter.rules.filter((r) => r.id.startsWith(prefix));
+      if (sub) {
+        const ref = `${num} (${sub})${letter ? ' ' + letter : ''}`;
+        return rules.filter((r) => r.ref === ref).slice(0, 1).map((r) => r.id);
+      }
+      const exact = rules.find((r) => r.ref === num);
+      // מספר פרק: הסעיף הראשון בו או באחד מתתי־הפרקים
+      const first = exact ?? rules.find((r) => r.ref.startsWith(num + ' ') || r.ref.startsWith(num + '.'));
+      return first ? [first.id] : [];
+    });
   }
 
   return {
     search(query: string, allowed?: (id: string) => boolean): SearchResult {
       if (!tokenize(query).length) return { kind: 'hits', hits: [] };
-      const jump = byNumber(query);
-      if (jump) return { kind: 'jump', ruleId: jump };
+      const numbered = byNumber(query);
+      if (numbered?.length === 1) return { kind: 'jump', ruleId: numbered[0] };
+      if (numbered && numbered.length > 1) {
+        // אותו מספר בשני הפרקים: שתי תוצאות לבחירה
+        const docs = new Map(docsList.map((d) => [d.id, d]));
+        return {
+          kind: 'hits',
+          hits: numbered.map((id) => ({ ...docs.get(id)!, chapter: LETTER_OF[id[0]], queryWords: [], terms: [] })),
+        };
+      }
       const found = hits(query, allowed);
       if (found.length) return { kind: 'hits', hits: found };
       // הצעות: מונחים מרשימת המילים הנרדפות שדומים לשאילתה ויש להם תוצאות

@@ -171,3 +171,17 @@ export function sceneRules(chapter: Chapter, scene: Scene, type: BuildingType): 
   const rules = new Map(chapter.rules.map((r) => [r.id, r]));
   return scene.rules.map((id) => rules.get(id)!).filter((r) => r && r.applies_to.includes(type));
 }
+
+/**
+ * אותה סצנה עם מפתחות אחרים: למשל מצללה בפרק א' (exempt_pergola_*) על בסיס הסצנה של פרק ב'.
+ * המידות שומרות את המפתח האמיתי, כך שהקישור לנוסח נשמר.
+ */
+export function aliased(def: SceneDef, id: string, keys: Record<string, string>): SceneDef {
+  const wrap = (get: ParamSource): ParamSource => (k) => get(keys[k] ?? k);
+  return {
+    id,
+    requires: def.requires?.map((k) => keys[k] ?? k),
+    controls: def.controls && ((get, rules) => def.controls!(wrap(get), rules)),
+    build: (get, controls, rules) => def.build(wrap(get), controls, rules),
+  };
+}

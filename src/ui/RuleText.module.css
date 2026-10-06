@@ -10,6 +10,12 @@
   line-height: 1.25;
   font-weight: 700;
   margin-block: var(--gap-section) 0;
+  scroll-margin-block-start: 120px;
+}
+
+.chapter + .chapter,
+.rule + .chapter {
+  margin-block-start: calc(var(--gap-section) * 3);
 }
 
 .part,

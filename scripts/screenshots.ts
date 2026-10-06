@@ -6,7 +6,10 @@ import { chromium } from 'playwright';
 const BASE = process.env.BASE_URL ?? 'http://localhost:4173/Hanchayit-GH';
 const OUT = 'test-results/scenes';
 // לכל סצנה: הסעיף הראשון שמפנה אליה, או סצנות מסוימות מהארגומנטים
-const chapter = JSON.parse(readFileSync('data/chapter-b.json', 'utf8')) as { rules: Array<{ id: string; scene?: string; params?: unknown[] }> };
+type Data = { rules: Array<{ id: string; scene?: string; params?: unknown[] }> };
+const chapter: Data = {
+  rules: ['data/chapter-a.json', 'data/chapter-b.json'].flatMap((f) => (JSON.parse(readFileSync(f, 'utf8')) as Data).rules),
+};
 const RULES: Record<string, string> = {};
 for (const r of chapter.rules) {
   const scene = r.scene;

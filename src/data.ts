@@ -1,8 +1,10 @@
-import chapterJson from '../data/chapter-b.json';
+import chapterAJson from '../data/chapter-a.json';
+import chapterBJson from '../data/chapter-b.json';
 import synonymsJson from '../data/synonyms.json';
-import { parseChapter, parseSynonyms } from './rules/load.ts';
+import { mergeChapters, parseChapter, parseSynonyms } from './rules/load.ts';
 
-export const chapter = parseChapter(chapterJson);
+/** פרק א' ופרק ב' כמסמך אחד, לפי סדר המסמך */
+export const chapter = mergeChapters([parseChapter(chapterAJson), parseChapter(chapterBJson)]);
 export const synonyms = parseSynonyms(synonymsJson);
 
 export const rulesById = new Map(chapter.rules.map((r) => [r.id, r]));

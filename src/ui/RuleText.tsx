@@ -76,14 +76,15 @@ export function RuleText({ tree, route, activeId, onNavigate }: {
   const review = useReview();
   return (
     <div className={s.text}>
-      <h1 className={s.chapter}>{chapter.meta.chapter}</h1>
       {flatten(tree).map((item) => {
         if (item.type === 'section') {
           const { section } = item.node;
-          const H = item.depth === 0 ? 'h2' : 'h3';
+          // עומק 0: הפרק (א' או ב'), 1: פרק משנה ממוספר, 2 ומטה: נושא
+          const H = item.depth === 0 ? 'h1' : item.depth === 1 ? 'h2' : 'h3';
+          const cls = item.depth === 0 ? s.chapter : item.depth === 1 ? s.part : s.section;
           return (
-            <H key={section.id} id={`s-${section.id}`} className={item.depth === 0 ? s.part : s.section} data-section-heading>
-              <span className={s.margin}>{section.ref}</span>
+            <H key={section.id} id={`s-${section.id}`} className={cls} data-section-heading>
+              {section.ref && <span className={s.margin}>{section.ref}</span>}
               {section.title}
             </H>
           );

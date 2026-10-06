@@ -116,3 +116,10 @@ export const AWNING = { width: 12, height: 9, depth: 10, opening: { width: 1.8, 
 export const POOL = { plot: { width: 24, depth: 30 }, pool: { width: 4, length: 9, depth: 1.4 }, building: { width: 14, depth: 12, height: 10 } };
 
 export const UMBRELLA = { width: 14, sidewalk: 6, canopyRadius: 1.4, pole: 0.06, curb: 0.15, building: { depth: 10, height: 12 } };
+
+// פרק א': עבודות פטורות מהיתר
+export const EXEMPT_PLOT = { width: 18, depth: 26, house: { width: 10, depth: 11, height: 6.6 }, frontSetback: 5 };
+export const EXEMPT_AWNING = { width: 12, height: 9, depth: 10, door: { width: 1.2, height: 2.3 }, window: { width: 3, height: 2.2 }, parapet: 1.1 };
+export const EXEMPT_SHED = { width: 3, depth: 2 };
+export const EXEMPT_RAMP = { width: 1.5, landing: 1.6 };
+export const EXEMPT_ROOF = { width: 14, depth: 12, height: 9.6, parapet: 1.1, heater: { width: 1.2, depth: 0.7, height: 1.6 }, panel: { width: 1, depth: 1.7, gap: 0.6 } };

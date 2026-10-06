@@ -180,3 +180,52 @@ describe('סצנות שלב 3', () => {
     expect(tagOf(b, 'table:lobby_area').label).toBe('מבואה: 100 מ"ר');
   });
 });
+
+describe('סצנות פרק א\'', () => {
+  it('exempt-fence: גדר, קיר תמך, גדר פנימית ושער לפי הפרמטרים', () => {
+    const m = build('exempt-fence', 'ground', { exempt_fence_height_max: 1.2 });
+    expect(length(dimOf(m, 'exempt_fence_height_max'))).toBeCloseTo(1.2);
+    expect(length(dimOf(m, 'exempt_retaining_wall_height_max'))).toBeCloseTo(1);
+    expect(length(dimOf(m, 'exempt_inner_fence_height_max'))).toBeCloseTo(1);
+    expect(length(dimOf(m, 'exempt_gate_height_max'))).toBeCloseTo(1.8);
+  });
+
+  it('exempt-pergola: אותה סצנה כמו בפרק ב\', עם המפתחות של פרק א\'', () => {
+    const m = build('exempt-pergola', 'residential', { exempt_pergola_setback_projection_max: 0.5 });
+    const d = dimOf(m, 'exempt_pergola_setback_projection_max');
+    expect(d.ruleId).toBe('A3.2.4');
+    expect(m.dims.find((x) => x.paramKey === 'pergola_setback_projection_max')).toBeUndefined();
+    expect(d.label).toBe('⁦≤ 50%⁩');
+  });
+
+  it('exempt-awning: סוכך לרחוב רק בחזית פעילה', () => {
+    expect(dimOf(build('exempt-awning', 'active'), 'exempt_shop_awning_clear_height_min')).toBeDefined();
+    expect(dimOf(build('exempt-awning', 'residential'), 'exempt_shop_awning_clear_height_min')).toBeUndefined();
+    expect(length(dimOf(build('exempt-awning', 'residential', { exempt_canopy_projection_max: 1.5 }), 'exempt_canopy_projection_max'))).toBeCloseTo(1.5);
+  });
+
+  it('exempt-ramp: אורך הכבש נגזר מהפרש הגובה ומהשיפוע', () => {
+    const run = (m: SceneModel) => m.volumes.find((v) => v.rotation)!.size[0];
+    const a = build('exempt-ramp', 'residential');
+    const b = build('exempt-ramp', 'residential', { exempt_ramp_slope_max: 0.05 });
+    expect(run(a)).toBeCloseTo(Math.hypot(1.2 / 0.08, 1.2));
+    expect(run(b)).toBeGreaterThan(run(a));
+  });
+
+  it('exempt-shed, exempt-parking-shade, exempt-rooftop', () => {
+    const shed = build('exempt-shed', 'ground', { exempt_shed_height_max: 2.2 });
+    expect(length(dimOf(shed, 'exempt_shed_height_max'))).toBeCloseTo(2.2);
+    expect(length(dimOf(shed, 'exempt_shed_boundary_distance_min'))).toBeCloseTo(1);
+    expect(length(dimOf(build('exempt-parking-shade', 'residential'), 'exempt_parking_shade_height_max'))).toBeCloseTo(2.5);
+    const roof = build('exempt-rooftop', 'residential');
+    expect(length(dimOf(roof, 'exempt_solar_parapet_distance_min'))).toBeCloseTo(1.5);
+    expect(length(dimOf(roof, 'exempt_pv_roof_edge_min'))).toBeCloseTo(0.4);
+    expect(length(dimOf(roof, 'exempt_antenna_mast_height_max'))).toBeCloseTo(6);
+  });
+});
+
+it('exempt-ramp: הכבש כולו בתחום המגרש', () => {
+  const m = build('exempt-ramp', 'residential');
+  const ramp = m.volumes.find((v) => v.rotation)!;
+  expect(ramp.center[0] - ramp.size[0] / 2).toBeGreaterThan(-9);
+});

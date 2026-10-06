@@ -1,0 +1,4706 @@
+{
+ "meta": {
+  "source": "הנחיות מרחביות לעיר אשדוד, מהדורה מס' 18 (מוצעת, להשגות הציבור), דצמבר 2024",
+  "chapter": "פרק א': הנחיות מרחביות לעבודות פטורות מהיתר בניה",
+  "pages": "7–24",
+  "extracted": "2026-10-06",
+  "status": "טיוטת חילוץ – נוסח הסעיפים נלקח מה־PDF, תוקנו היפוכי סוגריים, מספרים ושנים של RTL. נדרש אימות מול המקור לפני פרסום.",
+  "schema_version": 1
+ },
+ "building_types": {
+  "ground": "מבני מגורים צמודי קרקע",
+  "residential": "מבני מגורים – בניה רוויה",
+  "active": "מבנים בעלי חזית פעילה",
+  "industrial": "מבנים לתעשייה"
+ },
+ "sections": [
+  {
+   "id": "A1",
+   "ref": "1",
+   "title": "תנאים כלליים לביצוע עבודות פטורות מהיתר בניה",
+   "parent": null
+  },
+  {
+   "id": "A2",
+   "ref": "2",
+   "title": "גדרות ושערים – סימן א' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A2.1",
+   "ref": "2.1",
+   "title": "גדר וקיר תומך (סעיף 5 בתקנות)",
+   "parent": "A2"
+  },
+  {
+   "id": "A2.2",
+   "ref": "2.2",
+   "title": "גדר המוקמת בידי רשות מקומית (סעיף 6 בתקנות)",
+   "parent": "A2"
+  },
+  {
+   "id": "A2.3",
+   "ref": "2.3",
+   "title": "גדר בשטח חקלאי (סעיף 7 בתקנות)",
+   "parent": "A2"
+  },
+  {
+   "id": "A2.4",
+   "ref": "2.4",
+   "title": "גידור מתקן תשתית (סעיף 8 בתקנות)",
+   "parent": "A2"
+  },
+  {
+   "id": "A2.5",
+   "ref": "2.5",
+   "title": "גדר בגן לאומי או שמורת טבע (סעיף 9 בתקנות)",
+   "parent": "A2"
+  },
+  {
+   "id": "A2.6",
+   "ref": "2.6",
+   "title": "שער, או מחסום כניסה לחניה (סעיף 10 בתקנות)",
+   "parent": "A2"
+  },
+  {
+   "id": "A3",
+   "ref": "3",
+   "title": "גגונים וסככות – סימן ב' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A3.1",
+   "ref": "3.1",
+   "title": "גגונים סככת צל, סוכך מתקפל (סעיף 11 בתקנות)",
+   "parent": "A3"
+  },
+  {
+   "id": "A3.2",
+   "ref": "3.2",
+   "title": "מצללה - פרגולה (סעיף 12 בתקנות)",
+   "parent": "A3"
+  },
+  {
+   "id": "A4",
+   "ref": "4",
+   "title": "שימושים נלווים למבנה – סימן ג' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A4.1",
+   "ref": "4.1",
+   "title": "פרטי עזר (סעיף 13 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.2",
+   "ref": "4.2",
+   "title": "שילוט (סעיף 14 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.3",
+   "ref": "4.3",
+   "title": "מתקן אצירת אשפה (סעיף 15 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.4",
+   "ref": "4.4",
+   "title": "מכונה לאיסוף מכלי משקה (סעיף 16 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.5",
+   "ref": "4.5",
+   "title": "סורגים (סעיף 17 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.6",
+   "ref": "4.6",
+   "title": "דוד מים, דוד שמש וקולטים (סעיף 18 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.7",
+   "ref": "4.7",
+   "title": "מזגן ומערכות מיזוג אוויר או טיהור אוויר (סעיף 19 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.8",
+   "ref": "4.8",
+   "title": "החלפת רכיבים בבניין (סעיף 20 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A4.9",
+   "ref": "4.9",
+   "title": "החלפת מיכל גז נייח תת קרקעי (סעיף 21 בתקנות)",
+   "parent": "A4"
+  },
+  {
+   "id": "A5",
+   "ref": "5",
+   "title": "מבנים טכניים – סימן ד' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A5.1",
+   "ref": "5.1",
+   "title": "מבנים טכניים (סעיף 22 בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.2",
+   "ref": "5.2",
+   "title": "מתקן טכני להשנאה ולהגדלת אספקת חשמל (סעיף 22א' (א) בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.3",
+   "ref": "5.3",
+   "title": "מתקן טכני להשנאה ולהגדלת אספקת חשמל (סעיף 22א' (ב) בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.4",
+   "ref": "5.4",
+   "title": "מתקן נלווה להפעלת באר (סעיף 22ב' בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.5",
+   "ref": "5.5",
+   "title": "מתקן אגירה זעיר (סעיף 22ג' בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.6",
+   "ref": "5.6",
+   "title": "מתקן לניטור אוויר (סעיף 23 בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.7",
+   "ref": "5.7",
+   "title": "מתקן פוטו וולטאי על גג מבנה (סעיף 24(א) בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.8",
+   "ref": "5.8",
+   "title": "מתקן פוטו וולטאי בבריכת דגים פעילה, במאגר מים מלאכותי, במאגר קולחין מלאכותי או באתר החדרה (סעיף 24(ב) בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A5.9",
+   "ref": "5.9",
+   "title": "חיבור מתקן גז טבעי לצריכה (סעיף 24א' בתקנות)",
+   "parent": "A5"
+  },
+  {
+   "id": "A6",
+   "ref": "6",
+   "title": "מבנים ועבודות זמניים – סימן ה' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A6.1",
+   "ref": "6.1",
+   "title": "מבנה זמני (סעיף 25 בתקנות)",
+   "parent": "A6"
+  },
+  {
+   "id": "A6.2",
+   "ref": "6.2",
+   "title": "סגירה עונתית (סעיף 26 בתקנות)",
+   "parent": "A6"
+  },
+  {
+   "id": "A6.3",
+   "ref": "6.3",
+   "title": "עבודות זמניות (סעיף 27 בתקנות)",
+   "parent": "A6"
+  },
+  {
+   "id": "A6.4",
+   "ref": "6.4",
+   "title": "מנהרה חקלאית ורשת צל – סעיף 28 בתקנות",
+   "parent": "A6"
+  },
+  {
+   "id": "A7",
+   "ref": "7",
+   "title": "מחסן ומבנה לשומר – סימן ו' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A7.1",
+   "ref": "7.1",
+   "title": "מחסן (סעיף 29 בתקנות)",
+   "parent": "A7"
+  },
+  {
+   "id": "A7.2",
+   "ref": "7.2",
+   "title": "מבנה לשומר (סעיף 30 בתקנות)",
+   "parent": "A7"
+  },
+  {
+   "id": "A8",
+   "ref": "8",
+   "title": "מרחב מוגן דירתי – סימן ו' 1 בתקנות (הוראת שעה)",
+   "parent": null
+  },
+  {
+   "id": "A9",
+   "ref": "9",
+   "title": "מרחב מוגן במוסד חינוך – סימן ו' 2 בתקנות (הוראת שעה)",
+   "parent": null
+  },
+  {
+   "id": "A10",
+   "ref": "10",
+   "title": "מרחב מוגן במבנה ציבור – סימן ו' 3 בתקנות (הוראת שעה)",
+   "parent": null
+  },
+  {
+   "id": "A11",
+   "ref": "11",
+   "title": "פיתוח ונגישות – סימן ז' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A11.1",
+   "ref": "11.1",
+   "title": "עבודות פיתוח לריצוף חצר, חיפוי קרקע, קירות פיתוח ומסלעות (סעיף 31 בתקנות)",
+   "parent": "A11"
+  },
+  {
+   "id": "A11.2",
+   "ref": "11.2",
+   "title": "שיפור נגישות לבניין ובתוכו (סעיף 32 בתקנות)",
+   "parent": "A11"
+  },
+  {
+   "id": "A12",
+   "ref": "12",
+   "title": "אנטנות, צלחות ולווינים – סימן ח' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A12.1",
+   "ref": "12.1",
+   "title": "הצבת תורן לאנטנה ו/או צלחת קליטה לשידורי טלוויזיה או רדיו (סעיף 33 בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A12.2",
+   "ref": "12.2",
+   "title": "הוספת אנטנה למתקן שידור קיים (סעיף 34 בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A12.3",
+   "ref": "12.3",
+   "title": "הקמת מתקן שידור זעיר ע\"ג בניין או מתקן קיים (סעיף 34א' בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A12.4",
+   "ref": "12.4",
+   "title": "הוספת אנטנה על עמוד חשמל (סעיף 35 בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A12.5",
+   "ref": "12.5",
+   "title": "הצבת תורן למדידה מטאורולוגית (סעיף 36 בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A12.6",
+   "ref": "12.6",
+   "title": "הצבת תורן ומתקן ניטור רעש (סעיף 37 בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A12.7",
+   "ref": "12.7",
+   "title": "הצבת אנטנה אנכית ותורן למתקן של חובבי רדיו (סעיף 38 בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A12.8",
+   "ref": "12.8",
+   "title": "התקנת עירוב (סעיף 38א' בתקנות)",
+   "parent": "A12"
+  },
+  {
+   "id": "A13",
+   "ref": "13",
+   "title": "הריסה ופירוק – סימן ט' בתקנות",
+   "parent": null
+  },
+  {
+   "id": "A13.1",
+   "ref": "13.1",
+   "title": "הריסה (סעיף 39 בתקנות)",
+   "parent": "A13"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "exempt-fence",
+   "title": "גדר, קיר תומך ושער בפטור",
+   "rules": [
+    "A2.1.1",
+    "A2.1.3",
+    "A2.1.7",
+    "A2.6.6"
+   ]
+  },
+  {
+   "id": "exempt-awning",
+   "title": "גגון וסוכך בפטור",
+   "rules": [
+    "A3.1.1",
+    "A3.1.2",
+    "A3.1.3",
+    "A3.1.5"
+   ]
+  },
+  {
+   "id": "exempt-parking-shade",
+   "title": "סככת צל לחניה בפטור",
+   "rules": [
+    "A3.1.6"
+   ]
+  },
+  {
+   "id": "exempt-pergola",
+   "title": "מצללה בפטור",
+   "rules": [
+    "A3.2.1",
+    "A3.2.3",
+    "A3.2.4"
+   ]
+  },
+  {
+   "id": "exempt-shed",
+   "title": "מחסן ליחידת דיור בפטור",
+   "rules": [
+    "A7.1.2",
+    "A7.1.3"
+   ]
+  },
+  {
+   "id": "exempt-ramp",
+   "title": "כבש נגישות בפטור",
+   "rules": [
+    "A11.2",
+    "A11.2.2"
+   ]
+  },
+  {
+   "id": "exempt-rooftop",
+   "title": "דוד, קולטים ותורן על הגג",
+   "rules": [
+    "A4.6.3",
+    "A5.7.6",
+    "A12.1.1",
+    "A12.1.2"
+   ]
+  }
+ ],
+ "rules": [
+  {
+   "id": "A1.1",
+   "ref": "1.1",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "עבודות פטורות מהיתר (להלן: \"פטור מהיתר\") הן עבודות הפטורות מהצורך לבקש היתר לשם ביצוען. פטור מהיתר אינו פוטר מהחובה לבצע את העבודות בהתאם לכל ההוראות שנקבעו בחוק, בתקנות התכנון והבניה (עבודות ומבנים הפטורים מהיתר) (רישוי בניה), בתכניות החלות על השטח, ובהוראות שנקבעו במסמך זה."
+  },
+  {
+   "id": "A1.2",
+   "ref": "1.2",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מי שמתכוון לבצע עבודות הפטורות מהיתר נדרש לפעול על פי ההנחיות המרחביות החלות על עבודה זו במסמך זה. ניתן להיעזר גם באתר האינטרנט של הועדה ובמדריך באתר מינהל התכנון."
+  },
+  {
+   "id": "A1.3",
+   "ref": "1.3",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "עבודות פטורות מהיתר יבוצעו בידי בעל זכות במקרקעין או בעל זכות לגביהם המאפשרת ביצוע העבודות. בשטחים בבעלות עיריית אשדוד חובה לקבל את הסכמת מח' נכסים טרם ביצוע העבודה ובתיאום עם הגורמים הרלוונטיים במנהל ההנדסה."
+  },
+  {
+   "id": "A1.4",
+   "ref": "1.4",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "יש לוודא שאין בעבודות/ במבנים המבוצעים בפטור כדי ליצור סיכון, הפרעה, מטרד או מפגע סביבתי ואינם פוגעים בשלד הבניין וביציבותו או במערכות הבניין ובתפקודיו. כמו כן השפעת העבודות/ המבנים על חזות הבניין, על הסביבה ועל אופיין ומאפייניהן - מעטה."
+  },
+  {
+   "id": "A1.5",
+   "ref": "1.5",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "יש לוודא שהעבודות לא מסכנות את מי שמשתמש במבנה/מתקן שנבנה בפטור, ואת מי שנמצא בסביבתו. ביצוע עבודה פטורה מהיתר אינו פוטר את מבצע העבודה מאחריות מלאה בפני החוק לגבי מעשיו."
+  },
+  {
+   "id": "A1.6",
+   "ref": "1.6",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "כל עבודה או מבנה הפטורים מהיתר יתבצעו עפ\"י כל תקן שבתוקף. כמו כן, עבודות הכוללות רכיבי מתכת למיניהם (כגון: שערים, פרגולות, מעקות וכיוצ\"ב) יבוצעו אך ורק ממתכת עמידה לחלודה."
+  },
+  {
+   "id": "A1.7",
+   "ref": "1.7",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "אסור לבצע עבודות או להקים מבנים בפטור מהיתר בתחום הסביבה החופית (רצועה ברוחב 300 מ' מקו חוף הים לכיוון היבשה), למעט במקומות בהם צויין בתקנות מפורשות שמותר.",
+   "params": [
+    {
+     "key": "exempt_coastal_strip_width",
+     "op": "=",
+     "value": 300,
+     "unit": "m",
+     "from": "coastline"
+    }
+   ]
+  },
+  {
+   "id": "A1.8",
+   "ref": "1.8",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "אסור לבצע עבודות או להקים מבנים בפטור מהיתר במגרש, אתר, מתחם או בנין לשימור."
+  },
+  {
+   "id": "A1.9",
+   "ref": "1.9",
+   "section": "A1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על העבודות ומבנים הפטורים מהיתר עליהן חלה חובת דיווח, יש לדווח לוועדה המקומית על ביצוע העבודות, בטופס המיועד לכך. באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il באמצעות אתר מינהל התכנון (שליחת הטופס דרך אתר מנהל התכנון יעביר את הטופס ישירות לוועדה)."
+  },
+  {
+   "id": "A2.1",
+   "ref": "2.1",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גדר וקיר תומך פטורים מהיתר אם הם עונים על הדרישות הבאות:"
+  },
+  {
+   "id": "A2.1.1",
+   "ref": "2.1.1",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובהה של גדר לא יעלה על 1.5 מ' מפני הקרקע בשני צדי הגדר, וגובהו של קיר תמך לא יעלה על 1.0 מ'.",
+   "scene": "exempt-fence",
+   "params": [
+    {
+     "key": "exempt_fence_height_max",
+     "op": "<=",
+     "value": 1.5,
+     "unit": "m",
+     "from": "ground_both_sides"
+    },
+    {
+     "key": "exempt_retaining_wall_height_max",
+     "op": "<=",
+     "value": 1.0,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A2.1.2",
+   "ref": "2.1.2",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "היה ובשל הקמת הגדר או הקיר נוצרו הפרשי גבהים המחייבים מעקה (כאמור בפרט 2.1 בתוספת השניה לתקנות התכנון והבניה) - יותקן מעל הגדר או הקיר מעקה כאמור בתקנות אלה."
+  },
+  {
+   "id": "A2.1.3",
+   "ref": "2.1.3",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמתם לא תותר בחזית הבניין הפונה לרחוב, או לשטח ציבורי פתוח (פארק, דרך, שביל וכדומה).",
+   "scene": "exempt-fence"
+  },
+  {
+   "id": "A2.1.4",
+   "ref": "2.1.4",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת הקיר או הגדר בתחום הסביבה החופית לא תמנע מעבר חופשי לציבור."
+  },
+  {
+   "id": "A2.1.5",
+   "ref": "2.1.5",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "יבוצע חיפוי משני צידי הגדר: טיח כורכרי או אקרילי או כל חומר קשיח עמיד אחר."
+  },
+  {
+   "id": "A2.1.6",
+   "ref": "2.1.6",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ברובע, שכונה, רחוב או מבנים שכנים גובלים שם כבר יש \"שפה עיצובית\" לגדרות, בכל הקשור לחומרי הגמר גוון ועיצוב הגדר, יש להתאים את הגדר לאותה \"שפה העיצובית\"."
+  },
+  {
+   "id": "A2.1.7",
+   "ref": "2.1.7",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הקמת גדר בתחום המגרש: גובהה לא יעלה על 1 מ' מפני הפיתוח הגובלים. הגדר תהיה גדר קלה, עדיפות לגדר \"חיה\" צמחית.",
+   "scene": "exempt-fence",
+   "params": [
+    {
+     "key": "exempt_inner_fence_height_max",
+     "op": "<=",
+     "value": 1,
+     "unit": "m",
+     "from": "adjacent_level"
+    }
+   ]
+  },
+  {
+   "id": "A2.1.8",
+   "ref": "2.1.8",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הגדר לא תפגע בתשתיות קיימות או בניקוז הקרקע הקיים."
+  },
+  {
+   "id": "A2.1.9",
+   "ref": "2.1.9",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "לא תותר בניית גדרות פח, בכל צורת עיבוד, לרבות איסכורית, למעט עבור גידור ארעי לאתר בניה."
+  },
+  {
+   "id": "A2.1.10",
+   "ref": "2.1.10",
+   "section": "A2.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת גדר פלדה – תעשה בהתאם לתקן ישראלי מס' 4273."
+  },
+  {
+   "id": "A2.2",
+   "ref": "2.2",
+   "section": "A2.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גדר המוקמת בידי רשות מקומית פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A2.2.1",
+   "ref": "2.2.1",
+   "section": "A2.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "היא תוקם ע\"י הרשות המקומית לגידור שטח למבנה ציבור או שטח ציבורי אחר, וגובהה לא יעלה על 2.5 מ' מפני הקרקע בשני צדי הגדר.",
+   "params": [
+    {
+     "key": "exempt_authority_fence_height_max",
+     "op": "<=",
+     "value": 2.5,
+     "unit": "m",
+     "from": "ground_both_sides"
+    }
+   ]
+  },
+  {
+   "id": "A2.2.2",
+   "ref": "2.2.2",
+   "section": "A2.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "היה ובשל הקמת הגדר או הקיר נוצרו הפרשי גבהים המחייבים מעקה (כאמור בפרט 2.1 בתוספת השניה לתקנות התכנון והבניה) - יותקן מעל הגדר או הקיר מעקה כאמור בתקנות אלה."
+  },
+  {
+   "id": "A2.2.3",
+   "ref": "2.2.3",
+   "section": "A2.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמתה לא תפגע בתשתיות קיימות או בניקוז הקרקע הקיים."
+  },
+  {
+   "id": "A2.2.4",
+   "ref": "2.2.4",
+   "section": "A2.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת הקיר או הגדר בתחום הסביבה החופית לא תמנע מעבר חופשי לציבור."
+  },
+  {
+   "id": "A2.2.5",
+   "ref": "2.2.5",
+   "section": "A2.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת גדר פלדה – תעשה בהתאם לתקן ישראלי מס' 4273."
+  },
+  {
+   "id": "A2.3",
+   "ref": "2.3",
+   "section": "A2.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת גדר בשטח חקלאי מעובד פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A2.3.1",
+   "ref": "2.3.1",
+   "section": "A2.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובהה לא יעלה על 1.5 מ' מפני הקרקע בשני צידי הגדר;",
+   "params": [
+    {
+     "key": "exempt_agri_fence_height_max",
+     "op": "<=",
+     "value": 1.5,
+     "unit": "m",
+     "from": "ground_both_sides"
+    }
+   ]
+  },
+  {
+   "id": "A2.3.2",
+   "ref": "2.3.2",
+   "section": "A2.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "היא תוקם מחומרים קלים ולא תהיה אטומה;"
+  },
+  {
+   "id": "A2.3.3",
+   "ref": "2.3.3",
+   "section": "A2.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הגדר לא תמנע זרימת נגר עילי;"
+  },
+  {
+   "id": "A2.3.4",
+   "ref": "2.3.4",
+   "section": "A2.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם הגדר היא גדר מרעה (גדר התוחמת שטח מרעה לשם החזקת בעלי חיים בתוך החלקה ומניעת כניסתם של בעלי חיים זרים) - היא תוקם מעמודי מתכת וביניהם תילי מתכת."
+  },
+  {
+   "id": "A2.4",
+   "ref": "2.4",
+   "section": "A2.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גדר במתקן תשתית המוקמת בידי גוף המנוי בסעיף 261(ד) לחוק - פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A2.4.1",
+   "ref": "2.4.1",
+   "section": "A2.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמתה לא תפגע בתשתיות קיימות או בזרימת הניקוז. הקמת הקיר או הגדר בתחום הסביבה החופית לא תמנע מעבר חופשי לציבור."
+  },
+  {
+   "id": "A2.4.2",
+   "ref": "2.4.2",
+   "section": "A2.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גדר היקפית של מתקן תשתית תהיה גדר רשת מפלדה בהתאם לת\"י 4273 וגובהה לא יעלה על 3 מטרים מפני הקרקע, משני צדי הגדר.",
+   "params": [
+    {
+     "key": "exempt_infra_fence_height_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m",
+     "from": "ground_both_sides"
+    }
+   ]
+  },
+  {
+   "id": "A2.4.3",
+   "ref": "2.4.3",
+   "section": "A2.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובהה של גדר פנימית במתקן תשתית לא יעלה על 3.0 מ' משני צדי הגדר. אם הגדר נבנית בתחום דרך, ניתן לבנות אותה מחומרים קלים, אבל לא אטומה.",
+   "params": [
+    {
+     "key": "exempt_infra_inner_fence_height_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m",
+     "from": "ground_both_sides"
+    }
+   ]
+  },
+  {
+   "id": "A2.4.4",
+   "ref": "2.4.4",
+   "section": "A2.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A2.5",
+   "ref": "2.5",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גדר בגן לאומי או שמורת טבע פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A2.5.1",
+   "ref": "2.5.1",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "היא תוקם ע\"י הרשות לשמירת הטבע והגנים הלאומיים, בתחום גן לאומי, שמורת טבע ואתר לאומי כהגדרתם בחוק גנים לאומיים."
+  },
+  {
+   "id": "A2.5.2",
+   "ref": "2.5.2",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמתה לא תפגע בתשתיות קיימות או בזרימת הניקוז."
+  },
+  {
+   "id": "A2.5.3",
+   "ref": "2.5.3",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת הקיר או הגדר בתחום הסביבה החופית לא תמנע מעבר חופשי לציבור."
+  },
+  {
+   "id": "A2.5.4",
+   "ref": "2.5.4",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת גדר פלדה – תעשה בהתאם לתקן ישראלי מס' 4273."
+  },
+  {
+   "id": "A2.5.5",
+   "ref": "2.5.5",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "היא תוקם מחומרים קלים בלבד וגובהה לא יעלה על 1.5 מ' משני צדי הגדר.",
+   "params": [
+    {
+     "key": "exempt_park_fence_height_max",
+     "op": "<=",
+     "value": 1.5,
+     "unit": "m",
+     "from": "ground_both_sides"
+    }
+   ]
+  },
+  {
+   "id": "A2.5.6",
+   "ref": "2.5.6",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הגדר תשמש לצרכי בטחון, בטיחות, איקלום ומרעה של בעלי חיים."
+  },
+  {
+   "id": "A2.5.7",
+   "ref": "2.5.7",
+   "section": "A2.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף לדיווח אישור אקולוג לגדר המשמשת לאקלום בעלי חיים."
+  },
+  {
+   "id": "A2.6",
+   "ref": "2.6",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בניית שער או הקמת מחסום בכניסה לחניה פטורים מהיתר אם הם עונים על הדרישות הבאות:"
+  },
+  {
+   "id": "A2.6.1",
+   "ref": "2.6.1",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מחסום חשמלי יותקן ע\"י חשמלאי מוסמך לפי תקן 900 חלק 21.03."
+  },
+  {
+   "id": "A2.6.2",
+   "ref": "2.6.2",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המחסום או השער ייבנו בתחום המגרש, ולא יבלטו ממנו החוצה גם כאשר הם פתוחים."
+  },
+  {
+   "id": "A2.6.3",
+   "ref": "2.6.3",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הם יותקנו לרוחב שביל הכניסה או דרך החניה."
+  },
+  {
+   "id": "A2.6.4",
+   "ref": "2.6.4",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בסביבה החופית אין להתקין שער או מחסום המונעים מעבר חופשי לציבור."
+  },
+  {
+   "id": "A2.6.5",
+   "ref": "2.6.5",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "חומרי הגמר לשער כניסה לחניה ו/או כניסת הולכי רגל יהיו מחומרים קלים זהים לחומרי גמר הגדר באם בנויה מחומרים קלים, או משולבת בניה וחומרים קלים כמפורט בסעיף 2.1 לעיל."
+  },
+  {
+   "id": "A2.6.6",
+   "ref": "2.6.6",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובה שער הכניסה לחנייה או כניסת הולכי רגל לא יעלה על 1.8 מ' מפני המדרכה הגובלת.",
+   "scene": "exempt-fence",
+   "params": [
+    {
+     "key": "exempt_gate_height_max",
+     "op": "<=",
+     "value": 1.8,
+     "unit": "m",
+     "from": "adjacent_sidewalk"
+    }
+   ]
+  },
+  {
+   "id": "A2.6.7",
+   "ref": "2.6.7",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "פתיחת השער תהיה לתוך תחום המגרש ולא ניתן יהיה לבצע פתיחת שער בתחום שטח ציבורי. התקנת מסילות תהיה אף היא בתוך תחומי המגרש."
+  },
+  {
+   "id": "A2.6.8",
+   "ref": "2.6.8",
+   "section": "A2.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הצבת מחסום או שער לא תחסום (באופן מלא/ חלקי) גישה לשטחים בהם קיימת זכות מעבר להולכי רגל ו/או לתנועת כלי רכב לרבות חניה פרטית לדיירים."
+  },
+  {
+   "id": "A3.1",
+   "ref": "3.1",
+   "section": "A3.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גגונים וסככות פטורים מהיתר אם הם עונים על הדרישות הבאות:"
+  },
+  {
+   "id": "A3.1.1",
+   "ref": "3.1.1",
+   "section": "A3.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הם מחוברים באחת הפאות לפחות למבנה ובולטים לא יותר מ־2 מ' מקיר המבנה אליו הם צמודים, בנויים מחומרים קלים ואינם סגורים בפאותיהם.",
+   "scene": "exempt-awning",
+   "params": [
+    {
+     "key": "exempt_canopy_projection_max",
+     "op": "<=",
+     "value": 2,
+     "unit": "m",
+     "from": "wall"
+    }
+   ]
+  },
+  {
+   "id": "A3.1.2",
+   "ref": "3.1.2",
+   "section": "A3.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "סוכך מתקפל (מרקיזה): הסוכך יהיה מתקפל/ מתגלגל אל הקיר. במצבו המקופל/ מגולגל, לא יבלוט הסוכך מהקיר יותר מאשר 50 ס\"מ.",
+   "scene": "exempt-awning",
+   "params": [
+    {
+     "key": "exempt_folding_awning_folded_max",
+     "op": "<=",
+     "value": 0.5,
+     "unit": "m",
+     "from": "wall"
+    }
+   ]
+  },
+  {
+   "id": "A3.1.3",
+   "ref": "3.1.3",
+   "section": "A3.1",
+   "applies_to": [
+    "active"
+   ],
+   "kind": "parametric",
+   "text": "סוכך מתקפל בבתי עסק הפונים לרחוב: הסוכך לא יהווה מטרד או יפגע בחזות הכללית של המבנה. התקנת הסוכך תתחשב בפרטי הבניה בחזית המבנה ולא תסתיר או תפגע בפתחים, שילוט, תאורה, מספרי בתים וכו'. רוחב הסוכך לא יעלה על רוחב החזית המסחרית אליה הוא מחובר. הסוכך לא יבלוט יותר מ־2 מ' או שליש מרוחב המדרכה - לפי הקטן מבניהם. גובה תחתית הסוכך לא יהיה נמוך מ 2.5 מ'. הסוכך ישמור על רצף חזותי עם הסוככים הסמוכים. התקנת כיתוב על הסוכך יותר רק על גבי השובל/וילון בקצה הסוכך.",
+   "scene": "exempt-awning",
+   "params": [
+    {
+     "key": "exempt_shop_awning_projection_max",
+     "op": "<=",
+     "value": 2,
+     "unit": "m",
+     "from": "wall"
+    },
+    {
+     "key": "exempt_shop_awning_sidewalk_share_max",
+     "op": "<=",
+     "value": 0.333,
+     "unit": "ratio",
+     "of": "sidewalk_width",
+     "note": "\"שליש\", לפי הקטן מבין השניים"
+    },
+    {
+     "key": "exempt_shop_awning_clear_height_min",
+     "op": ">=",
+     "value": 2.5,
+     "unit": "m"
+    }
+   ],
+   "review": "מספר הסעיף מסומן בקו מחיקה ב־PDF. לא ברור אם הסעיף בוטל."
+  },
+  {
+   "id": "A3.1.4",
+   "ref": "3.1.4",
+   "section": "A3.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "סככת צל (קירוי באמצעות אריג שאינו אטום למים, הפרוש בין עמודים): המרחק בין כל 2 העמודים יהיה עד 5.0 מטר, ומשקל אריג הקירוי לא יעלה על 3.5 ק\"ג/מטר רבוע. גובה הקירוי לא יעלה על 3.0 מטר. במבני תעשייה/ חזית פעילה - תותר סככת צל בשטח שאינו עולה על 50 מ\"ר.",
+   "params": [
+    {
+     "key": "exempt_shade_post_span_max",
+     "op": "<=",
+     "value": 5,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_shade_height_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_shade_area_max",
+     "op": "<=",
+     "value": 50,
+     "unit": "m2",
+     "note": "במבני תעשייה וחזית פעילה"
+    }
+   ]
+  },
+  {
+   "id": "A3.1.5",
+   "ref": "3.1.5",
+   "section": "A3.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גגון: רוחב הגגון לא יעלה על כפליים רוחב דלת הכניסה עליה הוא מגן. בגג המבנה/ במרפסת גג ייבנו הגגונים בנסיגה של לפחות 1 מ' ממעקה הגג בחזית ראשית. יש להתאים את צורת הגגון לצורת המרפסת. גוון הגגון יותאם לפרזול המבנה. במבנה בעל גג רעפים – יתאפשר גגון עם חיפוי רעפים.",
+   "scene": "exempt-awning",
+   "params": [
+    {
+     "key": "exempt_canopy_door_width_coef_max",
+     "op": "<=",
+     "value": 2,
+     "unit": "coef",
+     "note": "\"כפליים רוחב דלת הכניסה\""
+    },
+    {
+     "key": "exempt_roof_canopy_setback_min",
+     "op": ">=",
+     "value": 1,
+     "unit": "m",
+     "from": "roof_parapet"
+    }
+   ]
+  },
+  {
+   "id": "A3.1.6",
+   "ref": "3.1.6",
+   "section": "A3.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "parametric",
+   "text": "סככת צל לחניה במבני מגורים (קירוי באמצעות אריג שאינו אטום למים): שטח הסככה - לא יעלה על 18 מ\"ר. גובהה המרבי - לא יעלה על 2.50 מטר. הסככה תכלול קירוי בלבד ללא סגירת חזיתות. מתקן הסככה יהיה נפתח/ מתקפל או לחילופין קבוע באמצעות אלמנט קונזולי בגב החניה (ללא עמודים בפאה הרחבה או בקדמת החניה). הסככה בכל מקרה לא תפגע בתמרון המכוניות לחניה או תשנה את שטח תא החניה. הסככה תהיה בדוגמת בד אחידה, ללא כיתוב. בבניה צמודת קרקע - הסככה תמוקם בצמוד לגבול הצדדי של המגרש ויותר להצמיד את רוחבה לגבול הקדמי של המגרש.",
+   "scene": "exempt-parking-shade",
+   "params": [
+    {
+     "key": "exempt_parking_shade_area_max",
+     "op": "<=",
+     "value": 18,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_parking_shade_height_max",
+     "op": "<=",
+     "value": 2.5,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A3.1.7",
+   "ref": "3.1.7",
+   "section": "A3.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "על גגון, סככת צל או סוכך ששטחם עולה על 20 מ\"ר, חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה אישור של מהנדס מבנים המעיד כי הגגון, סככת הצל או הסוכך מעוגנים כראוי למבנה, ואין חשש שהם יפלו.",
+   "params": [
+    {
+     "key": "exempt_shade_report_area",
+     "op": ">",
+     "value": 20,
+     "unit": "m2",
+     "note": "מעל שטח זה חלה חובת דיווח"
+    }
+   ]
+  },
+  {
+   "id": "A3.2",
+   "ref": "3.2",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בניית מצללה פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A3.2.1",
+   "ref": "3.2.1",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הגדרת מצללה: מבנה ללא קירות הבנוי מחומרים קלים שתקרתו משטח הצללה. המרווחים בין החלקים האטומים של משטח ההצללה מחולקים באופן שווה, ומהווים לפחות 40% משטחו. יראו מבנה כאמור כמצללה גם אם על תקרתו מותקן קירוי שקוף (ניתן גם שקוף מגוון) או שהמרווחים בין החלקים האטומים של משטח ההצללה האמור עשויים מחומר שקוף (ניתן גם שקוף מגוון) וכן אם שלבי המצללה האטומים נאספים באמצעות מנוע חשמלי/ ידני.",
+   "scene": "exempt-pergola",
+   "params": [
+    {
+     "key": "exempt_pergola_open_ratio_min",
+     "op": ">=",
+     "value": 0.4,
+     "unit": "ratio"
+    }
+   ]
+  },
+  {
+   "id": "A3.2.2",
+   "ref": "3.2.2",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "משטח ההצללה יהיה מישורי (לא משופע/ נטוי)."
+  },
+  {
+   "id": "A3.2.3",
+   "ref": "3.2.3",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטח המצללה לא יעלה על 50 מ\"ר או 1/4 מהשטח הפנוי של הקרקע/ הגג/ מרפסת הגג עליהם היא מוצבת (לפי הגדול).",
+   "scene": "exempt-pergola",
+   "params": [
+    {
+     "key": "exempt_pergola_area_max_abs",
+     "op": "<=",
+     "value": 50,
+     "unit": "m2",
+     "note": "או 1/4 מהשטח הפנוי, לפי הגדול"
+    },
+    {
+     "key": "exempt_pergola_area_max_ratio",
+     "op": "<=",
+     "value": 0.25,
+     "unit": "ratio",
+     "of": "free_area"
+    }
+   ]
+  },
+  {
+   "id": "A3.2.4",
+   "ref": "3.2.4",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "מצללה על הקרקע: תותר הבלטה של מצללה מכל קו בניין בשיעור של עד 40% מקו הבניין במגרש. בדירות גן ובתים צמודי קרקע (מגורים) בלבד- תותר גם בליטה בקו בניין צידי \"0\" (עד גבול המגרש) בהסכמת שכן (מכח תכנית מק/2071).",
+   "scene": "exempt-pergola",
+   "params": [
+    {
+     "key": "exempt_pergola_setback_projection_max",
+     "op": "<=",
+     "value": 0.4,
+     "unit": "ratio",
+     "of": "building_line_distance"
+    }
+   ]
+  },
+  {
+   "id": "A3.2.5",
+   "ref": "3.2.5",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מצללה במרפסת קומה טיפוסית, בגג מבנה או במרפסת גג: תתוכנן בגאומטריה המתאימה למרפסת, בקווים ישרים ללא עיטורים ובהתאמה עיצובית למבנה. המצללה לא תחרוג מעבר למעקה המרפסת. גובה המצללה לא יעלה על גובה הקומה בה היא מוקמת."
+  },
+  {
+   "id": "A3.2.6",
+   "ref": "3.2.6",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המצללה תתוכנן באופן שישתלב בעיצוב הבניין ובסביבתו. גמר מצללה מחומרים קלים כדוגמת עץ, או אלומיניום צבועים בהתאמה לגמר פרזול המבנה/ לפרט אחיד (במקומות בהם אושר פרט או קיימות מצללות)."
+  },
+  {
+   "id": "A3.2.7",
+   "ref": "3.2.7",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ניתן לקרות את המצללה בקירוי שקוף (ניתן גם שקוף מגוון) שיותקן בצמוד לתקרתה ולא יחרוג מהיקפה, ובלבד שניקוז מי הגשמים לא ייעשה בשפיכה חופשית לעבר הרחוב אלא בתחום המגרש בלבד."
+  },
+  {
+   "id": "A3.2.8",
+   "ref": "3.2.8",
+   "section": "A3.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה אישור של מהנדס מבנים המעיד כי המצללה מעוגנת היטב לקרקע או למבנה, ואין חשש שתתמוטט."
+  },
+  {
+   "id": "A4.1",
+   "ref": "4.1",
+   "section": "A4.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמה, הצבה או התקנה של מצלמות, גופי תאורה, צופר אזעקה, מיתקן חניה לאופניים וכל רכיב עזר אחר מעין אלה, שהוא שימוש נלווה וטבוע לבניין, או לקרקע - פטורים מהיתר אם הם עונים על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.1.1",
+   "ref": "4.1.1",
+   "section": "A4.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הם לא מוגדרים כ\"שטחי בניה\" בתקנות חישוב השטחים."
+  },
+  {
+   "id": "A4.1.2",
+   "ref": "4.1.2",
+   "section": "A4.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "אין צורך בבניית מבנה לשם התקנתם (למעט עמוד נושא)."
+  },
+  {
+   "id": "A4.1.3",
+   "ref": "4.1.3",
+   "section": "A4.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם הם מותקנים על גג או קירות של מבנה: משקל כל פריט לא עולה על 50 ק\"ג."
+  },
+  {
+   "id": "A4.1.4",
+   "ref": "4.1.4",
+   "section": "A4.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "אם הפריט הוא עמוד תאורה: גובהו לא עולה על 6.0 מטר.",
+   "params": [
+    {
+     "key": "exempt_light_pole_height_max",
+     "op": "<=",
+     "value": 6,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A4.2",
+   "ref": "4.2",
+   "section": "A4.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הצבת שלט פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.2.1",
+   "ref": "4.2.1",
+   "section": "A4.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטחו של השלט לא עולה על 1.2 מטר רבוע, ומשקלו לא עולה על 20 ק\"ג.",
+   "params": [
+    {
+     "key": "exempt_sign_area_max",
+     "op": "<=",
+     "value": 1.2,
+     "unit": "m2"
+    }
+   ]
+  },
+  {
+   "id": "A4.2.2",
+   "ref": "4.2.2",
+   "section": "A4.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "שלט ששטחו עולה על 1.2 מ\"ר ובלבד שאינו בנוי על גבי מיתקן עצמאי וקיבל רישיון מכוח חוק עזר עירוני."
+  },
+  {
+   "id": "A4.2.3",
+   "ref": "4.2.3",
+   "section": "A4.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "השלט עומד בתנאים והגדרות מדיניות העירונית לשילוט."
+  },
+  {
+   "id": "A4.2.4",
+   "ref": "4.2.4",
+   "section": "A4.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A4.3",
+   "ref": "4.3",
+   "section": "A4.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הצבה והתקנה של מתקן לאצירת אשפה פטורים מהיתר אם הוא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.3.1",
+   "ref": "4.3.1",
+   "section": "A4.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המתקן בנפח שאינו עולה על 50 ליטר."
+  },
+  {
+   "id": "A4.3.2",
+   "ref": "4.3.2",
+   "section": "A4.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הוא יוצב בהתאם לתכנית הפיתוח והנחיות מחלקת תברואה באגף תפו\"ח באוגדן הנחיות לעורכי בקשה ובהתאם לחוק העזר העירוני."
+  },
+  {
+   "id": "A4.3.3",
+   "ref": "4.3.3",
+   "section": "A4.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "פח אשפה יוצב בנישה עם דלת מחומר עמיד צבוע. המתקן והדלת לא יעלו על גובה הגדר. גמר חזית הנישה תהיה בהתאמה לחומרי גמר קיימים. פנים הנישה יחופה בגמר טיח/קרמיקה רחיץ."
+  },
+  {
+   "id": "A4.4",
+   "ref": "4.4",
+   "section": "A4.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת מכונה לאיסוף מכלי משקה פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.4.1",
+   "ref": "4.4.1",
+   "section": "A4.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "היא תותקן בקיר חיצוני של בניין, בחזית הפונה אל מחוץ לבניין, ואינה חורגת מקו הבניין יותר מ־10 ס\"מ.",
+   "params": [
+    {
+     "key": "exempt_vending_projection_max",
+     "op": "<=",
+     "value": 0.1,
+     "unit": "m",
+     "from": "building_line"
+    }
+   ]
+  },
+  {
+   "id": "A4.4.2",
+   "ref": "4.4.2",
+   "section": "A4.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המתקן יוצב בתוך המגרש, בחצר או בתוך נישות בגדר."
+  },
+  {
+   "id": "A4.5",
+   "ref": "4.5",
+   "section": "A4.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת סורגים פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.5.1",
+   "ref": "4.5.1",
+   "section": "A4.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הם תואמים את ת\"י מס' 1635, יש לוודא כי לפחות באחד החלונות בכל דירה יותקנו סורגים המיועדים לפתח מילוט, כמוגדר בתקן."
+  },
+  {
+   "id": "A4.5.2",
+   "ref": "4.5.2",
+   "section": "A4.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הסורגים יהיו צמודים לקיר החזית, מנגנוני פתיחה ימוקמו על צירים אנכיים או ע\"ג מסילות לצדדים בלבד."
+  },
+  {
+   "id": "A4.5.3",
+   "ref": "4.5.3",
+   "section": "A4.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הסורגים יהיו מסוג וסגנון התואם את הקיים בבניין ובעדיפות לפרט אחיד."
+  },
+  {
+   "id": "A4.5.4",
+   "ref": "4.5.4",
+   "section": "A4.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. על עבודה זו חלה חובת דיווח גם לרשות הארצית לכבאות תוך 45 יום מביצוע העבודה."
+  },
+  {
+   "id": "A4.6",
+   "ref": "4.6",
+   "section": "A4.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת דודי מים, דודי שמש וקולטי שמש פטורה מהיתר אם הם עונים על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.6.1",
+   "ref": "4.6.1",
+   "section": "A4.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בהתקנה על הגג: נפח דוד המים לא יעלה על 220 ליטר, ובלבד שבהיתר הבניה של הבניין עליו יוצבו נקבע שניתן להתקין אותם על הגג. בהתקנה בגג משופע: הדוד יוסתר בחלל הגג, והקולט יותקן בצמוד לפני השיפוע, ככל שניתן."
+  },
+  {
+   "id": "A4.6.2",
+   "ref": "4.6.2",
+   "section": "A4.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "דוד חשמלי ללא קולטים (לפי תקן ישראלי מס' 69, חלק 1: מחממים חשמליים בעלי ויסות תרמוסטטי ובידוד תרמי): נפחו לא יעלה על 220 ליטר, יותקן בהתאם להיתר או במקום מוסתר."
+  },
+  {
+   "id": "A4.6.3",
+   "ref": "4.6.3",
+   "section": "A4.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "אם לא נקבע בהיתר מיקום להצבת דוד ו/או קולט על גג שטוח: יותקנו צמוד לפני מפלס הגג. יש למקמם צמוד לפיר היציאה לגג/ במרכז הגג, ככל האפשר ובמרחק שלא יפחת מ־1.5 מ' ממעקה הגג. במידה ויידרש - יש להתקין מסתור. תותר הצבת דוד שמש וקולטים על גבי המבנה הראשי בלבד.",
+   "scene": "exempt-rooftop",
+   "params": [
+    {
+     "key": "exempt_solar_parapet_distance_min",
+     "op": ">=",
+     "value": 1.5,
+     "unit": "m",
+     "from": "roof_parapet"
+    }
+   ]
+  },
+  {
+   "id": "A4.6.4",
+   "ref": "4.6.4",
+   "section": "A4.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "הצבת דוד וקולטים על מבני עזר, מבנים יבילים וכדומה אינה פטורה מהיתר."
+  },
+  {
+   "id": "A4.7",
+   "ref": "4.7",
+   "section": "A4.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת מזגנים ומערכות מיזוג וטיהור אוויר פטורה מהיתר במענה על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.7.1",
+   "ref": "4.7.1",
+   "section": "A4.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "תפוקתם אינה עולה על BTU60,000 (קרי- התקנת מערכות מיזוג תעשייתיות, או משרדיות- טעונות היתר)."
+  },
+  {
+   "id": "A4.7.2",
+   "ref": "4.7.2",
+   "section": "A4.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המערכת עומדת בדרישות שנקבעו בתקנות למניעת מפגעים (מניעת רעש), התשנ\"ג– 1992."
+  },
+  {
+   "id": "A4.7.3",
+   "ref": "4.7.3",
+   "section": "A4.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם לא הוגדר מקום ייעודי להתקנה בהיתר הבנייה או שהמקום כבר נוצל, תותקן המערכת כשהיא מוסתרת במסתור הכביסה שנקבע בהיתר או על גג הבניין. ובכל מקרה בתוך מסתורים המיועדים לכך."
+  },
+  {
+   "id": "A4.7.4",
+   "ref": "4.7.4",
+   "section": "A4.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם לא ניתן להתקינה במסתור הכביסה, או על גג הבניין, תותקן המערכת בקיר חיצון של הדירה ובלבד שלא מדובר בקיר חיצוני של חזית ראשית הפונה לרחוב ובליווי מסתור."
+  },
+  {
+   "id": "A4.7.5",
+   "ref": "4.7.5",
+   "section": "A4.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת מזגן בממ\"ד תבוצע לפי תקן ישראלי מס' 994 חלק 5. התקנת מערכת מיזוג אוויר או מערכת טיהור אוויר במרחב מוגן דירתי תבוצע לפי ת\"י 4570 חלק 1."
+  },
+  {
+   "id": "A4.7.6",
+   "ref": "4.7.6",
+   "section": "A4.7",
+   "applies_to": [
+    "ground"
+   ],
+   "kind": "requirement",
+   "text": "בבניה צמודת קרקע יש להתקין את יחידות המיזוג החיצוניות קרוב ככל הניתן לקרקע ולהסתיר אותם ע\"י גינון או מסתור המותאם לחומרי הגמר של הבניין, ובכל מקרה לא לחזית הראשית."
+  },
+  {
+   "id": "A4.7.7",
+   "ref": "4.7.7",
+   "section": "A4.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "צנרת המערכת (צינורות הגז הניקוז והחשמל) לא תהיה גלויה על החזית אלא יוכנסו אל קירות המבנה ויבוצע תיקון על פי גמר החזית ככל האפשר."
+  },
+  {
+   "id": "A4.8",
+   "ref": "4.8",
+   "section": "A4.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "החלפת רכיבים בבניין כגון: צבע, רעפים, חלונות, צנרת מים, כבלי חשמל, כבלי תקשורת, חיפוי אבן בחזיתות מבנה פשוט, פטורה מהיתר אם ההחלפה עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.8.1",
+   "ref": "4.8.1",
+   "section": "A4.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הרכיב החדש הוא בעל מידות זהות לרכיב שהוחלף, יותקן במיקומו של הרכיב שהוחלף ובצורתו המקורית בלבד, אלא אם אושר אחרת בהיתר."
+  },
+  {
+   "id": "A4.8.2",
+   "ref": "4.8.2",
+   "section": "A4.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ככל שמדובר בהחלפת חיפוי אבן של מבנה – הדבר יתאפשר רק במבנה המוגדר \"מבנה פשוט\"."
+  },
+  {
+   "id": "A4.8.3",
+   "ref": "4.8.3",
+   "section": "A4.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם נקבע בהיתר או בהנחיות המרחביות (ראה פרק הנחיות מרחביות לעבודות הטעונות היתר) כי רכיבים אלה יהיו בגוון, מחומר או במרקם ייחודי, בתנוחה או בכל תנאי אחר בקשר עם החלפת רכיבים בבניין, יותאם הרכיב המוחלף לתנאי ההיתר לבניין או להנחיות המרחביות, לפי המאוחר מבין השניים."
+  },
+  {
+   "id": "A4.8.4",
+   "ref": "4.8.4",
+   "section": "A4.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "החלפת רכיב המהווה שינוי ביציבות המבנה או אופיו - אינה פטורה מהיתר."
+  },
+  {
+   "id": "A4.8.5",
+   "ref": "4.8.5",
+   "section": "A4.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על אף האמור בסעיפים הקודמים, אם הרכיב המקורי עשוי מאסבסט, חובה להחליף אותו ברכיב שאיננו עשוי אסבסט בכפוף לקבלת היתר לביצוע עבודת אסבסט מאת הממונה לפי החוק למניעת מפגעי אסבסט (למעט לגבי עבודה פטורה מהיתר לעבודת אסבסט לפי תקנות למניעת מפגעי אסבסט)."
+  },
+  {
+   "id": "A4.9",
+   "ref": "4.9",
+   "section": "A4.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "החלפת מיכל או צובר גז קיים תת קרקעי שאושר בהיתר, במיכל או צובר אחר (לדוגמה - כאשר מחליפים ספק),פטורה מהיתר אם ההחלפה עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A4.9.1",
+   "ref": "4.9.1",
+   "section": "A4.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "תכולת הצובר או המיכל היא עד 10 טון; מיקום הצובר או המיכל וגודלו לא השתנו עפ\"י ההיתר המקורי."
+  },
+  {
+   "id": "A4.9.2",
+   "ref": "4.9.2",
+   "section": "A4.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "העבודה מבוצעת בהתאם לתקנות הגז."
+  },
+  {
+   "id": "A4.9.3",
+   "ref": "4.9.3",
+   "section": "A4.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ניתן אישורו של מי שרשאי לבצע את העבודה לפי תקנות הגז, על כך שהעבודה בוצעה לפי הוראות ת\"י 158, בנוסח המפורט בנספח א' לת\"י 158 חלק 4."
+  },
+  {
+   "id": "A4.9.4",
+   "ref": "4.9.4",
+   "section": "A4.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. על עבודה זו חלה חובת דיווח גם לרשות הארצית לכבאות תוך 45 יום מביצוע העבודה. לדיווח על עבודה זו יצורף אישורו של מי שרשאי לבצע את העבודה לפי תקנות הגז, על כך שהעבודה בוצעה לפי הוראות ת\"י 158, בנוסח המפורט בנספח א' לת\"י 158 חלק 4 – מיתקנים לגזים פחמימניים מעובים (גפ\"מ): בדיקות."
+  },
+  {
+   "id": "A5.1",
+   "ref": "5.1",
+   "section": "A5.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מבנה טכני שאיננו מיועד לשהות של בני אדם פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.1.1",
+   "ref": "5.1.1",
+   "section": "A5.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הוא מוקם בשטח המיועד למתקן תשתית (למעט מתקן לניטור רעידות ומבנה טכני להגנה קטודית, שניתן לבנות גם בשטחים אחרים)."
+  },
+  {
+   "id": "A5.1.2",
+   "ref": "5.1.2",
+   "section": "A5.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטחו אינו עולה על 6.0 מ\"ר וגובהו לא עולה על 3 מ'.",
+   "params": [
+    {
+     "key": "exempt_technical_area_max",
+     "op": "<=",
+     "value": 6,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_technical_height_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.1.3",
+   "ref": "5.1.3",
+   "section": "A5.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גמר וחומרי בניה יהיו עמידים, המשתלבים בחומרי הגמר של מתקן התשתית, ובמידת הצורך יחופה בחיפוי קשיח ע\"פ המתקן הראשי. יש להצניע את המתקן כלפי הרחוב."
+  },
+  {
+   "id": "A5.1.4",
+   "ref": "5.1.4",
+   "section": "A5.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף אישור לפי חוק הקרינה, לפי עניין."
+  },
+  {
+   "id": "A5.2",
+   "ref": "5.2",
+   "section": "A5.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מתקן להשנאה ולהגדלת אספקת חשמל פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.2-1",
+   "ref": "5.1.1",
+   "section": "A5.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הוא יוצב לתקופה שאינה עולה על 90 ימים ובשטח מיתקן תשתית המיועד לאספקת חשמל.",
+   "review": "במקור ממוספר 5.1.1"
+  },
+  {
+   "id": "A5.2-2",
+   "ref": "5.1.2",
+   "section": "A5.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המבנה הטכני יוצב בתחום קווי הבניין בלבד, ויוצנע כלפי הרחוב.",
+   "review": "במקור ממוספר 5.1.2"
+  },
+  {
+   "id": "A5.3",
+   "ref": "5.3",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מיתקן טכני המיועד להשנאה ולהגדלת אספקת החשמל וכן מאצרה, קיר אש, מסד ומשטח יצוק להצבת המיתקן, בתחום תחנת משנה קיימת לפי תכנית מאושרת, פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.3.1",
+   "ref": "5.3.1",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטחו של המיתקן לא יעלה על 55 מ\"ר, וגובהו, לרבות המשטח היצוק והמסד שעליו הוא מוצב, לא יעלה על 6.5 מטרים מעל פני הקרקע;",
+   "params": [
+    {
+     "key": "exempt_transformer_area_max",
+     "op": "<=",
+     "value": 55,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_transformer_height_max",
+     "op": "<=",
+     "value": 6.5,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.3.2",
+   "ref": "5.3.2",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטחו של המשטח היצוק להצבת המיתקן לא יעלה על 100 מ\"ר, וגובהו לא יעלה על 0.3 מטרים;",
+   "params": [
+    {
+     "key": "exempt_transformer_pad_area_max",
+     "op": "<=",
+     "value": 100,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_transformer_pad_height_max",
+     "op": "<=",
+     "value": 0.3,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.3.3",
+   "ref": "5.3.3",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "אם המיתקן מוצב על גבי מסד, שטח המסד לא יעלה על 65 מ\"ר;",
+   "params": [
+    {
+     "key": "exempt_transformer_base_area_max",
+     "op": "<=",
+     "value": 65,
+     "unit": "m2"
+    }
+   ]
+  },
+  {
+   "id": "A5.3.4",
+   "ref": "5.3.4",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מיתקן המכיל חומר מסוכן, ובכלל זה שמנים, יוקם על גבי משטח יצוק אטום המונע חלחול של מזהמים לקרקע ומנקז אותם באופן אטום ומבוקר לתוך מאצרה או שהמיתקן יוקם בתוך מאצרה;"
+  },
+  {
+   "id": "A5.3.5",
+   "ref": "5.3.5",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "העומק הפנימי של המאצרה לא יעלה על 3 מטרים מתחת לפני הקרקע, אורכה לא יעלה על 12 מטרים ורוחבה לא יעלה על 3 מטרים; קיבולת המאצרה לא תפחת משיעור של 110% מנפח המכל הגדול ביותר המצוי במיתקן; ניתן לחבר כמה מאצרות צמודות זו לזו ולאפשר מעבר של חומר ביניהן ויראו אותן כמאצרה אחת לעניין הקיבולת;",
+   "params": [
+    {
+     "key": "exempt_bund_depth_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_bund_length_max",
+     "op": "<=",
+     "value": 12,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_bund_width_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_bund_capacity_min",
+     "op": ">=",
+     "value": 1.1,
+     "unit": "ratio",
+     "of": "largest_tank_volume"
+    }
+   ]
+  },
+  {
+   "id": "A5.3.6",
+   "ref": "5.3.6",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובהו של קיר אש לא יעלה על 6.5 מטרים או על גובה המיתקן, לפי הנמוך מביניהם, ואורכו לא יעלה על 7.5 מטרים או על אורך המיתקן, לפי הקצר מביניהם; עלה גובהו של קיר אש על 4 מטרים, יתווספו לו קירות ניצבים משני צדדיו שיהיו בגובה קיר האש ובאורך שלא יפחת מ־20% מאורכו;",
+   "params": [
+    {
+     "key": "exempt_firewall_height_max",
+     "op": "<=",
+     "value": 6.5,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_firewall_length_max",
+     "op": "<=",
+     "value": 7.5,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_firewall_wing_trigger",
+     "op": ">",
+     "value": 4,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_firewall_wing_ratio_min",
+     "op": ">=",
+     "value": 0.2,
+     "unit": "ratio",
+     "of": "firewall_length"
+    }
+   ]
+  },
+  {
+   "id": "A5.3.7",
+   "ref": "5.3.7",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המבנה הטכני יוצב בתחום קווי הבניין בלבד, ויוצנע כלפי הרחוב."
+  },
+  {
+   "id": "A5.3.8",
+   "ref": "5.3.8",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "אם לא נקבעו הוראות לעניין קו הבניין בתכנית שמכוחה מוקם המיתקן, המיתקן יוקם במרחק שלא יפחת מ־3 מטרים מהגדר ההיקפית של תחנת המשנה;",
+   "params": [
+    {
+     "key": "exempt_transformer_fence_distance_min",
+     "op": ">=",
+     "value": 3,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.3.9",
+   "ref": "5.3.9",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המיתקן יוקם על ידי בעל רישיון הולכה ורישיון חלוקה כהגדרתם בחוק משק החשמל, התשנ\"ו-1996;"
+  },
+  {
+   "id": "A5.3.10",
+   "ref": "5.3.10",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "תחנת המשנה שבתחומה יוקם המיתקן הוקמה לפי היתר בנייה כדין;"
+  },
+  {
+   "id": "A5.3.11",
+   "ref": "5.3.11",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ניתן היתר הקמה לפי חוק הקרינה להקמת המיתקן;"
+  },
+  {
+   "id": "A5.3.12",
+   "ref": "5.3.12",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם המיתקן מוקם בתחום אזור מגן כהגדרתו בתקנות בריאות העם (תנאים תברואיים לקידוח מי שתייה), התשנ\"ה-1995, ניתן אישור משרד הבריאות להקמת המיתקן;"
+  },
+  {
+   "id": "A5.3.13",
+   "ref": "5.3.13",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "עבודות לפי תקנת משנה זו יבוצעו בהתאם להנחיות מקצועיות כהגדרתן בסעיף 126ב לחוק הרשות הארצית לכבאות והצלה, התשע\"ב-2012, שניתנו לעניין מיתקני השנאה;"
+  },
+  {
+   "id": "A5.3.14",
+   "ref": "5.3.14",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת הודעה לוועדה: 15 יום טרם ביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il להודעה בדבר הכוונה לבצע עבודה לפי תקנת משנה זו יצורפו לה כל אלה: א. מפה מצבית ערוכה על ידי מודד; עורך הבקשה יסמן על המפה את המיקום והשטח של המיתקן; ב. היתר הבנייה שלפיו הוקמה תחנת המשנה שבתחומה יוקם המיתקן; ג. היתר לפי חוק הקרינה שניתן להקמת המיתקן; ד. אישור משרד הבריאות, אם המיתקן יוקם בתחום אזור מגן;"
+  },
+  {
+   "id": "A5.3.15",
+   "ref": "5.3.15",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בתחנת משנה קיימת במקרקעי ישראל יימסר העתק מן ההודעה האמורה בפסקה (13) לרשות מקרקעי ישראל;"
+  },
+  {
+   "id": "A5.3.16",
+   "ref": "5.3.16",
+   "section": "A5.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה גם חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. להודעה על ביצוע עבודה לפי תקנת משנה זו, יצורפו: א. מפת עדות שערך מודד ובה סומן המיתקן שהוקם; ב. אישור מהנדס מבנים בדבר עיגונם לקרקע של המיתקן והרכיבים הנוספים שהוקמו לפי תקנת משנה זו ויציבותם. הוא יוצב לתקופה שאינה עולה על 90 ימים ובשטח מיתקן תשתית המיועד לאספקת חשמל.",
+   "review": "המשפט האחרון (\"הוא יוצב לתקופה...\") משוכפל מ־5.2 ואינו שייך לסעיף"
+  },
+  {
+   "id": "A5.4",
+   "ref": "5.4",
+   "section": "A5.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מתקן נלווה להפעלת באר פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.4.1",
+   "ref": "5.4.1",
+   "section": "A5.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטח המבנה לא יעלה על 12 מטרים מרובעים וגובהו לא יעלה על 3 מטרים",
+   "params": [
+    {
+     "key": "exempt_well_area_max",
+     "op": "<=",
+     "value": 12,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_well_height_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.4.2",
+   "ref": "5.4.2",
+   "section": "A5.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "העבודה תבוצע בידי בעל רישיון קדיחה לפי חוק הפיקוח, שהוא אחד מהמנויים בסעיף 261(ד)(1) לחוק."
+  },
+  {
+   "id": "A5.4.3",
+   "ref": "5.4.3",
+   "section": "A5.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גמר וחומרי בניה יהיו עמידים, המשתלבים בחומרי הגמר של מתקן התשתית, ובמידת הצורך יחופה בחיפוי קשיח ע\"פ המתקן הראשי. יש להצניע את המתקן כלפי הרחוב."
+  },
+  {
+   "id": "A5.4.4",
+   "ref": "5.4.4",
+   "section": "A5.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A5.5",
+   "ref": "5.5",
+   "section": "A5.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מתקן אגירה זעיר פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.5.1",
+   "ref": "5.5.1",
+   "section": "A5.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "reference",
+   "text": "לעניין זה: \"מיתקן אגירה זעיר\" – מיתקן לאגירת אנרגיה כהגדרתו בחוק בעל תכולת אנרגיה עד 100 קילוואט שעה; \"מהנדס בטיחות\" – מהנדס הרשום בענף הנדסת מקצועות מיוחדים במדור בטיחות כללית או במדור בטיחות/ אש ומניעתה בפנקס המהנדסים והאדריכלים כהגדרתו בחוק המהנדסים והאדריכלים, התשי\"ח-1958; \"תקן\" – תקן \"NFPA 855 Standard for the Installation of Stationary Energy Storage Systems\" של האגודה הלאומית האמריקנית להגנה מפני אש (NFPA)[1] כעדכונו מזמן לזמן."
+  },
+  {
+   "id": "A5.5.2",
+   "ref": "5.5.2",
+   "section": "A5.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובהו של מיתקן האגירה הזעיר לא יעלה על 2.2 מטרים ושטחו לא יעלה על 1.5 מ\"ר;",
+   "params": [
+    {
+     "key": "exempt_storage_unit_height_max",
+     "op": "<=",
+     "value": 2.2,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_storage_unit_area_max",
+     "op": "<=",
+     "value": 1.5,
+     "unit": "m2"
+    }
+   ]
+  },
+  {
+   "id": "A5.5.3",
+   "ref": "5.5.3",
+   "section": "A5.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "עבודות החשמל הנדרשות להקמת מיתקן האגירה הזעיר יבוצעו בידי חשמלאי כהגדרתו בתקנות החשמל (רישיונות), התשמ\"ה-1985, המוסמך לביצוע עבודות החשמל בהתאם לתקנות האמורות;"
+  },
+  {
+   "id": "A5.5.4",
+   "ref": "5.5.4",
+   "section": "A5.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מיתקן האגירה הזעיר עומדת בהוראות כל דין, ובכלל זה בכל אלה: א. ניתן למיתקן האגירה הזעיר היתר מאת מנהל מינהל החשמל ברשות החשמל לפי סעיף 4 לחוק החשמל, התשי\"ד-1954, אם נדרש לפי החוק האמור; ב. ניתנו למיתקן האגירה הזעיר אישורי הממונה על הקרינה לפי חוק הקרינה, אם נדרשים לפי החוק האמור; ג. מתקיימים במיתקן האגירה הזעיר סידורי בטיחות האש הנדרשים לפי התקן; במיתקן בעל תכולת אנרגיה העולה על 20 קילוואט שעה – התקבל אישור מאת מהנדס בטיחות כי מתקיימים במיתקן האגירה הזעיר סידורי בטיחות האש הנדרשים לפי התקן;"
+  },
+  {
+   "id": "A5.5.5",
+   "ref": "5.5.5",
+   "section": "A5.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "היה מיתקן האגירה הזעיר בעל תכולת אנרגיה העולה על 20 קילוואט שעה – תימסר לרשות הרישוי, 15 ימי עבודה לפחות לפני תחילת ביצוע עבודות ההתקנה, הודעה על כוונה להקים את מיתקן האגירה הזעיר, ערוכה לפי טופס א' שבתוספת השלישית ותרשים מיתאר, כהגדרתו בתקנות התכנון והבנייה (רישוי בנייה), התשע\"ו-2016, ובו יסומן המיקום המתוכנן של מיתקן האגירה הזעיר;"
+  },
+  {
+   "id": "A5.5.6",
+   "ref": "5.5.6",
+   "section": "A5.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. ובהתאם למפורט להלן, לפי העניין: א. היה מיתקן האגירה הזעיר בעל תכולת אנרגיה העולה על 10 קילוואט שעה – תימסר לרשות הרישוי, בתוך 45 ימים ממועד סיום עבודות ההקמה, הודעה על ביצוע עבודה, ערוכה לפי טופס ב' שבתוספת השלישית; בהודעה כאמור יפורטו ויצורפו כל אלה: (1) היתר מאת מנהל מינהל החשמל כאמור בפסקה 5.5.4א לעיל אם נדרש לפי פסקה זו; (2) היתר קרינה כאמור בפסקה 5.5.4ב לעיל בצירוף הערכה של רמות החשיפה המרביות של בני אדם ושל הסביבה לקרינה כמפורט בסעיף 6(1) לחוק הקרינה, אם נדרש היתר קרינה לפי פסקה זו; ב. היה מיתקן האגירה הזעיר בעל תכולת אנרגיה העולה על 20 קילוואט שעה – נוסף על האמור בפסקה 5.5.6א לעיל, תימסר הודעה על ביצוע עבודה, הערוכה לפי טופס ב' שבתוספת השלישית, גם לרשות הארצית לכבאות והצלה בתוך 45 ימים ממועד סיום עבודות ההקמה; להודעה כאמור יצורפו כל אלה: (1) כל המסמכים המפורטים בפסקה 5.5.6א לעיל. (2) אישור מהנדס בטיחות כי מתקיימים במיתקן האגירה הזעיר סידורי בטיחות האש הנדרשים לפי התקן כאמור בפסקה 5.5.4ג לעיל."
+  },
+  {
+   "id": "A5.6",
+   "ref": "5.6",
+   "section": "A5.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת תחנת ניטור אוויר כהגדרתה בחוק אוויר נקי, התשס\"ח-2008, בכל מקום שנדרש ניטור לפי כל דין במקום שנדרש מיתקן כאמור לפי חוק אוויר נקי, התשס\"ח-2008 פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.6.1",
+   "ref": "5.6.1",
+   "section": "A5.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטחה לא יעלה על 7.5 מ\"ר.",
+   "params": [
+    {
+     "key": "exempt_air_monitor_area_max",
+     "op": "<=",
+     "value": 7.5,
+     "unit": "m2"
+    }
+   ]
+  },
+  {
+   "id": "A5.6.2",
+   "ref": "5.6.2",
+   "section": "A5.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "תשתלב בגמר המבנה הראשי ככל שקיים, ותוצנע כלפי הרחוב."
+  },
+  {
+   "id": "A5.7",
+   "ref": "5.7",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מתקן פוטו וולטאי (מערכת לייצור חשמל מאנרגיה סולארית) עד 700 ק\"ו על גג מבנה פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.7.1",
+   "ref": "5.7.1",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המיתקן יותקן לפי תקן ישראלי ת\"י 62548 – דרישות תכן בעבור מערכות פוטו-וולטאיות (PV)."
+  },
+  {
+   "id": "A5.7.2",
+   "ref": "5.7.2",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הספק המיתקן (זרם ישיר) אינו עולה על 700 קילו ואט למבנה."
+  },
+  {
+   "id": "A5.7.3",
+   "ref": "5.7.3",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המיתקן יותקן על גג מבנה שהוקם כדין ולא יבלוט מהיקף הגג."
+  },
+  {
+   "id": "A5.7.4",
+   "ref": "5.7.4",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בגג משופע יונח המיתקן בצמוד לגג, ככל האפשר, ובכיוון שיפוע הגג. בגג שטוח לא יבלוט המיתקן ממעקה הגג. במידה ולא קיים מעקה גג יש לדאוג להצבת מסתור כלפי הרחוב בתאום עם אדריכל העיר."
+  },
+  {
+   "id": "A5.7.5",
+   "ref": "5.7.5",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "יש לוודא שהמתקן אינו מסנוור את השוהים במבנים סמוכים או בשטחים סמוכים. מומלץ להיוועץ עם בעל מקצוע בתחום התכנון כדי לאמת עמידה בתנאי זה."
+  },
+  {
+   "id": "A5.7.6",
+   "ref": "5.7.6",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "יש לוודא שעל גג המבנה נותר מקום להתקנת כל המיתקנים האחרים הנחוצים על גג המבנה, לרבות מערכת סולרית לאספקת מים חמים ודרכי מוצא כהגדרתן בתקנות התכנון והבנייה. וגישה למתקנים משותפים המשרתים את יתר משתמשי המבנה. יש להותיר מרחק בין הפנלים למעבר אנשי שירות ולהשאיר מרחק של 40 ס\"מ לפחות מכל צידי הגג.",
+   "scene": "exempt-rooftop",
+   "params": [
+    {
+     "key": "exempt_pv_roof_edge_min",
+     "op": ">=",
+     "value": 0.4,
+     "unit": "m",
+     "from": "roof_edge"
+    }
+   ]
+  },
+  {
+   "id": "A5.7.7",
+   "ref": "5.7.7",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "אין להתקין לוחות פוטו-וולטאים על גבי גגות מאסבסט צמנט."
+  },
+  {
+   "id": "A5.7.8",
+   "ref": "5.7.8",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הודעה על התקנת מיתקן שהספקו עולה על 50 קילוואט, תימסר לרשות הרישוי 45 ימים לפני ביצוע העבודה."
+  },
+  {
+   "id": "A5.7.9",
+   "ref": "5.7.9",
+   "section": "A5.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. להודעה יצורפו: אישור בכתב של מהנדס חשמל מוסמך בדבר קיום התנאים להתקנת המיתקן הפוטו-וולטאי ואישור מהנדס מבנים כי המבנה יכול לשאת את המיתקן וכי המיתקן יציב וכן כי כשל מבני במיתקן לא יגרום לכשל מבני במבנה או בנקודת העיגון למבנה. וכן תצהיר המתכנן/חברה על שימוש בפנלים המונעים סינוור. הודעה כאמור תימסר גם לרשות הארצית לכבאות."
+  },
+  {
+   "id": "A5.8",
+   "ref": "5.8",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת מיתקן פוטו-וולטאי בבריכת דגים פעילה, במאגר מים מלאכותי, במאגר קולחים מלאכותי או באתר החדרה שהוקמו כדין לפי תוכנית מפורטת שאושרה לפי החוק או לפי תוכנית לפי חוק המים, התשי\"ט-1959, או לפי תוכנית לפי חוק הניקוז וההגנה מפני שיטפונות, התשי\"ח -1957 (בתקנת משנה זו – מאגר), פטורה מהיתר, אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.8.1",
+   "ref": "5.8.1",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "לפי התוכנית המתירה את התקנת המיתקן במאגר, לא נדרש אישור או התייעצות עם מי שאינו מוסד תכנון כתנאי להתקנת המיתקן במאגר, למעט האישורים המפורטים להלן."
+  },
+  {
+   "id": "A5.8.2",
+   "ref": "5.8.2",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המיתקן יותקן לפי תקן ישראלי ת\"י 62548 – דרישות תכן בעבור מערכות פוטו-וולטאיות (PV)."
+  },
+  {
+   "id": "A5.8.3",
+   "ref": "5.8.3",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הספק המיתקן אינו עולה על 16 מגה-וולט אמפר למאגר."
+  },
+  {
+   "id": "A5.8.4",
+   "ref": "5.8.4",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "באתר החדרה: המיתקן יוקם רק בתחום מאגר פעיל המוקף כולו בסוללות מלאכותיות."
+  },
+  {
+   "id": "A5.8.5",
+   "ref": "5.8.5",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בבריכת דגים פעילה המצויה, לפי תוכנית מיתאר ארצית, במכלול נוף המוגדר כ\"נופים נדירים של ארצות המים\": המיתקן יוקם רק אם התוכנית המתירה את הקמתו של המיתקן במאגר, כוללת תשריט הקובע את מיקומו של המיתקן."
+  },
+  {
+   "id": "A5.8.6",
+   "ref": "5.8.6",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "המיתקן יכול שיכלול: (1) מבנה טכני כהגדרתו בתקנות התכנון והבנייה (רישוי בדרך מקוצרת), התשע\"ז-2017, אחד או יותר, הדרוש לתפעולו, ובלבד ששטחם של המבנים הטכניים לא יעלה על 45 מטרים מרובעים (במצטבר) וגובהם לא יעלה על 3.5 מטרים. (2) גדר היקפית שגובהה לא יעלה על 1.5 מטרים והיא תוקם מעמודים ותילי מתכת.",
+   "params": [
+    {
+     "key": "exempt_pv_technical_area_max",
+     "op": "<=",
+     "value": 45,
+     "unit": "m2",
+     "note": "במצטבר"
+    },
+    {
+     "key": "exempt_pv_technical_height_max",
+     "op": "<=",
+     "value": 3.5,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_pv_fence_height_max",
+     "op": "<=",
+     "value": 1.5,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.8.7",
+   "ref": "5.8.7",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מיקום המיתקן והמבנים הטכניים בשטח המאגר יהיה לפי הוראות אלה: (1) המיתקן והמבנים הטכניים לא יותקנו בשטח המשמש נקודת תצפית או בדרך גישה לנקודת התצפית או למאגר. (2) המיתקן יותקן אך ורק על גבי שטח המים או על גבי קירוי המאגר או על גבי שיפוע דופן קיימת של המאגר, בכיוון השיפוע ובצמוד לדופן הקיימת. מבנה טכני יכול שיותקן גם בשטח אחר, ואולם מבנה טכני שנועד לחיבור המיתקן לרשת החשמל יותקן, ככל האפשר, בצמוד למבנה טכני קיים. (3) על אף האמור לעיל במאגר בעל רגישות אקולוגית לפי תוכנית מיתאר ארצית, המיתקן יותקן על גבי שטח המים רק אם התוכנית המתירה את הקמתו כוללת תשריט הקובע את מיקומו של המיתקן."
+  },
+  {
+   "id": "A5.8.8",
+   "ref": "5.8.8",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "העבודה תבוצע לפי ההוראות האלה: (1) ערמות של עפר או של חומר דומה ימוקמו במקום מוגן מרוחות ויורטבו באופן תדיר באמצעות מים; הרטבה באמצעות חומר אחר טעונה אישור של המשרד להגנת הסביבה. (2) משאיות הנושאות עפר או חומר דק אחר יכוסו ביריעות. (3) כל פסולת הבנייה שתיווצר במהלך ביצוע העבודה, תרוכז בשטח ייעודי באופן שיאפשר מיון ומחזור או תפונה לאתר מורשה לסילוק פסולת בניין. (4) עודפי קרקע שייווצרו במהלך העבודה ישמשו, ככל האפשר, לביצוע עבודות באתר ובכל מקרה אין להשליכם בשטח פתוח. (5) אחסנת ציוד, חומרים וריכוז פסולת במהלך העבודה ייעשו רק בתחום שטח ההתארגנות לביצוע העבודה. (6) הרעש המתקבל משימוש בציוד בנייה וחפירה, ובכלל זה גנרטור, יעמוד בדרישות המפורטות בתקנות למניעת מפגעים (רעש בלתי סביר מציוד בנייה), התשל\"ט-1979, ובתקנות למניעת מפגעים (רעש בלתי סביר), התש\"ן-1990, בתוספת 20 db(A) על הקבוע בתקנות האמורות. (7) יינקטו הפעולות הנדרשות כדי למנוע מגע של חומרים מזהמים עם הקרקע, ובכלל זה שמנים ודלקים. (8) יינקטו הפעולות הנדרשות למניעת היווצרות מים עומדים באתר. (9) יוצב תא שירותים נייד לשימוש העובדים, ולא תתאפשר הזרמת שפכים ממנו אל הסביבה. (10) לא תותר הפעלת תאורה במשך שעות החשכה."
+  },
+  {
+   "id": "A5.8.9",
+   "ref": "5.8.9",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מצב הקרקע בשטח ההתארגנות לביצוע העבודה יוחזר לקדמותו בסיום ביצוע העבודה, לרבות חידוש צמחייה טבעית שנפגעה במהלך ביצוע העבודה, ויבוצעו הפעולות הנדרשות לצורך מניעת התבססותם של מינים פולשים בשטח האמור."
+  },
+  {
+   "id": "A5.8.10",
+   "ref": "5.8.10",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם במהלך ביצועה של עבודה לפי תקנה זו ייעשה שימוש במיתקן, מכונה או ציוד אחר שגובהו עולה על 9 מטרים מפני הקרקע שבה הוא מוצב, יחולו הוראות אלה: (1) עורך הבקשה יבדוק אם המיקום שבו תבוצע העבודה כלול ברשימה המפורסמת באתר האינטרנט של משרד האנרגיה או באתר משרד הביטחון וכן ברשימה המפורסמת באתר רשות התעופה האזרחית. ככל שהעבודה כלולה ברשימות לעיל, עורך הבקשה ישלח למשרד הביטחון או לרשות התעופה האזרחית, לפי העניין, הודעה על כוונה לבצע עבודה לפי תקנה זו ויפרט בה את המיקום שבו תבוצע העבודה, הגובה המרבי הצפוי של מיתקן, מכונה או ציוד אחר במהלך ביצוע העבודה והמועד המשוער לביצוע העבודה; הודעה לפי פסקת משנה זו תישלח באופן מקוון בדרך שתפורט באתר האינטרנט של משרד הביטחון ורשות התעופה האזרחית."
+  },
+  {
+   "id": "A5.8.11",
+   "ref": "5.8.11",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "משרד הביטחון ורשות התעופה האזרחית יודיעו לעורך הבקשה, בתוך 28 ימים מיום שהתקבלה ההודעה לעיל, אם נדרש תיאום עם מי מהם כתנאי לביצוע העבודה. ככל שמשרד הביטחון או רשות התעופה האזרחית הודיעו כי נדרש תיאום כאמור, לא תבוצע עבודה לפי תקנה זו אלא לאחר השלמת התיאום. אם לא נמסרה הודעת משרד הביטחון או רשות התעופה האזרחית בתוך המועד האמור, יראו זאת כהודעה כי לא נדרש תיאום כאמור.ניתנו האישורים האלה: (1) במאגר מים מלאכותי, במאגר קולחים מלאכותי או באתר החדרה: אישור משרד הבריאות כי איכות המים לא תיפגע כתוצאה מהתקנת המיתקן או מהפעלתו, ובכלל זה מהיקף הקירוי המוצע ומהמבנים הטכניים; אישור רשות המים כי תפקוד המאגר לא ייפגע כתוצאה מהתקנת המיתקן או מהפעלתו, ובאתר החדרה: אישור רשות המים כי מאגר ההחדרה פעיל. (2) במאגר שהוא בריכת דגים פעילה: אישור משרד החקלאות ופיתוח הכפר לכך שבריכת הדגים היא בריכת דגים פעילה, כי תפקוד בריכת הדגים לא ייפגע מהתקנת המיתקן או מהפעלתו, ובכלל זה מהיקף הקירוי המוצע. (3) אישור בעל הרישיון על פי חוק משק החשמל, התשנ\"ו-1996, אם מיקום המיתקן הוא מתחת לקו חשמל. (4) בבריכת דגים פעילה המצויה, לפי תוכנית מיתאר ארצית, במכלול נוף המוגדר כ\"נופים נדירים של ארצות המים\" או במאגר בעל רגישות אקולוגית לפי תוכנית מיתאר ארצית: אישור רשות הטבע והגנים כי המיתקן המתוכנן תואם את הוראות התוכנית המתירה את הקמת המיתקן. (5) במקרקעין שהם מקרקעי ישראל: אישור רשות מקרקעי ישראל להקמת המיתקן."
+  },
+  {
+   "id": "A5.8.12",
+   "ref": "5.8.12",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הודעה בדבר הכוונה לבצע עבודה לפי תקנת משנה זו תימסר לרשות הרישוי 15 ימים לפני תחילת ביצוע העבודה, ויצורפו לה כל אלה: (1) האישורים הנדרשים לפי סעיף 5.6.11 לעיל. (2) מפה מצבית ערוכה על ידי מודד שעל גביה עורך הבקשה יסמן את המיקום והשטח של המיתקן המתוכנן, סימון הגדר המתוכננת, מיקומה וגובהה, המבנים הטכניים ומיקום שטח ההתארגנות לביצוע העבודה; (3) פרטי התוכנית כאמור ברישה לתקנת משנה זו שמכוחה הוקם המאגר;",
+   "review": "הפניה ל\"סעיף 5.6.11\" – כנראה הכוונה ל־5.8.11"
+  },
+  {
+   "id": "A5.8.13",
+   "ref": "5.8.13",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הודעה על ביצוע עבודה לפי תקנת משנה זו, תימסר לרשות הרישוי ולרשות הארצית לכבאות והצלה בתוך 45 ימים ממועד השלמת ביצועה, ויצורפו לה כל אלה: הצהרת עורך בקשה כי התקיימו התנאים האמורים בפסקאות (1) עד (10), לפי העניין; אישור בעל רישיון חשמלאי בודק כמשמעותו בתקנות החשמל (רישיונות), התשמ\"ה-1985, בדבר קיום התנאים להתקנת המיתקן הפוטו-וולטאי; אישור מהנדס מבנים בדבר יציבות ועיגון המיתקן והמבנים הטכניים, וכן אישור כי כשל מבני במיתקן או במבנים הטכניים או בגדר, אם הותקנה על דפנות המאגר, לא יגרום לכשל מבני במאגר או בדפנות המאגר; התחייבות בעל המיתקן לפירוק המיתקן והמבנים הטכניים בתום הפעלת המיתקן והחזרת מצב המאגר והקרקע לקדמותו ערב התקנת המיתקן."
+  },
+  {
+   "id": "A5.8.14",
+   "ref": "5.8.14",
+   "section": "A5.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בתום הפעלת המיתקן, המיתקן והמבנים הטכניים יפורטו ומצב המאגר והקרקע יוחזר לקדמותו ערב התקנת המיתקן."
+  },
+  {
+   "id": "A5.9",
+   "ref": "5.9",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת הצנרת המחברת בין מיתקן גז טבעי לצריכה המפורט בסעיף 8ב(ב)(1) לחוק הגז (בטיחות ורישוי), של צרכן גז טבעי, לבין מיתקן הגז של נותן שירותי הזרמת גז, פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A5.9.1",
+   "ref": "5.9.1",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "reference",
+   "text": "לעניין זה: \"אישור תקינות\" – כהגדרתו בסעיף 8ב(א) בחוק הגז (בטיחות ורישוי); \"גוף בודק\" – כהגדרתו בסעיף 8ב(א) בחוק הגז (בטיחות ורישוי); \"מיתקן גז טבעי לצריכה\" – כהגדרתו בחוק הגז (בטיחות ורישוי); \"נותן שירותי הזרמת גז\" – כהגדרתו בחוק הגז (בטיחות ורישוי); \"חוק הגז (בטיחות ורישוי)\" – חוק הגז (בטיחות ורישוי), התשמ\"ט-1989; \"מודד\" – כהגדרתו בפקודת המדידות; \"מפת עדות\" – מפה שמתארת את הבנייה או הפיתוח, כפי שבוצעו בפועל בקנה מידה של 1:100; \"צנרת\" צנרת גז שהיא חלק ממיתקן גז טבעי לצריכה, הכוללת מיתקן עזר הדרוש לתפעולה על פי התקן והמחובר אליה ויכול שתכלול גם מסד, סככה להצללת הצנרת או גדר; \"תקן\" – תקן ישראלי ת\"י 6464 – מיתקנים תעשייתיים הצורכים גז טבעי – דרישות בטיחות למיתקנים, לסביבת העבודה, לבדיקה ואישור ולצנרת אספקת גז טבעי."
+  },
+  {
+   "id": "A5.9.2",
+   "ref": "5.9.2",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "תכנון והתקנת הצנרת יבוצעו לפי התקן."
+  },
+  {
+   "id": "A5.9.3",
+   "ref": "5.9.3",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הצנרת תותקן אך ורק בחצריו של צרכן הגז הטבעי."
+  },
+  {
+   "id": "A5.9.4",
+   "ref": "5.9.4",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גוף בודק ייתן אישור להתקנת הצנרת."
+  },
+  {
+   "id": "A5.9.5",
+   "ref": "5.9.5",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "לחץ התכנון בצנרת לא יעלה על 7 בר (bar)."
+  },
+  {
+   "id": "A5.9.6",
+   "ref": "5.9.6",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "כללה הצנרת מסד, גובה המסד, לא יעלה על 0.6 מטרים.",
+   "params": [
+    {
+     "key": "exempt_gas_base_height_max",
+     "op": "<=",
+     "value": 0.6,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.9.7",
+   "ref": "5.9.7",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "כללה הצנרת גדר, גובה הגדר לא יעלה על 3 מטרים משני צדי הגדר ותחול עליה הנחיות מרחביות להקמת גדר וקיר תומך הפטורים מהיתר (תקנה 5(א)(2) עד (4) ו-(ב)) ולהלן: הקמתם לא תותר בחזית הבניין הפונה לרחוב, או לשטח ציבורי פתוח; היה ובשל הקמת הגדר או הקיר נוצרו הפרשי גבהים המחייבים מעקה - תותקן מעל הגדר או הקיר מעקה כאמור בתקנות אלה; הקמתה לא תפגע בתשתיות קיימות או בזרימת הניקוז; לגבי הקמת גדר פלדה-יש להתאימה תעשה בהתאם לתקן ישראלי מס' 4273.",
+   "params": [
+    {
+     "key": "exempt_gas_fence_height_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m",
+     "from": "ground_both_sides"
+    }
+   ]
+  },
+  {
+   "id": "A5.9.8",
+   "ref": "5.9.8",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "כללה הצנרת סככת הצללה, תיבנה סככת ההצללה מחומרים קלים, שטחה לא יעלה על 20 מ\"ר וגובהה לא יעלה על 3.5 מטרים מפני הקרקע.",
+   "params": [
+    {
+     "key": "exempt_gas_shade_area_max",
+     "op": "<=",
+     "value": 20,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_gas_shade_height_max",
+     "op": "<=",
+     "value": 3.5,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A5.9.9",
+   "ref": "5.9.9",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בשטחים לצורכי ציבור נדרש תיאום עם אגף התשתיות בעירייה טרם ביצוע העבודה (תיאום עבודות להיתר חפירה)."
+  },
+  {
+   "id": "A5.9.10",
+   "ref": "5.9.10",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A5.9.11",
+   "ref": "5.9.11",
+   "section": "A5.9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הודעה על ביצוע עבודה לפי תקנה זו, ערוכה לפי הטופס שבתוספת, תימסר: (1) לרשות הרישוי בצרוף: מפת עדות שערך מודד, ושתכלול את שטח העבודה להקמת הצנרת בתוספת שלושה מטרים לפחות מכל צד, ברמת פירוט של תכניות העבודה לביצוע אותה עבודה; הוקמה סככת הצללה – יצורף לטופס שבתוספת אישור מהנדס מבנים בדבר עיגון סככת ההצללה ויציבותה וכן כי כשל מבני בסככת ההצללה לא יתרחש בנקודת העיגון למבנה ולא יגרום לכשל מבני במבנה (2) לרשות הארצית לכבאות והצלה בצרוף מפת עדות שערך מודד, ושתכלול את שטח העבודה להקמת הצנרת בתוספת שלושה מטרים לפחות מכל צד, ברמת פירוט של תכניות העבודה לביצוע אותה עבודה (3) למשרד הבריאות בתוך 45 ימים ממועד ביצועה – לגבי מפעל המייצר אחד מאלה: תמרוק כהגדרתו בסעיף 55א לפקודת הרוקחים [נוסח חדש], התשמ\"א-1981; תכשיר כהגדרתו בפקודת הרוקחים [נוסח חדש], התשמ\"א-1981; ציוד רפואי כהגדרתו בחוק ציוד רפואי, התשע\"ב-2012; מזון כהגדרתו בחוק הגנה על בריאות הציבור (מזון), התשע\"ו-2015. (4) העתק אישור התקינות שנתן הגוף הבודק יימסר לרשות הרישוי בתוך 14 ימים מיום שניתן."
+  },
+  {
+   "id": "A6.1",
+   "ref": "6.1",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הצבת מבנה זמני (כגון מכולה, אוהל, סככה וכד') פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A6.1.1",
+   "ref": "6.1.1",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הוא מוצב על הקרקע, ואינו משמש למגורים או לצורכי ציבור."
+  },
+  {
+   "id": "A6.1.2",
+   "ref": "6.1.2",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הוא יוצב לתקופה מצטברת של עד 120 יום בכל שנה אזרחית, בתום תקופה זו יפונה ויוחזר מצב הקרקע לקדמותו.",
+   "params": [
+    {
+     "key": "exempt_temp_structure_days_max",
+     "op": "<=",
+     "value": 120,
+     "unit": "days_per_year"
+    }
+   ]
+  },
+  {
+   "id": "A6.1.3",
+   "ref": "6.1.3",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שטחו אינו עולה על 50 מטר רבוע.",
+   "params": [
+    {
+     "key": "exempt_temp_structure_area_max",
+     "op": "<=",
+     "value": 50,
+     "unit": "m2"
+    }
+   ]
+  },
+  {
+   "id": "A6.1.4",
+   "ref": "6.1.4",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובהו של מבנה זמני מסוג אוהל/ סככה לא יעלה על 3.0 מטר. המפתח בין העמודים באוהלים וסככות לא יעלה על 5.0 מטר, ומשקל הקירוי לא יעלה על 3.5 ק\"ג למטר רבוע.",
+   "params": [
+    {
+     "key": "exempt_tent_height_max",
+     "op": "<=",
+     "value": 3,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_tent_span_max",
+     "op": "<=",
+     "value": 5,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A6.1.5",
+   "ref": "6.1.5",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "לא יוצבו מבנים זמניים מסוג מכולה או מבנה יביל (למעט במסגרת אתרי בניה או מבנה זמני שהינו משרד מכירות) בשטח שייעודו: מגורים; שפ\"פ; מסחר; תעסוקה; תעשייה ו/או מלאכה."
+  },
+  {
+   "id": "A6.1.6",
+   "ref": "6.1.6",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "גמר חומרי המבנה יהיו תקינים וגוונם יהיה בהיר ואחיד. לא תותר הצבת מבנים בלויים, לא תותר הצמדת פרסומות."
+  },
+  {
+   "id": "A6.1.7",
+   "ref": "6.1.7",
+   "section": "A6.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על מבנה המיועד להצבה לתקופה שמעל 10 ימים, חלה חובת דיווח לוועדה: תוך 14 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לציין בדיווח את מועד הצבתו של המבנה, מועד פינויו הצפוי ולצרף התחייבות לפינויו עד למועד האמור."
+  },
+  {
+   "id": "A6.2",
+   "ref": "6.2",
+   "section": "A6.2",
+   "applies_to": [
+    "active"
+   ],
+   "kind": "requirement",
+   "text": "התקנות קובעות כי הקמת מתקן העשוי מחומרים קלים המיועד להגן על היושבים בבית אוכל מפני השפעת מזג האוויר בחלק מחודשי השנה (להלן - סגירה עונתית) פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A6.2.1",
+   "ref": "6.2.1",
+   "section": "A6.2",
+   "applies_to": [
+    "active"
+   ],
+   "kind": "requirement",
+   "text": "תקופת הצבת הסגירה לא תעלה על התקופה שנקבעה לפי חוק עזר של הרשות המקומית או לפי תנאי רישיון עסק."
+  },
+  {
+   "id": "A6.2.2",
+   "ref": "6.2.2",
+   "section": "A6.2",
+   "applies_to": [
+    "active"
+   ],
+   "kind": "requirement",
+   "text": "עמידה בהוראות חוק העזר העירוני והמדיניות העירונית לסגירה עונתית (פרגוד)."
+  },
+  {
+   "id": "A6.3",
+   "ref": "6.3",
+   "section": "A6.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ביצוע עבודות זמניות הנלוות לעבודות לפי סעיף 261(ד) ו-(ה) לחוק, פטורה מהיתר אם העבודות עונות על הדרישות הבאות:"
+  },
+  {
+   "id": "A6.3.1",
+   "ref": "6.3.1",
+   "section": "A6.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הן מבוצעות ע\"י המדינה, רשות מקומית, או על ידי גוף אחר המוזכר בסעיף 261ד' לחוק התכנון והבנייה."
+  },
+  {
+   "id": "A6.3.2",
+   "ref": "6.3.2",
+   "section": "A6.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "העבודות הנלוות כוללות: תשתיות זמניות, עירום עפר, מבנים זמניים, מכולות, גנרטור פטור מהיתר, ובלבד שאינם משמשים למגורים, למעט עבודות זמניות כאמור המבוצעות בתחום הסביבה החופית (300 מ' מקו החוף, או פחות)."
+  },
+  {
+   "id": "A6.3.3",
+   "ref": "6.3.3",
+   "section": "A6.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בתחום מיתקן תשתית מותר לבצע עבודות אלו גם בתחום הסביבה החופית."
+  },
+  {
+   "id": "A6.3.4",
+   "ref": "6.3.4",
+   "section": "A6.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בשטחים לצורכי ציבור נדרש תיאום עם אגף התשתיות בעירייה טרם ביצוע העבודה."
+  },
+  {
+   "id": "A6.3.5",
+   "ref": "6.3.5",
+   "section": "A6.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: לא יאוחר מ־15 יום לפני ביצוע העבודה, בטופס המיועד לכך. יש לדווח באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A6.4",
+   "ref": "6.4",
+   "section": "A6.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמה של מנהרה חקלאית ורשתות צל, פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A6.4.1",
+   "ref": "6.4.1",
+   "section": "A6.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הן מהוות מבנה קל זמני ופריק מחומרים קלים, שהוא חיפוי קרקע שקוף או חיפוי רשת על גבי קשתות בשטחים חקלאיים מעובדים, לפי תקן ישראלי ת\"י 1176 חלק 1 – בתי צמיחה."
+  },
+  {
+   "id": "A6.4.2",
+   "ref": "6.4.2",
+   "section": "A6.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הן משמשות לצרכים חקלאיים עונתיים, ובנויות מחומרים קלים ופריקים."
+  },
+  {
+   "id": "A6.4.3",
+   "ref": "6.4.3",
+   "section": "A6.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גבהן אינו עולה על 4.50 מ'; משקל הכיסוי אינו עולה על 2 ק\"ג למטר רבוע, ומשקל העמודים או התרנים התומכים אינו עולה על 30 ק\"ג.",
+   "params": [
+    {
+     "key": "exempt_agri_tunnel_height_max",
+     "op": "<=",
+     "value": 4.5,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A6.4.4",
+   "ref": "6.4.4",
+   "section": "A6.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A7.1",
+   "ref": "7.1",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מחסן ליחידת דיור, פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A7.1.1",
+   "ref": "7.1.1",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "יוקם במגרשים בייעוד מגורים בלבד ובתחום קווי הבניין."
+  },
+  {
+   "id": "A7.1.2",
+   "ref": "7.1.2",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "parametric",
+   "text": "ניתן להקים בפטור מחסן אחד בלבד לכל יחידת דיור. שטח המחסן לא יעלה על 6 מטר רבוע וגובהו אינו עולה על 2.05 מ'. גובהו של מחסן בעל גג משופע לא יעלה על 2.4 מ'.",
+   "scene": "exempt-shed",
+   "params": [
+    {
+     "key": "exempt_shed_area_max",
+     "op": "<=",
+     "value": 6,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_shed_height_max",
+     "op": "<=",
+     "value": 2.05,
+     "unit": "m"
+    },
+    {
+     "key": "exempt_shed_pitched_height_max",
+     "op": "<=",
+     "value": 2.4,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A7.1.3",
+   "ref": "7.1.3",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "parametric",
+   "text": "מחסן המוצב בשטח חצר המוצמדת ליחידת הדיור/ בניה צמודת קרקע: יוצב בצמוד למבנה. המחסן לא ימוקם בחזית קדמית הפונה לרחוב ו/או לשטח ציבורי או בשטח המיועד לחניה. ובכל מקרה במרחק שלא יפחת מ 1 מ' מגבול המגרש. מחסן המוצב במרפסת גג: יוצב בצמוד למבנה. לא ימוקם בחזית קדמית הפונה לרחוב ו/או לשטח ציבורי. ובכל מקרה יוצב במרחק שלא יפחת מ־1.5 מ' ממעקה המרפסת.",
+   "scene": "exempt-shed",
+   "params": [
+    {
+     "key": "exempt_shed_boundary_distance_min",
+     "op": ">=",
+     "value": 1,
+     "unit": "m",
+     "from": "plot_boundary"
+    },
+    {
+     "key": "exempt_shed_roof_parapet_distance_min",
+     "op": ">=",
+     "value": 1.5,
+     "unit": "m",
+     "from": "roof_parapet"
+    }
+   ]
+  },
+  {
+   "id": "A7.1.4",
+   "ref": "7.1.4",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "prohibition",
+   "text": "אין להציב מחסנים בשטח המשותף בחצר בנין מגורים. לא יוקם מחסן במרפסת טיפוסית שאינה מרפסת גג."
+  },
+  {
+   "id": "A7.1.5",
+   "ref": "7.1.5",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "המחסן לא יחובר לתשתיות לרבות מים וביוב וחשמל."
+  },
+  {
+   "id": "A7.1.6",
+   "ref": "7.1.6",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "המחסן עשוי חומרים קלים ועמידים והמבנה הינו מוצר מתועש. המחסן יכיל סבכת אוורור וגג המחסן ישופע וינוקז בתחום המגרש."
+  },
+  {
+   "id": "A7.1.7",
+   "ref": "7.1.7",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "חומרי הגמר של המחסן יהיו תואמים לגווני וחומרי הגמר של המבנה הראשי. דלת הכניסה למבנה תופנה לכיוון המגרש ולא לכיוון שטחים ציבוריים/ משותפים."
+  },
+  {
+   "id": "A7.1.8",
+   "ref": "7.1.8",
+   "section": "A7.1",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A7.2",
+   "ref": "7.2",
+   "section": "A7.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מבנה לשומר פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A7.2.1",
+   "ref": "7.2.1",
+   "section": "A7.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "מבנה יביל, ששטחו אינו עולה על 4.0 מטר רבוע, וגובהו אינו עולה על 2.2 מטר.",
+   "params": [
+    {
+     "key": "exempt_guard_booth_area_max",
+     "op": "<=",
+     "value": 4,
+     "unit": "m2"
+    },
+    {
+     "key": "exempt_guard_booth_height_max",
+     "op": "<=",
+     "value": 2.2,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A7.2.2",
+   "ref": "7.2.2",
+   "section": "A7.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המבנה יבנה מחומרים קלים ועמידים, גוון המבנה יהיה בהתאם לגווני המבנה הראשי או לגווני הלוגו של המבנה הראשי. פתרון מיזוג אויר יהיה עילי ומוסתר. דלת הכניסה למבנה תופנה לכיוון המגרש ולא לכיוון שטחים ציבוריים. המבנה יואר גם מבחוץ. לא יותר פרסום ע\"ג המבנה"
+  },
+  {
+   "id": "A7.2.3",
+   "ref": "7.2.3",
+   "section": "A7.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מבנה השומר יהיה בתחום המגרש."
+  },
+  {
+   "id": "A7.2.4",
+   "ref": "7.2.4",
+   "section": "A7.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון."
+  },
+  {
+   "id": "A8",
+   "ref": "8",
+   "section": "A8",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "בתקנות נקבעה הוראת השעה התקפה לשנה מיום אישורה 26.10.2023 במסגרתה: הקמת מרחב מוגן דירתי ומבואה המחברת את הממ\"ד למבנה הקיים, פטורה מהיתר אם היא עונה על הדרישות הבאות:",
+   "review": "הוראת שעה מ־26.10.2023, לשנה. יש לוודא אם הוארכה"
+  },
+  {
+   "id": "A8.1",
+   "ref": "8.1",
+   "section": "A8",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "הם נוספים לדירת מגורים שאין בה ממ\"ד."
+  },
+  {
+   "id": "A8.2",
+   "ref": "8.2",
+   "section": "A8",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "הם נוספים ליחידת דיור צמודת קרקע-אין מגבלה למספר הקומות של יחידת הדיור. לחילופין - הם נוספים ליחידות דיור במבנה שגובהו אינו עולה על שתי קומות כולל קומת קרקע, אין מגבלה לכמות יחידות הדיור בכל מבנה."
+  },
+  {
+   "id": "A8.3",
+   "ref": "8.3",
+   "section": "A8",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "parametric",
+   "text": "שטח המרחב המוגן הדירתי (ממ\"ד) הנוסף אינו עולה על 9 מ\"ר נטו.",
+   "params": [
+    {
+     "key": "exempt_mamad_area_max",
+     "op": "<=",
+     "value": 9,
+     "unit": "m2",
+     "note": "נטו"
+    }
+   ]
+  },
+  {
+   "id": "A8.4",
+   "ref": "8.4",
+   "section": "A8",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "parametric",
+   "text": "על מנת לאפשר את חיבור הממ\"ד למבנה הקיים בהתאם לדרישת פקוד העורף לעת אישור התכנון. ניתן להוסיף מבואה ששטחה עד 5 מ\"ר, שתהיה חלק בלתי נפרד ממערך הכניסה לממ\"ד ותספק פתרון להגנה על דלת הכניסה לממ\"ד.",
+   "params": [
+    {
+     "key": "exempt_mamad_lobby_area_max",
+     "op": "<=",
+     "value": 5,
+     "unit": "m2"
+    }
+   ]
+  },
+  {
+   "id": "A8.5",
+   "ref": "8.5",
+   "section": "A8",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "על מרחב מוגן דירתי במסגרת הוראת שעה זו, יחולו הנחיות המרחביות החלות על תוספות בניה במגורים."
+  },
+  {
+   "id": "A8.6",
+   "ref": "8.6",
+   "section": "A8",
+   "applies_to": [
+    "ground",
+    "residential"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: ראה הסבר מפורט על ההליך ועל אופן הדיווח באתר מינהל התכנון."
+  },
+  {
+   "id": "A9",
+   "ref": "9",
+   "section": "A9",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בתקנות נקבעה הוראת השעה התקפה לשנה מיום אישורה 13.12.2023. במסגרתה: הקמת מרחב מוגן במוסד חינוכי, פטורה מהיתר. אם היא עונה על התנאים המפורטים כאן ונעשית בהתאם להנחיות המרחביות החלות על תוספות בניה בחזית פעילה. על עבודה זו חלה חובת דיווח לוועדה: ראה הסבר מפורט על ההליך ועל אופן הדיווח באתר מינהל התכנון.",
+   "review": "הוראת שעה מ־13.12.2023, לשנה. יש לוודא אם הוארכה"
+  },
+  {
+   "id": "A10",
+   "ref": "10",
+   "section": "A10",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בתקנות נקבעה הוראת השעה התקפה לשנה מיום אישורה 09.04.2024. במסגרתה: הקמת מרחב מוגן במבנה ציבור, פטורה מהיתר. אם היא עונה על התנאים המפורטים כאן ונעשית בהתאם להנחיות המרחביות החלות על תוספות בניה בחזית פעילה. על עבודה זו חלה חובת דיווח לוועדה: ראה הסבר מפורט על ההליך ועל אופן הדיווח באתר מינהל התכנון.",
+   "review": "הוראת שעה מ־09.04.2024, לשנה. יש לוודא אם הוארכה"
+  },
+  {
+   "id": "A11.1",
+   "ref": "11.1",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ביצוע עבודות פיתוח, לרבות מסלעה, קירות פיתוח, חיפוי קרקע וריצוף חצר - פטור מהיתר אם הם אם היוא עונה על הדרישות הבאות:",
+   "review": "\"אם הם אם היוא עונה\": מילים כפולות"
+  },
+  {
+   "id": "A11.1.1",
+   "ref": "11.1.1",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "העבודות אינן כוללות קירות פיתוח/ תמך/ מסלעות הגבוהים מ־1.0 מטר.",
+   "params": [
+    {
+     "key": "exempt_dev_wall_height_max",
+     "op": "<=",
+     "value": 1,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A11.1.2",
+   "ref": "11.1.2",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "העבודות אינן פוגעות במערך הניקוז הקיים ובערכי טבע."
+  },
+  {
+   "id": "A11.1.3",
+   "ref": "11.1.3",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "לא יותרו עבודות פיתוח מעל תשתיות קיימות או תוך פגיעה בהם."
+  },
+  {
+   "id": "A11.1.4",
+   "ref": "11.1.4",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "העבודות לא ימנעו אפשרות גישה וטיפול בתשתיות קיימות."
+  },
+  {
+   "id": "A11.1.5",
+   "ref": "11.1.5",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "במגרשים פרטיים בלבד, לא תותר עבודת פיתוח הכוללת קירות פיתוח/ תמך/ מסלעות בגבול המגרש עם המרחב ציבורי המשנה את גובה מפלסי הקרקע ו/או הגדרות הקיימות בגבול זה."
+  },
+  {
+   "id": "A11.1.6",
+   "ref": "11.1.6",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "לא יותר חיפוי הקרקע באספלט - למעט הרחבת/ חידוש כביש גישה קיים בהיתר."
+  },
+  {
+   "id": "A11.1.7",
+   "ref": "11.1.7",
+   "section": "A11.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "בתחום שמורות טבע, גנים/ אתרים לאומיים: עבודות לשיקום צומח ונוף או להתקנת אבזרי בטיחות כגון שבילים, מעקות, יתדות וסולמות, מחסומים ובולדרים - המבוצעות בידי הרשות לשמירת הטבע והגנים הלאומיים."
+  },
+  {
+   "id": "A11.2",
+   "ref": "11.2",
+   "section": "A11.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "ביצוע דרך גישה או כבש (רמפה) המיועדים לגשר על הפרש גובה שאינו עולה על 1.2 מטר - פטור מהיתר אם הם עונים על הדרישות הבאות:",
+   "scene": "exempt-ramp",
+   "params": [
+    {
+     "key": "exempt_ramp_rise_max",
+     "op": "<=",
+     "value": 1.2,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A11.2.1",
+   "ref": "11.2.1",
+   "section": "A11.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "אם עבודות הנגישות מבוצעות בגבולות המגרש בלבד. הסדרת הנגישות לא תעשה על חשבון שטחים שאינם בבעלות המנגיש (שטחי ציבור, בתי עסק הגובלים ברחוב וכו') במקרים אלו יש לפנות לאישור בעל הזכויות במקרקעין."
+  },
+  {
+   "id": "A11.2.2",
+   "ref": "11.2.2",
+   "section": "A11.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "שיפוע כבש לא יעלה על 8% שיפוע. לא יתאפשר פתרון זמני כדוגמת רמפות עץ.",
+   "scene": "exempt-ramp",
+   "params": [
+    {
+     "key": "exempt_ramp_slope_max",
+     "op": "<=",
+     "value": 0.08,
+     "unit": "ratio"
+    }
+   ]
+  },
+  {
+   "id": "A12.1",
+   "ref": "12.1",
+   "section": "A12.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הצבת תורן לאנטנות ו/או צלחות קליטה פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A12.1.1",
+   "ref": "12.1.1",
+   "section": "A12.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הצבת תורן לאנטנה לקליטת שידורי טלוויזיה או רדיו לפי ת\"י 799 (מיתקני אנטנות לקליטה משותפת (אק\"מ) ומיתקני אנטנות לקליטה אינדיווידואלית (אק\"א))- פטור מהיתר ובלבד שגובהו לא יעלה על 6 מטרים מפני המישור שעליו הוא מוצב, ואינו מותקן על גג מקלט או על גג בריכה למי שתייה.",
+   "scene": "exempt-rooftop",
+   "params": [
+    {
+     "key": "exempt_antenna_mast_height_max",
+     "op": "<=",
+     "value": 6,
+     "unit": "m",
+     "from": "mounting_surface"
+    }
+   ]
+  },
+  {
+   "id": "A12.1.2",
+   "ref": "12.1.2",
+   "section": "A12.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הצבת צלחת קליטה לשידורי טלוויזיה באמצעות לוויין על גג בניין, ובלבד שקוטר צלחת הקליטה אינו עולה על 1.2 מטרים והיא אינה מותקנת על גג בריכה למי שתייה פטור מהיתר.",
+   "scene": "exempt-rooftop",
+   "params": [
+    {
+     "key": "exempt_dish_diameter_max",
+     "op": "<=",
+     "value": 1.2,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A12.1.3",
+   "ref": "12.1.3",
+   "section": "A12.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "prohibition",
+   "text": "אין להציב צלחות לקליטת שידורי טלוויזיה על קירות חיצוניים של בניינים בחזית הפונה לרחוב."
+  },
+  {
+   "id": "A12.1.4",
+   "ref": "12.1.4",
+   "section": "A12.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "על הקמת תורן שגובהו עולה על 3 מטרים מפני המישור שעליו הוא מוצב, חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה אישור מהנדס מבנים בדבר עיגון התורן ויציבותו וכן כי כשל מבני בתורן לא יתרחש בנקודת העיגון למבנה ולא יגרום לכשל מבני במבנה.",
+   "params": [
+    {
+     "key": "exempt_mast_report_height",
+     "op": ">",
+     "value": 3,
+     "unit": "m",
+     "note": "מעל גובה זה חלה חובת דיווח"
+    }
+   ]
+  },
+  {
+   "id": "A12.2",
+   "ref": "12.2",
+   "section": "A12.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הוספת אנטנה למיתקן שידור הקיים בהיתר כדין פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A12.2.1",
+   "ref": "12.2.1",
+   "section": "A12.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ניתן אישור הממונה על הקרינה על כך שהוספת האנטנה אינה משנה את טווח הבטיחות לבריאות הציבור שנקבע למיתקן השידור הקיים."
+  },
+  {
+   "id": "A12.2.2",
+   "ref": "12.2.2",
+   "section": "A12.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת האנטנה תעשה ע\"י בעל רישיון לפי חוק הבזק."
+  },
+  {
+   "id": "A12.2.3",
+   "ref": "12.2.3",
+   "section": "A12.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הפטור יינתן להוספת אנטנה אחת בלבד על הקיים בהיתר."
+  },
+  {
+   "id": "A12.2.4",
+   "ref": "12.2.4",
+   "section": "A12.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "ציוד נלווה: האנטנה הנוספת תתחבר לציוד הנלווה של המתקן הקיים (ציוד נלווה: מקלט, משדר, מגבר, מזגן, כבלים). בעת הוספת ציוד נלווה, הציוד המתווסף יוכנס לתוך המבנה הנלווה הקיים של מתקן השידור הקיים, ללא הגדלת ממדי המבנה הנלווה הקיים. שילוט אזהרה יוצב ליד המתקן, באופן הנראה לעין."
+  },
+  {
+   "id": "A12.2.5",
+   "ref": "12.2.5",
+   "section": "A12.2",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה אישור של הממונה על הקרינה כי ההוספה לא משנה את טווח הבטיחות לבריאות הציבור שנקבע לאותו מתקן ואיננה סותרת את הוראות תמ\"א 36א' לאנטנות וכי מדובר בתוספת אנטנה אחת ביחס לקיים בהיתר."
+  },
+  {
+   "id": "A12.3",
+   "ref": "12.3",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הקמת מתקן שידור זעיר ורכיבים חיצוניים על גבי בניין או מיתקן קיים פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A12.3.1",
+   "ref": "12.3.1",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "reference",
+   "text": "לעניין זה: \"היתר סוג\": כהגדרתו בתקנות הקרינה הבלתי מייננת, התשס\"ט-2009; \"מיתקן שידור זעיר\": מיתקן, המשמש או המיועד לשמש לצורכי קליטה ושידור ברשת גישה כהגדרתה בחוק הבזק, שמידותיו אינן עולות על 30X35X55 ס\"מ והוא משדר בשני ערוצי שידור לכל היותר בהספק שידור שאינו עולה על 5 וואט לכל ערוץ שידור ויכול שיכלול אנטנה פנימית; \"קצה עורק מיקרוגל\": מיתקן המשמש או מיועד לשמש לצורכי תמסורת אלחוטית מנקודה לנקודה ושמידותיו אינן עולות על 30X30X30 ס\"מ; \"רכיבים חיצוניים\": אנטנה חיצונית במידות שלא יעלו על 10X30X30 ס\"מ, כבלי חשמל ותקשורת המחוברים למיתקן שידור זעיר, קצה עורק מיקרוגל; \"בניין/ מתקן קיים\": שהוקמו בהיתר כדין."
+  },
+  {
+   "id": "A12.3.2",
+   "ref": "12.3.2",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המיתקנים יותקנו לפי היתר סוג שניתן ולתנאים שנקבעו בו."
+  },
+  {
+   "id": "A12.3.3",
+   "ref": "12.3.3",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנת המיתקנים תיעשה בידי בעל רישיון לפי חוק הבזק או מי מטעמו."
+  },
+  {
+   "id": "A12.3.4",
+   "ref": "12.3.4",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "המיתקנים יותקנו כך שהאנטנה, לרבות אנטנה פנימית, תהיה בגובה שלא יפחת מ־2.5 מטרים מעל פני הקרקע.",
+   "params": [
+    {
+     "key": "exempt_small_antenna_height_min",
+     "op": ">=",
+     "value": 2.5,
+     "unit": "m",
+     "from": "ground"
+    }
+   ]
+  },
+  {
+   "id": "A12.3.5",
+   "ref": "12.3.5",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "המיתקנים יותקנו בצמוד לבניין או בצמוד למיתקן הקיים. ובכל מקרה רכיביהם החיצוניים יוצנעו כלפי הרחוב. המתקן, החיבורים והחיווטים יוסתרו ויחופו בסוג חומר גמר המבנה. לא יותרו תשתיות כבילה גלויות."
+  },
+  {
+   "id": "A12.3.6",
+   "ref": "12.3.6",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "מתקן השידור יתחבר ככל הניתן לציוד הנלווה של המתקן הקיים. ככל שתידרש הוספת ציוד נלווה (מקלט, משדר, מגבר, מזגן, כבלים) - הציוד המתווסף יוכנס לתוך המבנה הנלווה הקיים ו/או של מתקן השידור הקיים. שילוט אזהרה יוצב ליד המתקן, באופן הנראה לעין."
+  },
+  {
+   "id": "A12.3.7",
+   "ref": "12.3.7",
+   "section": "A12.3",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 7 ימים מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה את היתר סוג שניתן."
+  },
+  {
+   "id": "A12.4",
+   "ref": "12.4",
+   "section": "A12.4",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הוספת אנטנה על עמוד חשמל קיים, המיועדת לשימוש תפעול רשת החשמל בלבד - פטורה מהיתר ובלבד שאורכה אינו עולה על מטר אחד.",
+   "params": [
+    {
+     "key": "exempt_pole_antenna_length_max",
+     "op": "<=",
+     "value": 1,
+     "unit": "m",
+     "note": "\"מטר אחד\""
+    }
+   ]
+  },
+  {
+   "id": "A12.5",
+   "ref": "12.5",
+   "section": "A12.5",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הצבת תורן למדידה מטאורולוגית - פטורה מהיתר ובלבד שגובהו לא עולה על 10 מטר.",
+   "params": [
+    {
+     "key": "exempt_meteo_mast_height_max",
+     "op": "<=",
+     "value": 10,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A12.6",
+   "ref": "12.6",
+   "section": "A12.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "התקנות קובעות כי הצבת תורן ומתקן ניטור רעש פטורה מהיתר אם היא עונה על הדרישות הבאות:"
+  },
+  {
+   "id": "A12.6.1",
+   "ref": "12.6.1",
+   "section": "A12.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "גובהו של התורן ומתקן ניטור רעש, אינו עולה על 7.0 מטר.",
+   "params": [
+    {
+     "key": "exempt_noise_mast_height_max",
+     "op": "<=",
+     "value": 7,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A12.6.2",
+   "ref": "12.6.2",
+   "section": "A12.6",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "על הקמת תורן שגובהו עולה על 3 מטרים מפני המישור שעליו הוא מוצב, חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה אישור מהנדס מבנים בדבר עיגון התורן ויציבותו וכן כי כשל מבני בתורן לא יתרחש בנקודת העיגון למבנה ולא יגרום לכשל מבני במבנה.",
+   "params": [
+    {
+     "key": "exempt_mast_report_height",
+     "op": ">",
+     "value": 3,
+     "unit": "m",
+     "note": "מעל גובה זה חלה חובת דיווח"
+    }
+   ]
+  },
+  {
+   "id": "A12.7",
+   "ref": "12.7",
+   "section": "A12.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הצבת אנטנת תיל למיתקן של חובבי רדיו, או הצבת תורן לאנטנה אנכית למיתקן של חובבי רדיו – פטורים מהיתר, אם האנטנה האנכית והתורן עונים על הדרישות הבאות:"
+  },
+  {
+   "id": "A12.7.1",
+   "ref": "12.7.1",
+   "section": "A12.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "הגובה הכולל של התורן והאנטנה אינו עולה על תשעה מטרים מפני המישור שעליו הוא מוצב, קוטר בסיס התורן אינו עולה על 4 סנטימטרים וקוטר רום האנטנה אינו עולה על 2 סנטימטרים, ובלבד שיתקיימו כל אלה: ניתן למיתקן חובבי הרדיו היתר הקמה לפי סעיף 6 לחוק הקרינה; ניתן אישור הממונה על הקרינה לפי סעיף 6 לחוק הקרינה ונקבע בו כי טווח הבטיחות האופקי של המיתקן קטן מ־3 מטרים",
+   "params": [
+    {
+     "key": "exempt_ham_mast_height_max",
+     "op": "<=",
+     "value": 9,
+     "unit": "m",
+     "note": "\"תשעה מטרים\""
+    }
+   ]
+  },
+  {
+   "id": "A12.7.2",
+   "ref": "12.7.2",
+   "section": "A12.7",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה את האישורים הבאים: עותק אישור הממונה על הקרינה; עותק תקף של היתר הקמה למיתקן חובבי הרדיו שניתן; רישיון תחנת קשר חובב רדיו לפי תקנה 2 לתקנות הטלגרף האלחוטי (רשיונות, תעודות ואגרות), התשמ\"ז-1987; להודעה על הקמת אנטנה אנכית למיתקן של חובבי רדיו שגובהה עולה על 3 מטרים יש לצרף גם אישור מהנדס מבנים בדבר עיגון התורן ויציבותו וכן כי כשל מבני בתורן לא יתרחש בנקודת העיגון למבנה ולא יגרום לכשל מבני במבנה."
+  },
+  {
+   "id": "A12.8",
+   "ref": "12.8",
+   "section": "A12.8",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "parametric",
+   "text": "התקנת עירוב באמצעות הצבת עמודים המסמנים את תחום העירוב ומתיחת חוטים ביניהם, פטורה מהיתר, ובלבד שגובה עמוד העירוב לא יעלה על 6 מטרים.",
+   "params": [
+    {
+     "key": "exempt_eruv_pole_height_max",
+     "op": "<=",
+     "value": 6,
+     "unit": "m"
+    }
+   ]
+  },
+  {
+   "id": "A13.1",
+   "ref": "13.1",
+   "section": "A13.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "הריסתו או פירוקו של מבנה הפטור מהיתר לפי תקנות אלה וכן הריסה או פירוק של מבנה המסומן להריסה או לפירוק לצורך עבודות מכוח סעיף 261(ד) לחוק פטורים מהיתר."
+  },
+  {
+   "id": "A13.1.1",
+   "ref": "13.1.1",
+   "section": "A13.1",
+   "applies_to": [
+    "ground",
+    "residential",
+    "active",
+    "industrial"
+   ],
+   "kind": "requirement",
+   "text": "על עבודה זו חלה חובת דיווח לוועדה: תוך 45 יום מביצוע העבודה יש לדווח לוועדה המקומית באחת מהדרכים הבאות: באמצעות משלוח טופס הדיווח לוועדה בדוא\"ל: ptor@ashdod.muni.il או באמצעות אתר מינהל התכנון. יש לצרף להודעה אישור על פינוי הפסולת לאתר לסילוק פסולת בניין או לטיפול בה."
+  }
+ ]
+}

@@ -1,13 +1,17 @@
 import { readFileSync } from 'node:fs';
-import { parseChapter, parseSynonyms } from '../src/rules/load.ts';
+import { mergeChapters, parseChapter, parseSynonyms } from '../src/rules/load.ts';
 
-const chapter = JSON.parse(readFileSync('data/chapter-b.json', 'utf8'));
-const synonyms = JSON.parse(readFileSync('data/synonyms.json', 'utf8'));
+const read = (f: string) => JSON.parse(readFileSync(f, 'utf8'));
 
 try {
-  const c = parseChapter(chapter);
-  parseSynonyms(synonyms);
-  console.log(`תקין: ${c.rules.length} סעיפים, ${c.sections.length} פרקים, ${c.scenes.length} סצנות.`);
+  const chapters = ['data/chapter-a.json', 'data/chapter-b.json'].map((f) => {
+    const c = parseChapter(read(f));
+    console.log(`${f}: ${c.rules.length} סעיפים, ${c.sections.length} פרקים, ${c.scenes.length} סצנות.`);
+    return c;
+  });
+  mergeChapters(chapters);
+  parseSynonyms(read('data/synonyms.json'));
+  console.log('תקין.');
 } catch (e) {
   console.error((e as Error).message);
   process.exit(1);

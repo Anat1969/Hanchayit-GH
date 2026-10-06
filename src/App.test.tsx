@@ -12,9 +12,9 @@ beforeAll(() => {
 });
 
 describe('המדריך', () => {
-  it('מציג את כל 146 הסעיפים, עם RTL', () => {
+  it('מציג את כל הסעיפים של שני הפרקים', () => {
     const { container } = render(<App />);
-    expect(container.querySelectorAll('[data-rule]')).toHaveLength(146);
+    expect(container.querySelectorAll('[data-rule]')).toHaveLength(279 + 146);
     expect(screen.getByRole('navigation', { name: 'תוכן עניינים' })).toBeTruthy();
   });
 

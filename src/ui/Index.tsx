@@ -31,7 +31,7 @@ function Node({ node, activeSections, onNavigate }: {
           if (id) onNavigate(id);
         }}
       >
-        <span className={s.ref}>{section.ref}</span>
+        {section.ref && <span className={s.ref}>{section.ref}</span>}
         <span className={s.title}>{section.title}</span>
         {node.rules.some((r) => r.scene) && <Cube />}
       </button>

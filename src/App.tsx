@@ -17,6 +17,15 @@ import type { SectionNode } from './rules/derive.ts';
 import { Icon } from './ui/icons.tsx';
 import s from './App.module.css';
 
+declare module 'react' {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      'ai-menu': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & { chat?: string; research?: string };
+    }
+  }
+}
+
 const search = buildSearch(chapter, synonyms);
 
 /** הסעיף שנמצא באזור הקריאה: האחרון שראשו עבר את קו הקריאה. */
@@ -277,6 +286,7 @@ export function App() {
               <div className={s.logo}>
                 <Logo />
               </div>
+              <ai-menu />
             </div>
             <div className={s.bottomRow}>
               <TypeSwitch value={route.type} onChange={(type) => navigate({ ...route, type })} />

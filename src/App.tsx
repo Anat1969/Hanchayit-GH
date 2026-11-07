@@ -15,6 +15,7 @@ import { Logo } from './ui/Logo.tsx';
 import { LayoutSwitch, useLayout } from './ui/LayoutSwitch.tsx';
 import type { SectionNode } from './rules/derive.ts';
 import { Icon } from './ui/icons.tsx';
+import { CreationsLink } from './creations/Creations.tsx';
 import s from './App.module.css';
 
 declare module 'react' {
@@ -280,6 +281,7 @@ export function App() {
                 />
               </div>
               <div className={s.prefs}>
+                <CreationsLink />
                 <LayoutSwitch value={layout} onChange={setLayout} />
                 <BoardSwitch value={board} onChange={setBoard} />
               </div>
@@ -310,6 +312,7 @@ export function App() {
               </button>
               {/* בנייד: העדפות התצוגה בתפריט, כדי לפנות מקום בראש המסך */}
               <div className={s.drawerPrefs}>
+                <CreationsLink />
                 <LayoutSwitch value={layout} onChange={setLayout} />
                 <BoardSwitch value={board} onChange={setBoard} />
               </div>

@@ -1,0 +1,58 @@
+/* דף הכתבות: גלילת דף רגילה, ורק הקישור "כתבות" בפקדי הכותרת */
+.creations-nav {
+  flex: none;
+}
+.creations-nav > a {
+  display: inline-flex;
+  align-items: center;
+  border-inline-start: 1px solid var(--board-soft);
+  padding: 5px 12px;
+  font-size: 14px;
+  color: var(--board-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.creations-nav > a:first-child {
+  border-inline-start: 0;
+}
+@media (hover: hover) {
+  .creations-nav > a:hover:not([data-on='true']) {
+    background: var(--board-soft);
+  }
+}
+.creations-nav > a[data-on='true'] {
+  background: var(--board-strong);
+  color: var(--paper);
+  font-weight: var(--w-strong);
+}
+.creations-home {
+  color: inherit;
+  text-decoration: none;
+  min-inline-size: 0;
+  overflow: hidden;
+}
+.creations-fill {
+  flex: 1;
+}
+.creations-main {
+  padding: 24px clamp(12px, 3vw, 32px) 48px;
+  max-inline-size: 1500px;
+  margin-inline: auto;
+}
+@media (max-width: 600px) {
+  .creations-page header {
+    padding-inline: 12px;
+  }
+  .creations-page header > div {
+    gap: 8px;
+  }
+  .creations-page .creations-home > div > div:last-child {
+    display: none;
+  }
+  .creations-page .creations-home > div > div:first-child {
+    font-size: 15px;
+  }
+  .creations-page header img {
+    block-size: 30px !important;
+  }
+}

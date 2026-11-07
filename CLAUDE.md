@@ -72,3 +72,13 @@ npm run build
 
 ## A&I logo button
 The top bar holds only the app name (links home), content navigation, and ONE logo button "אד' ענת שטיבלמן A&I" (`<ai-menu>` from https://appofapp-gh.vercel.app/ai-menu.js). Every editing and development action (העתקת קישור, שיחת הפיתוח, פרויקט המחקר, התקנת האפליקציה, edit mode, add, delete) lives only inside it, never as loose buttons. Standard: https://github.com/Anat1969/AppOfApp-GH/blob/main/docs/ai-menu-standard.md
+
+## יומן תיקונים
+
+- 07.11.2026: **דף "כתבות"** (`/creations`, קישור "כתבות" בפקדי הכותרת ובתפריט הנייד), לבקשת ענת. האפליקציה שודרגה ידנית, ולכן נוסף רק הדף והקישור, בלי שינוי אחר במסך.
+  - **מה יש בו:** כתבה בעמוד A4 אחד לכל נושא, בפריסת גיליון שרטוט (`blueprint`), עם "יצירת כתבה" מהמאגר, "הורדה והדפסה" ו"העלאה לחדר במוזיאון" (TAARUCHA, החדר `room-hanchayit`). הרכיב המשותף `<app-creations>` מ-AppOfApp-GH.
+  - **8 נושאים** בשלושת השלבים (גדר לרחוב, מרחק בין בניינים, גגון בפטור ובהיתר, הצללה, חזית פעילה, חזית פתוחה, עצים וירוק, פטור בחצר), ו-**23** מקורות במאגר, אחד לכל המחשה.
+  - **מקור:** `tools/creations.mjs` קורא את `data/chapter-a.json` ו-`data/chapter-b.json`. הנוסח מצוטט כפי שהוא, וכל מספר נקרא מ-`params`. ההייקו מסומנים "הייקו מקורי". שבר ושעה מבודדים בכיווניות (LRI), כדי ש-2/3 לא יתהפך.
+  - **תמונות:** ההמחשה התלת־ממדית של כל סצנה, צילום מסך מתוך המדריך עצמו, ב-`public/creations/img/<scene>.jpg`.
+  - **הפקה מחדש:** `node tools/creations.mjs`. אם השתנתה סצנה, מצלמים אותה מחדש מול `vite preview` (Playwright עם `--use-gl=swiftshader`, רק הקנבס של הגיליון).
+  - **בדיקה:** `npm run build && npx vite preview --port 4191 & node tests/creations.cjs` (הרכיב המשותף מוגש מ-`tests/fixtures/creations.js`).

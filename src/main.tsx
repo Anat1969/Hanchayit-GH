@@ -11,12 +11,13 @@ import './styles/print.css';
 import './styles/scene.css';
 import './styles/controls.css';
 import { App } from './App.tsx';
+import { Creations, isCreationsPage } from './creations/Creations.tsx';
 
 document.documentElement.lang = 'he';
 document.documentElement.dir = 'rtl';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    {isCreationsPage() ? <Creations /> : <App />}
   </StrictMode>,
 );
